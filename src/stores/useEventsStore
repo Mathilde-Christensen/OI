@@ -5,8 +5,6 @@ import {
   ref as r, onValue, push, set, remove, runTransaction
 } from 'firebase/database'
 
-// OBS: Mathilde laver login – når I har en bruger, kalder I bindUser(uid)
-// indtil da virker oversigten stadig (uden "booket af mig"-markering)
 
 export const useEventsStore = defineStore('events', () => {
   const events = ref([])          // [{ id, title, start, end, location, capacity, durationMin, ... }]
@@ -44,7 +42,7 @@ export const useEventsStore = defineStore('events', () => {
     })
   )
 
-  // Tilmeld/frameld (transaction så vi ikke oversælger)
+  // Tilmeld/frameld
   async function tilmeld(eventId) {
     if (!uid.value) throw new Error('Log ind for at tilmelde')
     // increment booked atomisk
