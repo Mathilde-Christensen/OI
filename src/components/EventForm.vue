@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, ref } from 'vue'
-import { useEventsStore } from '@/stores/useEventsStore'
+
 
 const store = useEventsStore()
 
