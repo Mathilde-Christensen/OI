@@ -1,1 +1,0 @@
-import{b as r,o}from"./index-Bs66TNss.js";const a={__name:"FetchTest",setup(t){return(()=>{fetch("https://odense-idreatspark-default-rtdb.europe-west1.firebasedatabase.app/heroes.json",{method:"GET"}).then(e=>e.json()).then(e=>{console.log(e)})})(),(e,n)=>null}},_={__name:"LadidaView",setup(t){return(s,e)=>(o(),r(a))}};export{_ as default};
