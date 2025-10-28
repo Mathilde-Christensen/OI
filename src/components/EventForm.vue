@@ -1,17 +1,26 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref, watch } from 'vue'
 
-const emit = defineEmits(['created'])
+const props = defineProps({
+  // Hvis 'event' er sat, er vi i redigerings-mode
+  event: { type: Object, default: null },
+  // Base-URL gives ikke her – create POST ligger i Calendar i din version?
+  // I denne version laver vi CREATE her (POST), og EDIT PATCH ligger i Calendar.
+})
+
+const emit = defineEmits(['created', 'updated'])
+
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
-const form = reactive({
+// Formular-state
+const form = ref({
+  id: null,
   title: '',
   date: '',
   start: '',
   end: '',
   location: '',
-  coach: '',
-  capacity: 0,
+  priceText: '',   // det admin skriver, fx "60,-"
   description: ''
 })
 
@@ -19,58 +28,119 @@ const submitting = ref(false)
 const error = ref('')
 const success = ref(false)
 
+// Når vi får et event ind (rediger), udfyld felterne
+watch(
+  () => props.event,
+  (ev) => {
+    if (ev) {
+      // kopi – så man kan fortryde uden at mutere listen
+      form.value = {
+        id: ev.id ?? null,
+        title: ev.title ?? '',
+        date: ev.date ?? '',
+        start: ev.start ?? '',
+        end: ev.end ?? '',
+        location: ev.location ?? '',
+        priceText: ev.priceText ?? (Number.isFinite(ev.price) ? String(ev.price) : ''),
+        description: ev.description ?? ''
+      }
+    } else {
+      // tilbage til tom form når vi ikke redigerer
+      form.value = {
+        id: null, title: '', date: '', start: '', end: '',
+        location: '', priceText: '', description: ''
+      }
+    }
+  },
+  { immediate: true }
+)
+
+// Pris-parser → tal
+function parsePrice(txt) {
+  if (txt == null) return 0
+  const s = String(txt).replace(',', '.')
+  const m = s.match(/(\d+(\.\d+)?)/)
+  return m ? Number(m[1]) : 0
+}
+// clamp til min 0
+const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
+
 async function onSubmit() {
   error.value = ''
   success.value = false
 
-  if (!form.title || !form.date || !form.start) {
-    error.value = 'Titel, dato og starttid er påkrævet.'
+  if (!form.value.title || !form.value.date || !form.value.start) {
+    error.value = 'Udfyld titel, dato og starttid.'
     return
   }
 
+  // Normalisér prisfelter
+  const priceText = form.value.priceText ?? ''
+  const price = clamp0(parsePrice(priceText))
+
   submitting.value = true
   try {
+    if (props.event && form.value.id) {
+      emit('updated', {
+        ...form.value,
+        priceText,
+        price
+      })
+      success.value = true
+      return
+    }
+
     const res = await fetch(`${DB_URL}/events.json`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        ...form,
-        capacity: Number(form.capacity || 0),
+        title: form.value.title,
+        date: form.value.date,
+        start: form.value.start,
+        end: form.value.end || '',
+        location: form.value.location || '',
+        priceText,
+        price,
+        description: form.value.description || '',
         createdAt: Date.now()
       })
     })
-
     if (!res.ok) throw new Error('HTTP ' + res.status)
-
     const { name: id } = await res.json()
-    const created = { id, ...form }
+
+    const created = {
+      id,
+      title: form.value.title,
+      date: form.value.date,
+      start: form.value.start,
+      end: form.value.end || '',
+      location: form.value.location || '',
+      priceText,
+      price,
+      description: form.value.description || ''
+    }
 
     emit('created', created)
 
-    Object.assign(form, {
-      title: '',
-      date: '',
-      start: '',
-      end: '',
-      location: '',
-      coach: '',
-      capacity: 0,
-      description: ''
-    })
-
+    // Nulstil
+    form.value = {
+      id: null, title: '', date: '', start: '', end: '',
+      location: '', priceText: '', description: ''
+    }
     success.value = true
-    setTimeout(() => (success.value = false), 1200)
   } catch (e) {
-    error.value = 'Kunne ikke oprette hold.'
+    console.error(e)
+    error.value = 'Kunne ikke gemme.'
   } finally {
     submitting.value = false
+    if (success.value && !props.event) setTimeout(() => (success.value = false), 1200)
   }
 }
 </script>
 
 <template>
   <form class="event-form" @submit.prevent="onSubmit">
-    <h2>Opret hold</h2>
+    <h2>{{ props.event ? 'Redigér hold' : 'Opret hold' }}</h2>
 
     <label>Titel *</label>
     <input v-model.trim="form.title" />
@@ -88,12 +158,22 @@ async function onSubmit() {
     <input v-model.trim="form.location" />
 
     <label>Pris</label>
-    <input type="number" min="0" v-model.number="form.price" />
+    <input type="text" v-model.trim="form.priceText" placeholder="fx 60,- eller 60 kr." />
 
-    <button :disabled="submitting">{{ submitting ? 'Opretter…' : 'Opret hold' }}</button>
+    <label>Beskrivelse</label>
+    <textarea rows="3" v-model.trim="form.description"></textarea>
+
+    <button :disabled="submitting">
+      {{ submitting ? 'Gemmer...' : (props.event ? 'Gem ændringer' : 'Opret hold') }}
+    </button>
 
     <p v-if="error" style="color:red">{{ error }}</p>
-    <p v-if="success" style="color:green">✔ Hold oprettet!</p>
+    <p v-if="success" style="color:green">✔ {{ props.event ? 'Ændringer gemt!' : 'Hold oprettet!' }}</p>
   </form>
 </template>
 
+<style scoped>
+.event-form { display: grid; gap: 10px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
+.event-form input, .event-form textarea { padding: 6px; border-radius: 6px; border: 1px solid #aaa; }
+button { margin-top: 8px; padding: 8px 12px; font-weight: bold; cursor: pointer; }
+</style>
