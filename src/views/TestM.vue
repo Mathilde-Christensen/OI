@@ -1,7 +1,14 @@
 <script setup>
-
+    import BookButton from '../components/BookBtn.vue'
 </script>
 
 <template>
-    Test
+    <div>
+        <BookButton id="test_evt" />
+    </div>
+
+      <div style="padding: 2rem">
+    <!-- Du giver selv et midlertidigt ID -->
+    <BookButton id="test_evt" />
+  </div>
 </template>
