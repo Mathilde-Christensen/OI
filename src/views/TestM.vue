@@ -3,5 +3,5 @@
 </script>
 
 <template>
-fjhfj
+    Test
 </template>

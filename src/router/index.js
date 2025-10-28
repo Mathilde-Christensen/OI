@@ -16,6 +16,10 @@ const router = createRouter({
       name: 'testm', 
       component: TestM,
     },
+    { path: '/calender',
+      name: 'calender', 
+      component: Calendar,
+    },
   ],
 })
 
