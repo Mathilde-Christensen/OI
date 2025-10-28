@@ -1,7 +1,9 @@
 <script setup>
-
+    import BookButton from '../components/BookBtn.vue'
 </script>
 
 <template>
-    Test
+    <div>
+        <BookButton />
+    </div>
 </template>
