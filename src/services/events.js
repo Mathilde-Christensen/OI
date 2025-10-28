@@ -1,41 +1,49 @@
 import { db } from '@/firebase'
 import {
-  collection,
-  addDoc,
-  getDocs,
-  deleteDoc,
-  doc,
+  ref,
+  get,
+  push,
+  remove,
   query,
-  orderBy,
+  orderByChild,
   serverTimestamp,
-} from 'firebase/firestore'
+} from 'firebase/database'
 
-const colRef = collection(db, 'events')
+const EVENTS_PATH = 'events'
 
-/* Henter alle hold sorteret pr. dato og starttid.
- * Returnerer: [{id, title, date, start, end, location, coach, capacity, description, ...}]
+/**
+ * Hent alle hold (returnerer array sorteret efter dato + start).
  */
 export async function getEvents() {
-  const q = query(colRef, orderBy('date'), orderBy('start'))
-  const snap = await getDocs(q)
-  return snap.docs.map(d => ({ id: d.id, ...d.data() }))
+  const eventsRef = ref(db, EVENTS_PATH)
+  const q = query(eventsRef, orderByChild('date')) // hjælper lidt på overførsel
+  const snap = await get(q)
+  const value = snap.val() || {} // RTDB giver et objekt
+
+  const list = Object.entries(value).map(([id, data]) => ({ id, ...data }))
+  return list.sort((a, b) => {
+    const aKey = `${a.date} ${a.start ?? '00:00'}`
+    const bKey = `${b.date} ${b.start ?? '00:00'}`
+    return aKey.localeCompare(bKey)
+  })
 }
 
 /**
- * Opretter nyt hold.
- * @param {{title:string,date:string,start:string,end?:string,location?:string,coach?:string,capacity?:number,description?:string}} data
-*/
+ * Opret nyt hold.
+ */
 export async function addEvent(data) {
   const clean = {
     ...data,
     capacity: Number(data.capacity || 0),
-    createdAt: serverTimestamp(),
+    createdAt: serverTimestamp(), // RTDB server-timestamp
   }
-  const ref = await addDoc(colRef, clean)
-  return { id: ref.id, ...clean }
+  const newRef = await push(ref(db, EVENTS_PATH), clean)
+  return { id: newRef.key, ...clean }
 }
 
-/* Sletter hold pr. id.*/
+/**
+ * Slet hold.
+ */
 export async function deleteEventById(id) {
-  await deleteDoc(doc(db, 'events', id))
+  await remove(ref(db, `${EVENTS_PATH}/${id}`))
 }
