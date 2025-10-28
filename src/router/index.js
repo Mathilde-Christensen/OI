@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestM from '../views/TestM.vue'
+import Calendar from '@/views/Calendar.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
