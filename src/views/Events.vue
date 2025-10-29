@@ -3,6 +3,10 @@ import { ref, computed, onMounted } from 'vue'
 import BookBtn from '../components/BookBtn.vue'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
+console.log('[DB_URL]', DB_URL)  // ← SKAL printe den fulde https-URL
+if (!DB_URL) {
+  console.error('Mangler VITE_FIREBASE_DATABASE_URL i .env (projektets rodmappe)')
+}
 
 const events = ref([])
 const loading = ref(false)
