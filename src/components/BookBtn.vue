@@ -1,5 +1,5 @@
 <template>
-  <button @click="onToggle" :disabled="loading">
+  <button v-on:click="onToggle" v-bind:disabled="loading">
     {{ status === 1 ? 'AFMELD' : 'TILMELD' }}
   </button>
 </template>
@@ -7,23 +7,18 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-// 🔧 DIN RTDB base (uden trailing slash)
-const BASE = 'https://frontend-projekt-98306-default-rtdb.europe-west1.firebasedatabase.app/'
+const BASE = 'https://frontend-projekt-98306-default-rtdb.europe-west1.firebasedatabase.app'
 
-// ⬇️ Gør komponentet genbrugeligt: hver instans kræver et unikt id
 const props = defineProps({
-  id: { type: String, required: true } // fx "evt_123"
+  id: { type: String, required: true } 
 })
 
-const status = ref(0)       // 0 = TILMELD, 1 = AFMELD
+const status = ref(0)       
 const loading = ref(false)
 const error = ref('')
 
-// Byg sti for dette event
-// Hvis I bruger auth-regler, tilføj fx: const AUTH = `?auth=${token}`
 const PATH = `${BASE}/booking/${encodeURIComponent(props.id)}.json`
 
-// Hent initial status
 onMounted(load)
 async function load() {
   loading.value = true
@@ -41,7 +36,6 @@ async function load() {
   }
 }
 
-// Toggle med if/else + PUT
 async function onToggle() {
   loading.value = true
   error.value = ''

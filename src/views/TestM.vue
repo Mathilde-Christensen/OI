@@ -4,10 +4,10 @@
 
 <template>
     <div>
-        <BookButton id="test_evt" />
+        <BookButton />
     </div>
 
-      <div style="padding: 2rem">
+      <div>
     <!-- Du giver selv et midlertidigt ID -->
     <BookButton id="test_evt" />
   </div>
