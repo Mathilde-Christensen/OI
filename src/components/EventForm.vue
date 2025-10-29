@@ -2,10 +2,7 @@
 import { ref, watch } from 'vue'
 
 const props = defineProps({
-  // Hvis 'event' er sat, er vi i redigerings-mode
   event: { type: Object, default: null },
-  // Base-URL gives ikke her – create POST ligger i Calendar i din version?
-  // I denne version laver vi CREATE her (POST), og EDIT PATCH ligger i Calendar.
 })
 
 const emit = defineEmits(['created', 'updated'])
@@ -20,7 +17,7 @@ const form = ref({
   start: '',
   end: '',
   location: '',
-  priceText: '',   // det admin skriver, fx "60,-"
+  priceText: '',  
   description: ''
 })
 
@@ -28,12 +25,10 @@ const submitting = ref(false)
 const error = ref('')
 const success = ref(false)
 
-// Når vi får et event ind (rediger), udfyld felterne
 watch(
   () => props.event,
   (ev) => {
     if (ev) {
-      // kopi – så man kan fortryde uden at mutere listen
       form.value = {
         id: ev.id ?? null,
         title: ev.title ?? '',
@@ -45,7 +40,6 @@ watch(
         description: ev.description ?? ''
       }
     } else {
-      // tilbage til tom form når vi ikke redigerer
       form.value = {
         id: null, title: '', date: '', start: '', end: '',
         location: '', priceText: '', description: ''
@@ -55,14 +49,12 @@ watch(
   { immediate: true }
 )
 
-// Pris-parser → tal
 function parsePrice(txt) {
   if (txt == null) return 0
   const s = String(txt).replace(',', '.')
   const m = s.match(/(\d+(\.\d+)?)/)
   return m ? Number(m[1]) : 0
 }
-// clamp til min 0
 const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 
 async function onSubmit() {
@@ -73,8 +65,6 @@ async function onSubmit() {
     error.value = 'Udfyld titel, dato og starttid.'
     return
   }
-
-  // Normalisér prisfelter
   const priceText = form.value.priceText ?? ''
   const price = clamp0(parsePrice(priceText))
 
@@ -122,7 +112,6 @@ async function onSubmit() {
 
     emit('created', created)
 
-    // Nulstil
     form.value = {
       id: null, title: '', date: '', start: '', end: '',
       location: '', priceText: '', description: ''

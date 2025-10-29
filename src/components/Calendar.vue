@@ -8,7 +8,7 @@ const events = ref([])
 const loading = ref(false)
 const error = ref('')
 
-const editingEvent = ref(null) // ← null = opret; objekt = redigér
+const editingEvent = ref(null)
 
 onMounted(load)
 
@@ -38,15 +38,12 @@ const sortedEvents = computed(() =>
   })
 )
 
-// ————— Opret (EventForm i create-mode) —————
 function onCreated(newEvent) {
   if (!newEvent?.id) return
   events.value.push(newEvent)
 }
 
-// ————— Redigér —————
 function onEdit(ev) {
-  // Sætter formularen i redigerings-mode og udfylder felter via props.event
   editingEvent.value = { ...ev }
 }
 function cancelEdit() {
@@ -56,7 +53,6 @@ function cancelEdit() {
 async function onUpdated(updated) {
   if (!updated?.id) return
 
-  // Udled et tal fra priceText og clamp til min. 0
   const priceText = updated.priceText ?? ''
   const price = clamp0(parsePrice(priceText))
 
@@ -74,7 +70,6 @@ async function onUpdated(updated) {
     })
     if (!res.ok) throw new Error('HTTP ' + res.status)
 
-    // Opdatér lokalt
     const i = events.value.findIndex(e => e.id === id)
     if (i !== -1) events.value[i] = { id, ...payload }
 
@@ -85,7 +80,6 @@ async function onUpdated(updated) {
   }
 }
 
-// ————— Slet —————
 async function onDelete(id) {
   if (!confirm('Slet hold?')) return
   const res = await fetch(`${DB_URL}/events/${id}.json`, { method: 'DELETE' })
@@ -93,7 +87,6 @@ async function onDelete(id) {
   events.value = events.value.filter(e => e?.id !== id)
 }
 
-// ————— helpers til pris —————
 function parsePrice(txt) {
   if (txt == null) return 0
   const s = String(txt).replace(',', '.')
@@ -105,16 +98,13 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 
 <template>
   <main class="calendar">
-    <!-- Viser KUN den ene formular ad gangen: -->
     <section v-if="!editingEvent" class="panel">
       <h2>Opret hold</h2>
-      <!-- create-mode: ingen :event-prop -->
       <EventForm @created="onCreated" />
     </section>
 
     <section v-else class="panel">
       <h2>Redigér hold</h2>
-      <!-- edit-mode: giver det valgte event -->
       <EventForm :event="editingEvent" @updated="onUpdated" />
       <div class="panel__actions">
         <button type="button" @click="cancelEdit">Fortryd redigering</button>

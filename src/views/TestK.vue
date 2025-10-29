@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 
-// Hent base-URL fra .env (uden trailing slash)
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
 const events = ref([])
@@ -18,7 +17,6 @@ async function load() {
     if (!res.ok) throw new Error('HTTP ' + res.status)
     const raw = await res.json() || {}
 
-    // Map RTDB-objekt til array [{id, ...data}]
     events.value = Object.entries(raw)
       .map(([id, v]) => (v ? { id, ...v } : null))
       .filter(Boolean)
@@ -35,11 +33,9 @@ async function load() {
   }
 }
 
-// Hjælpefunktion: lav dansk ugedag fra dato (forventer "YYYY-MM-DD")
 function weekdayName(isoDate) {
   if (!isoDate) return 'Uden dato'
   const d = new Date(isoDate)
-  // Hvis din dato er i format DD-MM-YYYY: byt om
   if (String(isoDate).includes('-') && isoDate.split('-')[0].length === 2) {
     const [dd, mm, yyyy] = isoDate.split('-')
     return new Intl.DateTimeFormat('da-DK', { weekday: 'long' }).format(new Date(`${yyyy}-${mm}-${dd}`))
@@ -47,7 +43,6 @@ function weekdayName(isoDate) {
   return new Intl.DateTimeFormat('da-DK', { weekday: 'long' }).format(d)
 }
 
-// Grupper efter ugedag i den rækkefølge man forventer (man-søn)
 const groups = computed(() => {
   const order = ['mandag','tirsdag','onsdag','torsdag','fredag','lørdag','søndag']
   const map = new Map()
@@ -56,17 +51,14 @@ const groups = computed(() => {
     if (!map.has(key)) map.set(key, [])
     map.get(key).push(ev)
   }
-  // sortér hver gruppe efter starttid
   for (const list of map.values()) {
     list.sort((a, b) => `${a.start ?? '00:00'}`.localeCompare(`${b.start ?? '00:00'}`))
   }
-  // returnér i mandag→søndag
   return order
     .filter(k => map.has(k))
     .map(k => ({ day: k[0].toUpperCase() + k.slice(1), items: map.get(k) }))
 })
 
-// Placeholder til Mathildes funktion – her får hun event-id
 function join(ev) {
   // TODO: Mathilde kobler sin fetch/patch her
   console.log('Tilmeld til event id:', ev.id)
