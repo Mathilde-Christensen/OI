@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import BookBtn from '../components/BookBtn.vue'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
@@ -95,7 +96,7 @@ function join(ev) {
           </div>
 
           <div class="card__right">
-            <button class="card__btn" @click="join(ev)">Tilmeld</button>
+            <BookBtn :id="ev.id" />
           </div>
         </li>
       </ul>

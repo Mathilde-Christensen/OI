@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import TestM from '../views/TestM.vue'
 import TestK from '../views/TestK.vue'
 import Calendar from '../components/Calendar.vue'
+import Events from '../views/Events.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,6 +26,11 @@ const router = createRouter({
       name: 'calendar',
       component: Calendar, 
     },
+    {
+      path: '/events',
+      name: 'events',
+      component: Events,
+    }
   ],
 })
 
