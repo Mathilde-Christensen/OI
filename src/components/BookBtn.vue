@@ -1,9 +1,3 @@
-<template>
-  <button v-on:click="onToggle" v-bind:disabled="loading">
-    {{ status === 1 ? 'AFMELD' : 'TILMELD' }}
-  </button>
-</template>
-
 <script setup>
 import { ref, onMounted } from 'vue'
 
@@ -56,3 +50,40 @@ async function onToggle() {
   }
 }
 </script>
+
+<template>
+  <button
+    v-on:click="onToggle"
+    v-bind:disabled="loading"
+    v-bind:class="{ active: status === 1 }"
+  >
+    {{ status === 1 ? 'AFMELD' : 'TILMELD' }}
+  </button>
+</template>
+
+<style scoped>
+button {
+  border-radius: 10px;
+  background: #FE622A;
+  width: 125px;
+  height: 43px;
+  border: 0px;
+  color: #FEFEFE;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+/* Når status === 1 */
+button.active {
+  background: #1E234D;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+</style>
