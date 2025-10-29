@@ -7,7 +7,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const BASE = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/,)
+const BASE = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
 const props = defineProps({
   id: { type: String, required: true } 
