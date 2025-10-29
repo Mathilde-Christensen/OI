@@ -9,7 +9,6 @@ const emit = defineEmits(['created', 'updated'])
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
-// Formular-state
 const form = ref({
   id: null,
   title: '',
@@ -147,7 +146,7 @@ async function onSubmit() {
     <input v-model.trim="form.location" />
 
     <label>Pris</label>
-    <input type="text" v-model.trim="form.priceText" placeholder="fx 60,- eller 60 kr." />
+    <input type="text" v-model.trim="form.priceText" />
 
     <label>Beskrivelse</label>
     <textarea rows="3" v-model.trim="form.description"></textarea>
@@ -162,7 +161,7 @@ async function onSubmit() {
 </template>
 
 <style scoped>
-.event-form { display: grid; gap: 10px; padding: 16px; border: 1px solid #ddd; border-radius: 12px; }
+.event-form { display: grid; gap: 10px; padding: 16px; border: 1px solid #dddddd; border-radius: 12px; }
 .event-form input, .event-form textarea { padding: 6px; border-radius: 6px; border: 1px solid #aaa; }
 button { margin-top: 8px; padding: 8px 12px; font-weight: bold; cursor: pointer; }
 </style>

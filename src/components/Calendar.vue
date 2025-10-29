@@ -99,7 +99,6 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 <template>
   <main class="calendar">
     <section v-if="!editingEvent" class="panel">
-      <h2>Opret hold</h2>
       <EventForm @created="onCreated" />
     </section>
 
@@ -115,7 +114,7 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 
     <section class="calendar__list">
       <header class="calendar__header">
-        <h2 class="calendar__title">Holdoversigt (admin)</h2>
+        <h2 class="calendar__title">Holdoversigt</h2>
         <span v-if="loading">Henter…</span>
       </header>
 
