@@ -13,7 +13,7 @@ const props = defineProps({
   id: { type: String, required: true } 
 })
 
-const status = ref(0)       
+const status = ref(0)        
 const loading = ref(false)
 const error = ref('')
 
