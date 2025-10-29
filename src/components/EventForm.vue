@@ -2,10 +2,7 @@
 import { ref, watch } from 'vue'
 
 const props = defineProps({
-  // Hvis 'event' er sat, er vi i redigerings-mode
   event: { type: Object, default: null },
-  // Base-URL gives ikke her – create POST ligger i Calendar i din version?
-  // I denne version laver vi CREATE her (POST), og EDIT PATCH ligger i Calendar.
 })
 
 const emit = defineEmits(['created', 'updated'])
