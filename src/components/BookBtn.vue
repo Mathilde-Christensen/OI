@@ -78,7 +78,6 @@ button {
   text-transform: uppercase;
 }
 
-/* Når status === 1 */
 button.active {
   background: #1E234D;
 }
