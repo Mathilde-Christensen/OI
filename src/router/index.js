@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestM from '../views/TestM.vue'
 import TestK from '../views/TestK.vue'
-import Calendar from '../components/Calendar.vue'
+import Calendar from '../views/Calendar.vue'
 import Events from '../views/Events.vue'
 
 const router = createRouter({

@@ -24,6 +24,7 @@
     "@vue/runtime-core": "^3.5.22",
     "@vue/tsconfig": "^0.8.1",
     "vite": "^7.1.12",
-    "vite-plugin-devtools": "^0.4.0"
+    "vite-plugin-devtools": "^0.4.0",
+    "vite-plugin-vue-devtools": "^8.0.3"
   }
 }
