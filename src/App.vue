@@ -18,7 +18,7 @@
 
 <template>
 
-    <nav>
+    <nav class="header">
       <button v-on:click="goToHome">Hjem</button>
       <button v-on:click="goToCalendar">Opret aktivitet</button>
       <button v-on:click="goToEvents">Aktivitetsoversigt</button>
@@ -31,7 +31,7 @@
   button {
     border-radius: 10px;
     background: #1E234D;
-    width: 125px;
+    width: 200px;
     height: 43px;
     border: 0px;
     color: #FEFEFE;
@@ -42,5 +42,10 @@
     font-weight: 900;
     line-height: normal;
     text-transform: uppercase;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-around;
   }
 </style>
