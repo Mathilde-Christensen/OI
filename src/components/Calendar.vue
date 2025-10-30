@@ -85,6 +85,8 @@ async function onDelete(id) {
   const res = await fetch(`${DB_URL}/events/${id}.json`, { method: 'DELETE' })
   if (!res.ok) return alert('Kunne ikke slette hold.')
   events.value = events.value.filter(e => e?.id !== id)
+  const r2 = await fetch(`${DB_URL}/booking/${id}.json`, { method: 'DELETE' })
+  if (!r2.ok) console.warn('Kunne ikke slette booking for id:', id)
 }
 
 function parsePrice(txt) {
