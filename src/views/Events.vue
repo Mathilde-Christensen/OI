@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import BookBtn from '../components/BookBtn.vue'
+import { eventStartMs, dateKey, weekdayDa, formatDateDa } from '../utils/date'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 console.log('[DB_URL]', DB_URL)
@@ -55,19 +56,24 @@ function formatDate(iso) {
 }
 
 const groups = computed(() => {
-  const order = ['mandag','tirsdag','onsdag','torsdag','fredag','lørdag','søndag']
+  const sorted = [...events.value].sort((a, b) => eventStartMs(a) - eventStartMs(b))
+
   const map = new Map()
-  for (const ev of events.value) {
-    const key = weekdayName(ev.date).toLowerCase()
-    if (!map.has(key)) map.set(key, [])
-    map.get(key).push(ev)
+  for (const ev of sorted) {
+    const key = dateKey(ev)
+    if (!map.has(key)) {
+      const title =
+        ev?.date
+          ? `${weekdayDa(ev.date)[0].toUpperCase()}${weekdayDa(ev.date).slice(1)} ${formatDateDa(ev.date)}`
+          : 'Uden dato'
+      map.set(key, { day: title, items: [] })
+    }
+    map.get(key).items.push(ev)
   }
-  for (const list of map.values()) {
-    list.sort((a, b) => `${a.start ?? '00:00'}`.localeCompare(`${b.start ?? '00:00'}`))
-  }
-  return order
-    .filter(k => map.has(k))
-    .map(k => ({ day: k[0].toUpperCase() + k.slice(1), items: map.get(k) }))
+
+  return [...map.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([, group]) => group)
 })
 
 function join(ev) {
@@ -96,10 +102,8 @@ function join(ev) {
             </div>
             <div class="card__title">{{ ev.title ?? 'Uden titel' }}</div>
             <div class="card__meta">
-                <span v-if="ev.date"> {{ formatDate(ev.date) }}</span>
-                <span v-if="ev.location"> • {{ ev.location }}</span>
+                <span v-if="ev.location">{{ ev.location }}</span>
                 <span v-if="ev.coach"> • {{ ev.coach }}</span>
-                <span v-if="ev.capacity !== undefined"> • {{ ev.capacity }} pladser</span>
             </div>
             <p v-if="ev.description" class="card__desc">{{ ev.description }}</p>
           </div>
@@ -119,24 +123,74 @@ function join(ev) {
     display: grid; 
     gap: 24px; 
 }
-.list__header { display: flex; align-items: baseline; gap: 12px; }
-.list__day { display: grid; gap: 12px; }
-.list__dayTitle { margin: 0; font-size: 28px; }
-.list__items { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+
+.list__header { 
+    display: flex; 
+    align-items: baseline; 
+    gap: 12px; 
+}
+
+.list__day { 
+    display: grid; 
+    gap: 12px; 
+}
+
+.list__dayTitle { 
+    margin: 0; 
+    font-size: 28px; 
+}
+
+.list__items { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    gap: 14px; 
+}
 
 .card {
-  display: flex; justify-content: space-between; gap: 16px;
-  padding: 16px; border-radius: 16px;
-  border: 1px solid #e6e6e6; background: #e0e9ff;
+  display: flex; 
+  justify-content: space-between; 
+  gap: 16px;
+  padding: 16px; 
+  border-radius: 16px;
+  border: 1px solid #e6e6e6; 
+  background: #e0e9ff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
-.card__title { font-weight: 800; font-size: 20px; margin-top: 6px; }
-.card__time { font-weight: 600; opacity: 0.9; }
-.card__meta { color: #334; margin-top: 4px; }
-.card__desc { margin-top: 8px; }
-.card__btn {
-  align-self: center; padding: 10px 16px; border: none; border-radius: 12px;
-  background: #f0652a; color: white; font-weight: 800; cursor: pointer;
+
+.card__title { 
+    font-weight: 800; 
+    font-size: 20px; 
+    margin-top: 6px; 
 }
-.list__error { color: #b00020; }
+
+.card__time { 
+    font-weight: 600; 
+    opacity: 0.9; 
+}
+.card__meta { 
+    color: #334; 
+    margin-top: 4px; 
+}
+
+.card__desc { 
+    margin-top: 8px; 
+}
+
+.card__btn {
+  align-self: center; 
+  padding: 10px 16px; 
+  border: none; 
+  border-radius: 12px;
+  background: #f0652a; 
+  color: white; 
+  font-weight: 800; 
+  cursor: pointer;
+}
+
+.list__error { 
+    color: #b00020; 
+}
+
 </style>

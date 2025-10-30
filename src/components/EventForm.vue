@@ -155,7 +155,25 @@ async function onSubmit() {
 </template>
 
 <style scoped>
-.event-form { display: grid; gap: 10px; padding: 16px; border: 1px solid #dddddd; border-radius: 12px; }
-.event-form input, .event-form textarea { padding: 6px; border-radius: 6px; border: 1px solid #aaa; }
-button { margin-top: 8px; padding: 8px 12px; font-weight: bold; cursor: pointer; }
+.event-form { 
+  display: grid; 
+  gap: 10px; 
+  padding: 16px; 
+  border: 1px solid #dddddd; 
+  border-radius: 12px; 
+}
+
+.event-form input, .event-form textarea { 
+  padding: 6px; 
+  border-radius: 6px; 
+  border: 1px solid #aaa; 
+}
+
+button {
+   margin-top: 8px; 
+   padding: 8px 12px; 
+   font-weight: bold; 
+   cursor: pointer; 
+}
+
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import EventForm from '../components/EventForm.vue'
+import { eventStartMs } from '../utils/date'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
 
@@ -31,11 +32,7 @@ async function load() {
 }
 
 const sortedEvents = computed(() =>
-  [...events.value].sort((a, b) => {
-    const aKey = `${a.date ?? ''} ${a.start ?? '00:00'}`
-    const bKey = `${b.date ?? ''} ${b.start ?? '00:00'}`
-    return aKey.localeCompare(bKey)
-  })
+  [...events.value].sort((a, b) => eventStartMs(a) - eventStartMs(b))
 )
 
 function onCreated(newEvent) {
@@ -149,17 +146,56 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 </template>
 
 <style scoped>
-.calendar { display: grid; gap: 24px; padding: 24px; }
-.calendar__divider { border: none; border-top: 1px solid #eee; }
-.calendar__header { display: flex; gap: 12px; align-items: baseline; }
-.calendar__items { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.calendar__item {
-  display: flex; justify-content: space-between; gap: 16px;
-  padding: 12px; border: 1px solid #eee; border-radius: 12px;
+.calendar { 
+  display: grid; 
+  gap: 24px; 
+  padding: 24px; 
 }
-.calendar__actions { display: flex; gap: 8px; }
-.calendar__error { color: #b00020; }
 
-.panel { padding: 16px; border: 1px solid #e6e6e6; border-radius: 12px; }
-.panel__actions { margin-top: 8px; }
+.calendar__divider { 
+  border: none; 
+  border-top: 1px solid #eee; 
+}
+
+.calendar__header { 
+  display: flex; 
+  gap: 12px; 
+  align-items: baseline; 
+}
+
+.calendar__items { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  display: grid; 
+  gap: 10px; 
+}
+
+.calendar__item {
+  display: flex; 
+  justify-content: space-between; 
+  gap: 16px;
+  padding: 12px; 
+  border: 1px solid #eee; 
+  border-radius: 12px;
+}
+
+.calendar__actions { 
+  display: flex; 
+  gap: 8px; 
+}
+
+.calendar__error { 
+  color: #b00020; 
+}
+
+.panel { 
+  padding: 16px; 
+  border: 1px solid #e6e6e6; 
+  border-radius: 12px; 
+}
+
+.panel__actions { 
+  margin-top: 8px; 
+}
 </style>
