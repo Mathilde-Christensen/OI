@@ -48,6 +48,12 @@ function weekdayName(isoDate) {
   return new Intl.DateTimeFormat('da-DK', { weekday: 'long' }).format(d)
 }
 
+function formatDate(iso) {
+  if (!iso) return ''
+  const [yyyy, mm, dd] = iso.split('-')
+  return `${dd}-${mm}-${yyyy}`
+}
+
 const groups = computed(() => {
   const order = ['mandag','tirsdag','onsdag','torsdag','fredag','lørdag','søndag']
   const map = new Map()
@@ -65,9 +71,7 @@ const groups = computed(() => {
 })
 
 function join(ev) {
-  // TODO: Mathilde kobler sin fetch/patch her
   console.log('Tilmeld til event id:', ev.id)
-  // fx: fetch(`${DB_URL}/events/${ev.id}/participants.json`, { method:'PATCH', ... })
 }
 </script>
 
@@ -92,9 +96,10 @@ function join(ev) {
             </div>
             <div class="card__title">{{ ev.title ?? 'Uden titel' }}</div>
             <div class="card__meta">
-              <span v-if="ev.location">{{ ev.location }}</span>
-              <span v-if="ev.coach"> • {{ ev.coach }}</span>
-              <span v-if="ev.capacity !== undefined"> • {{ ev.capacity }} pladser</span>
+                <span v-if="ev.date"> {{ formatDate(ev.date) }}</span>
+                <span v-if="ev.location"> • {{ ev.location }}</span>
+                <span v-if="ev.coach"> • {{ ev.coach }}</span>
+                <span v-if="ev.capacity !== undefined"> • {{ ev.capacity }} pladser</span>
             </div>
             <p v-if="ev.description" class="card__desc">{{ ev.description }}</p>
           </div>
