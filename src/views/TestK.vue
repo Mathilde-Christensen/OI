@@ -58,12 +58,6 @@ const groups = computed(() => {
     .filter(k => map.has(k))
     .map(k => ({ day: k[0].toUpperCase() + k.slice(1), items: map.get(k) }))
 })
-
-function join(ev) {
-  // TODO: Mathilde kobler sin fetch/patch her
-  console.log('Tilmeld til event id:', ev.id)
-  // fx: fetch(`${DB_URL}/events/${ev.id}/participants.json`, { method:'PATCH', ... })
-}
 </script>
 
 <template>
