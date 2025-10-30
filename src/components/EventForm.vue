@@ -16,8 +16,7 @@ const form = ref({
   start: '',
   end: '',
   location: '',
-  priceText: '',  
-  description: ''
+  priceText: ''  
 })
 
 const submitting = ref(false)
@@ -90,7 +89,6 @@ async function onSubmit() {
         location: form.value.location || '',
         priceText,
         price,
-        description: form.value.description || '',
         createdAt: Date.now()
       })
     })
@@ -105,15 +103,14 @@ async function onSubmit() {
       end: form.value.end || '',
       location: form.value.location || '',
       priceText,
-      price,
-      description: form.value.description || ''
+      price
     }
 
     emit('created', created)
 
     form.value = {
       id: null, title: '', date: '', start: '', end: '',
-      location: '', priceText: '', description: ''
+      location: '', priceText: ''
     }
     success.value = true
   } catch (e) {
@@ -147,9 +144,6 @@ async function onSubmit() {
 
     <label>Pris</label>
     <input type="text" v-model.trim="form.priceText" />
-
-    <label>Beskrivelse</label>
-    <textarea rows="3" v-model.trim="form.description"></textarea>
 
     <button :disabled="submitting">
       {{ submitting ? 'Gemmer...' : (props.event ? 'Gem ændringer' : 'Opret hold') }}

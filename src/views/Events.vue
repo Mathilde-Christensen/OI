@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import BookBtn from '../components/BookBtn.vue'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
-console.log('[DB_URL]', DB_URL)  // ← SKAL printe den fulde https-URL
+console.log('[DB_URL]', DB_URL)
 if (!DB_URL) {
   console.error('Mangler VITE_FIREBASE_DATABASE_URL i .env (projektets rodmappe)')
 }
@@ -114,7 +114,11 @@ function join(ev) {
 </template>
 
 <style scoped>
-.list { padding: 24px; display: grid; gap: 24px; }
+.list { 
+    padding: 24px; 
+    display: grid; 
+    gap: 24px; 
+}
 .list__header { display: flex; align-items: baseline; gap: 12px; }
 .list__day { display: grid; gap: 12px; }
 .list__dayTitle { margin: 0; font-size: 28px; }
