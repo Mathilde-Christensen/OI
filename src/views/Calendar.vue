@@ -11,8 +11,6 @@ const error = ref('')
 
 const editingEvent = ref(null)
 
-onMounted(load)
-
 async function load() {
   loading.value = true
   error.value = ''
@@ -30,6 +28,8 @@ async function load() {
     loading.value = false
   }
 }
+
+onMounted(load)
 
 const sortedEvents = computed(() =>
   [...events.value].sort((a, b) => eventStartMs(a) - eventStartMs(b))
