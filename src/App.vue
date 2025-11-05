@@ -17,35 +17,8 @@
 </script>
 
 <template>
-
-    <nav class="header">
-      <button v-on:click="goToHome">Hjem</button>
-      <button v-on:click="goToCalendar">Opret aktivitet</button>
-      <button v-on:click="goToEvents">Aktivitetsoversigt</button>
-    </nav>
-
   <RouterView />
 </template>
 
 <style scoped>
-  button {
-    border-radius: 10px;
-    background: #1E234D;
-    width: 200px;
-    height: 43px;
-    border: 0px;
-    color: #FEFEFE;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-    text-transform: uppercase;
-  }
-
-  .header {
-    display: flex;
-    justify-content: space-around;
-  }
 </style>
