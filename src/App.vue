@@ -18,14 +18,8 @@
 
 <template>
   <RouterView />
-  <div class="test">Hejsa lalalalalalaa</div>
 </template>
 
 <style lang="scss" scoped>
-@use './assets/_colors.scss' as c;
-@use './assets/_fonts.scss' as f;
 
-.test {
-  color: c.$color-primary;
-}
 </style>
