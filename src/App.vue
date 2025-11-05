@@ -14,6 +14,10 @@
   function goToHome() {
     router.push('/')
   }
+
+  function goToAktivitetsOversigt() {
+  router.push('/aktivitetsoversigt')
+  }
 </script>
 
 <template>
