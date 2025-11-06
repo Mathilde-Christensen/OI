@@ -8,7 +8,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
 <template>
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
-      <div class="footer__logos">
+      <!---<div class="footer__logos">
         <img class="footer__logo footer__logo--idraetspark" :src="odenseIdraetspark" alt="Odense Idrætspark"/>
 
         <div class="footer__kommune" v-if="odenseKommune">
@@ -17,7 +17,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
             ODENSE<br />KOMMUNE
           </span>
         </div>
-      </div>
+      </div>-->
 
       <div class="footer__info">
         <h2 class="footer__title">Odense Idrætspark</h2>
@@ -52,7 +52,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
 </template>
 
 <style lang="scss" scoped>
-@use './assets/_colors.scss' as c; 
+@use '../assets/_colors.scss' as c; 
 
 .sr-only {
   position: absolute;
