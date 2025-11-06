@@ -1,8 +1,8 @@
 <script setup>
-import odenseIdraetspark from '../assets/images/ikoner/odense-idreatspark-logo.png'
+import odenseIdraetspark from '../assets/images/ikoner/odense-idreatspark-logo.webp'
 import odenseKommune from '../assets/images/ikoner/kommunelogo.webp'
-import instagramBlack from '../assets/images/instagram_logo/black-glyph/instagram_glyph_black.png'
-import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.png'
+import instagramBlack from '../assets/images/instagram_logo/black-glyph/instagram_glyph_black.webp'
+import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.webp'
 </script>
 
 <template>

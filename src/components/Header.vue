@@ -1,10 +1,10 @@
 <script setup>
-    import instagramBlack from '@/assets/images/instagram_logo/black-glyph/instagram_glyph_black.png'
-    import facebookBloue from '@/assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.png'
-    import odenseIdreatspark from '@/assets/images/ikoner/odense-idreatspark-logo.png'
-    import logIndIkon from '@/assets/images/ikoner/logind-ikon.png'
-    import soeIkon from '@/assets/images/ikoner/soe-ikon.png'
-    import dropdownPil from '@/assets/images/ikoner/dropdown_pil.png'
+    import instagramBlack from '@/assets/images/instagram_logo/black-glyph/instagram_glyph_black.webp'
+    import facebookBloue from '@/assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.webp'
+    import odenseIdreatspark from '@/assets/images/ikoner/odense-idreatspark-logo.webp'
+    import logIndIkon from '@/assets/images/ikoner/logind-ikon.webp'
+    import soeIkon from '@/assets/images/ikoner/soe-ikon.webp'
+    import dropdownPil from '@/assets/images/ikoner/dropdown_pil.webp'
 
     import { ref, onMounted, onBeforeUnmount } from 'vue'
     import { useRouter } from 'vue-router'
@@ -465,7 +465,7 @@
 
         .actions_img {
             width: 20px;
-            height: 2px;
+            height: 20px;
             margin: 10px;
             margin-top: 25px;
         }
