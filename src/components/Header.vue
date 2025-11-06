@@ -9,26 +9,38 @@
     import { ref, onMounted, onBeforeUnmount } from 'vue'
     import { useRouter } from 'vue-router'
 
-    const activeIndex = ref(null) // number | null er fint i JS
+
+    const activeIndex = ref(null)
+    const isMenuOpen  = ref(false)
+
     const toggle = (i) => {
     activeIndex.value = activeIndex.value === i ? null : i
     }
 
-    const isMenuOpen = ref(false)
-    const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
+    const toggleMenu = () => {                  // ← manglede
+    isMenuOpen.value = !isMenuOpen.value
+    }
 
-    // Luk menu ved routeskift (når man klikker et link)
-    const router = useRouter()
-    router.afterEach(() => { isMenuOpen.value = false })
+    // refs til klik-udenfor
+    const desktopNavRef = ref(null)
+    const mobileNavRef  = ref(null)
+    const burgerRef     = ref(null)
 
-    // Luk ved klik udenfor
     const onDocClick = (e) => {
-    if (!e.target.closest('.mobile_nav') && !e.target.closest('.hamburger')) {
-        isMenuOpen.value = false
+    const inDesktop = desktopNavRef.value?.contains(e.target)
+    const inMobile  = mobileNavRef.value?.contains(e.target)
+    const onBurger  = burgerRef.value?.contains(e.target)
+    if (!inDesktop && !inMobile && !onBurger) {
+        activeIndex.value = null
+        isMenuOpen.value  = false
     }
     }
-    onMounted(() => document.addEventListener('click', onDocClick))
-    onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
+
+    onMounted(() => document.addEventListener('click', onDocClick, { capture: true }))
+    onBeforeUnmount(() => document.removeEventListener('click', onDocClick, { capture: true }))
+
+    const router = useRouter()
+    router.afterEach(() => { activeIndex.value = null; isMenuOpen.value = false })
 
 </script>
 
@@ -36,7 +48,7 @@
     <header>
         <div class="header_mobil">
             <div>
-                <button class="hamburger" @click="toggleMenu" :aria-expanded="isMenuOpen">
+                <button class="hamburger" ref="burgerRef" @click.stop="toggleMenu" :aria-expanded="isMenuOpen">
             
                     <svg width="40" height="17" viewBox="0 0 55 24" fill="none">              
                         <rect id="streg_1" width="40" height="2" fill="#210700"></rect>         
@@ -47,7 +59,7 @@
                 </button>
             </div>
 
-            <nav class="mobil_nav" :class="{ open: isMenuOpen }">
+            <nav class="mobil_nav" ref="mobileNavRef" :class="{ open: isMenuOpen }" @click.stop>
                 <ul class="mobil_nav_ul" @click.stop>
                     <li>
                         <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
@@ -131,25 +143,25 @@
 
         <div class="top_header">
             <div class="top_header_some">
-                <img :src="instagramBlack" alt="instagram logo" />
-                <img :src="facebookBloue" alt="facebook logo" />
+                <img class="header_some_img" :src="instagramBlack" alt="instagram logo" />
+                <img class="header_some_img" :src="facebookBloue" alt="facebook logo" />
             </div>
 
             <div class="top_header_logo">
                 <RouterLink to="/">
-                    <img :src="odenseIdreatspark" alt="Odense Idrætspark" />
+                    <img class="header_logo_img" :src="odenseIdreatspark" alt="Odense Idrætspark" />
                 </RouterLink>
             </div>
 
             <div class="top_header_actions">
                 <div class="header_actions_login">
-                    <img :src="logIndIkon" alt="Logind ikon" />
+                    <img class="actions_img" :src="logIndIkon" alt="Logind ikon" />
                 </div>
-                <img :src="soeIkon" alt="Soe ikon" />
+                <img class="actions_img" :src="soeIkon" alt="Soe ikon" />
             </div>
         </div>
 
-        <nav class="bottom_header_nav">
+        <nav class="bottom_header_nav" ref="desktopNavRef">
             <ul class="header_nav_ul">
                 <li>
                     <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
@@ -325,13 +337,15 @@
 
     .header_mobil {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        margin: 15px 15px;
     }
 
     .mobil_ikon_img {
         width: 20px;
         height: 20px;
         margin: 10px;
+        margin-top: 20px;
     }
 
     .mobil_logo_img {
@@ -340,7 +354,6 @@
 
     .mobil_header_actions {
         display: flex;
-        margin-top: 10px;
     }
 
     .mobil_nav_ul {
@@ -353,8 +366,116 @@
     }
 
     @media (min-width: 1024px) {
-        .hamburger { 
+        .header_mobil { 
             display: none; 
         }
+
+        .top_header {
+            display: flex;
+            margin: 20px 50px;
+            justify-content: space-between;
+        }
+
+       .bottom_header_nav {
+        width: 100%;
+        height: 30px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center; // centrerer hele ul’en
+        align-items: center;
+        padding: 0.5rem 0;
+        background-color: c.$color-primary;
+
+            .header_nav_ul {
+                display: flex;
+                gap: 2rem; // afstand mellem li-elementer
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    position: relative;
+
+                    button {
+                        background: transparent;
+                        border: none;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 700;
+                        cursor: pointer;
+                        color: c.$color-secondary;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.3rem;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                        color: c.$color-tertiary;
+                        transform: translateY(-2px);
+                        }
+
+                        img {
+                        width: 10px;
+                        transition: transform 0.3s ease;
+                        }
+
+                        &.rotated img {
+                        transform: rotate(180deg);
+                        }
+                    }
+
+                    ul {
+                        list-style: none;
+                        position: absolute;
+                        top: 2rem;
+                        left: 0;
+                        background-color: c.$color-secondary;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                        padding: 0.5rem 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.3rem;
+
+                            li {
+                            color: #210700;
+                            cursor: pointer;
+                            transition: color 0.2s;
+                            margin: 10px;
+
+                            &:hover {
+                                color: c.$color-tertiary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .header_some_img {
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+            margin-top: 25px;
+        }
+
+        .header_logo_img {
+            width: 170px;
+        }
+
+        .actions_img {
+            width: 20px;
+            height: 2px;
+            margin: 10px;
+            margin-top: 25px;
+        }
+
+        .top_header_actions {
+            display: flex;
+        }
+
+
+
     }
+
 </style>
