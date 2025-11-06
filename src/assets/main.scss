@@ -1,8 +1,12 @@
 @use './colors' as c;
 @use './fonts' as f;
 
-
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
 body {
-  font-family: f.$font-primary;
-  background-color: c.$color-secondary;
+    font-family: f.$font-primary;
+    background-color: c.$color-secondary;
 }
