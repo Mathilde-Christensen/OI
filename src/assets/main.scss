@@ -1,2 +1,7 @@
-@use '_colors.scss' as c;
-@use '_fonts.scss' as f;
+@use './colors' as c;
+@use './fonts' as f;
+
+
+body {
+  font-family: $font-primary;
+}

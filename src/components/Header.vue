@@ -5,6 +5,7 @@
     import logIndIkon from '@/assets/images/ikoner/logind-ikon.png'
     import soeIkon from '@/assets/images/ikoner/soe-ikon.png'
     import dropdownPil from '@/assets/images/ikoner/dropdown_pil.png'
+    import './assets/main.scss'
 
     import { ref, onMounted, onBeforeUnmount } from 'vue'
     import { useRouter } from 'vue-router'
@@ -249,6 +250,7 @@
     transition: transform 0.3s ease-in-out;
     z-index: 999;
     padding: 2rem 1.5rem;
+    color: $color-primary;
 
         &.open {
             transform: translateX(0);
