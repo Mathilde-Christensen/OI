@@ -5,4 +5,12 @@
 body {
   font-family: f.$font-primary;
   background-color: c.$color-secondary;
+  a {
+    text-decoration: none;
+    color: c.$color-primary;
+  }
+
+  a:hover {
+    color: c.$color-tertiary;
+  }
 }
