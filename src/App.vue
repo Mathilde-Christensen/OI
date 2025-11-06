@@ -1,6 +1,7 @@
 <script setup>
   import { useRouter } from 'vue-router'
   import Footer from './components/Footer.vue'
+  import Header from './components/Header.vue'
 
   const router = useRouter()
 
@@ -23,6 +24,7 @@
 
 <template>
   <RouterView />
+  <Header></Header>
   <Footer></Footer>
 </template>
 
