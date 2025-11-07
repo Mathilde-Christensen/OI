@@ -146,11 +146,13 @@ const onTouchEnd = (e) => {
     .content {
         position: absolute; 
         inset: 0; 
-        display: grid; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         place-items: center;
         text-align: center; 
         color: c.$color-secondary; 
-        padding: 0 1rem;
+        padding: 0rem 6rem;
         
         h1 { 
             font-size: clamp(1.6rem, 4vw, 3rem); 
@@ -159,6 +161,7 @@ const onTouchEnd = (e) => {
 
         .btn {
             @include b.button(b.$button-primary);
+            margin: 2rem;
         }
     }
   }
