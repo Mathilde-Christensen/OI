@@ -64,7 +64,13 @@ let touchX = 0
 const onTouchStart = (e) => { touchX = e.touches[0].clientX }
 const onTouchEnd = (e) => {
   const dx = e.changedTouches[0].clientX - touchX
-  if (Math.abs(dx) > 40) (dx < 0 ? next() : prev())
+    if (Math.abs(dx) > 40) {
+        if (dx < 0) {
+            next()
+        } else {
+            prev()
+        }
+    }
 }
 </script>
 
@@ -120,10 +126,14 @@ const onTouchEnd = (e) => {
 @use '../assets/_buttons.scss' as b;
 
 .hero {
-  position: relative; 
-  width: 100%; 
-  height: clamp(320px, 55vw, 680px);
-  overflow: hidden; 
+  position: relative;
+  width: 100%;
+  height: 75vh; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .track {
     display: flex;
@@ -133,90 +143,94 @@ const onTouchEnd = (e) => {
   }
 
   .slide {
-    position: relative; 
-    min-width: 100%; 
+    position: relative;
+    min-width: 100%;
     height: 100%;
 
-    .bg { width: 100%; height:
-        100%; object-fit:
-        cover; display: 
-        block; filter: 
-        brightness(0.85); 
+    .bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
     }
-    .content {
-        position: absolute; 
-        inset: 0; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        place-items: center;
-        text-align: center; 
-        color: c.$color-secondary; 
-        padding: 0rem 6rem;
-        
-        h1 { 
-            font-size: clamp(1.6rem, 4vw, 3rem); 
-            margin-bottom: 1rem; 
-        }
 
-        .btn {
-            @include b.button(b.$button-primary);
-            margin: 2rem;
-        }
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: c.$color-secondary;
+      padding: 0 6rem;
+
+      h1 {
+        font-size: clamp(1.6rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        @include b.button(b.$button-primary);
+        margin: 2rem;
+      }
     }
   }
 
   .nav {
     position: absolute;
-    top: 50%; transform: 
-    translateY(-50%); z-index: 2;
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    border: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
     cursor: pointer;
     background: transparent;
-    color: #fff; 
-    font-size: 22px; 
-    display: grid; 
+    color: c.$color-secondary;
+    font-size: 22px;
+    display: grid;
     place-items: center;
 
     &:hover {
-        background:rgba(0,0,0,.55); 
+      background: rgba(0, 0, 0, 0.55);
     }
 
-    &.prev { 
-        left: 12px; 
+    &.prev {
+      left: 12px;
     }
 
-    &.next { 
-        right: 12px; 
+    &.next {
+      right: 12px;
     }
   }
 
   .dots {
-    position: absolute; 
-    left: 50%; transform: 
-    translateX(-50%); 
-    bottom: 12px; 
-    display: flex; 
-    gap: 8px; 
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    display: flex;
+    gap: 8px;
     z-index: 2;
+
     .dot {
-        width: 10px;
-        height: 10px; 
-        border-radius: 50%; 
-        background: rgba(255,255,255,.5); 
-        border: 0; 
-        cursor: pointer;
-      
-        &.active { 
-            background: #fff; 
-            transform: scale(1.1); 
-        }
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: 0;
+      cursor: pointer;
+
+      &.active {
+        background: c.$color-secondary;
+        transform: scale(1.1);
+      }
     }
   }
+
+  
 }
-
-
 </style>
