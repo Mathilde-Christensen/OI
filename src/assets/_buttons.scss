@@ -1,0 +1,60 @@
+@use '../assets/_colors.scss' as c;
+@use '../assets/_fonts.scss' as f;
+
+// Én samlet "config" for din primære knap
+$button-primary: (
+  bg:        c.$cta,
+  color:     c.$color-secondary,
+  radius:    10px,
+
+  font: (
+    size:     12px,
+    weight:   700,
+    transform: uppercase
+  ),
+
+  size:    (w: 96px,  h: 32px),
+  size-lg: (w: 240px, h: 58px, font-size: 20px, weight: 900),
+
+  hover-bg: c.$color-tertiary
+) !default;
+
+// Mixin der læser værdierne fra config'en
+@mixin button($cfg) {
+  $bg:       map-get($cfg, bg);
+  $color:    map-get($cfg, color);
+  $radius:   map-get($cfg, radius);
+  $font:     map-get($cfg, font);
+  $size:     map-get($cfg, size);
+  $size-lg:  map-get($cfg, size-lg);
+  $hover-bg: map-get($cfg, hover-bg);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width:  map-get($size, w);
+  height: map-get($size, h);
+  border-radius: $radius;
+
+  background: $bg;
+  color: $color;
+
+  // font
+  font-size:      map-get($font, size);
+  font-weight:    map-get($font, weight);
+  text-transform: map-get($font, transform);
+
+  &:hover {
+    background: $hover-bg;
+    transform: translateY(-1px);
+  }
+
+  // Responsiv (læg media inde i samme selector → højere specifikhed)
+  @media (min-width: 1024px) {
+    width:      map-get($size-lg, w);
+    height:     map-get($size-lg, h);
+    font-size:  map-get($size-lg, font-size);
+    font-weight: map-get($size-lg, weight);
+  }
+}

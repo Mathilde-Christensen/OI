@@ -117,6 +117,7 @@ const onTouchEnd = (e) => {
 <style scoped lang="scss">
 @use '../assets/_colors.scss' as c;
 @use '../assets/_fonts.scss' as f;
+@use '../assets/_buttons.scss' as b;
 
 .hero {
   position: relative; 
@@ -157,31 +158,7 @@ const onTouchEnd = (e) => {
         }
 
         .btn {
-            display: inline-block; 
-            display: flex;
-            width: 96px;
-            height: 32px;
-            flex-direction: column;
-            justify-content: center;
-            flex-shrink: 0;
-            text-align: center;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            text-transform: uppercase;
-            width: 96px;
-            height: 32px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            background: c.$cta;
-            color: c.$color-secondary; 
-            
-
-            &:hover { 
-                background: c.$color-tertiary;
-                transform: translateY(-1px); 
-            }
+            @include b.button(b.$button-primary);
         }
     }
   }
@@ -236,39 +213,6 @@ const onTouchEnd = (e) => {
         }
     }
   }
-}
-
-@media (min-width: 1024px) {
-    .btn {     
-        display: inline-block; 
-        text-align: center;
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 900;
-        line-height: normal;
-        text-transform: uppercase;
-        background-color: c.$cta; 
-        color: c.$color-secondary; 
-        backdrop-filter: blur(2px);
-        border: none; 
-        width: 240px;
-        height: 58.272px;
-        flex-shrink: 0;
-        border-radius: 10px;
-        display: flex;
-        width: 240px;
-        height: 58.272px;
-        flex-direction: column;
-        justify-content: center;
-        flex-shrink: 0;
-
-
-        &:hover { 
-            background: c.$color-tertiary;
-            transform: translateY(-1px); 
-        }
-    }
 }
 
 
