@@ -14,7 +14,8 @@ $button-primary: (
   ),
 
   size:    (w: 96px,  h: 32px),
-  size-lg: (w: 240px, h: 58px, font-size: 20px, weight: 900),
+  size-t: (w: 150px, h: 43px, font-size: 14px, weight: 800),
+  size-lg: (w: 200px, h: 50px, font-size: 16px, weight: 900),
 
   hover-bg: c.$color-tertiary
 ) !default;
@@ -27,6 +28,7 @@ $button-primary: (
   $font:     map-get($cfg, font);
   $size:     map-get($cfg, size);
   $size-lg:  map-get($cfg, size-lg);
+  $size-t:   map-get($cfg, size-t); 
   $hover-bg: map-get($cfg, hover-bg);
 
   display: inline-flex;
@@ -51,6 +53,13 @@ $button-primary: (
   }
 
   // Responsiv (læg media inde i samme selector → højere specifikhed)
+  @media (min-width: 600px) {
+    width:      map-get($size-t, w);
+    height:     map-get($size-t, h);
+    font-size:  map-get($size-t, font-size);
+    font-weight: map-get($size-t, weight);
+  }
+
   @media (min-width: 1024px) {
     width:      map-get($size-lg, w);
     height:     map-get($size-lg, h);

@@ -23,8 +23,8 @@
 </script>
 
 <template>
-  <RouterView />
   <Header></Header>
+  <RouterView />
   <Footer></Footer>
 </template>
 
