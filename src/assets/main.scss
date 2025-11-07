@@ -18,4 +18,13 @@ body {
   a:hover {
     color: c.$color-tertiary;
   }
+
+  h1 {
+    font-family: f.$font-secondary;
+    text-align: center;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
 }
