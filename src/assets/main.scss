@@ -19,6 +19,10 @@ body {
     color: c.$color-tertiary;
   }
 
+  h1 {
+    font-family: f.$font-secondary;
+  }
+
 
   @media (min-width: 600px) {
 

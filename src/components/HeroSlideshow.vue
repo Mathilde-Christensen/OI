@@ -175,7 +175,7 @@ const onTouchEnd = (e) => {
     border-radius: 50%; 
     border: 0; 
     cursor: pointer;
-    background: rgba(0,0,0,.35);
+    background: transparent;
     color: #fff; 
     font-size: 22px; 
     display: grid; 
