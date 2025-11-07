@@ -372,13 +372,13 @@
 
         .top_header {
             display: flex;
-            margin: 20px 50px;
+            margin: 10px 20px;
             justify-content: space-between;
         }
 
        .bottom_header_nav {
         width: 100%;
-        height: 30px;
+        height: 35px;
         background-color: transparent;
         display: flex;
         justify-content: center; // centrerer hele ul’en
@@ -460,7 +460,7 @@
         }
 
         .header_logo_img {
-            width: 170px;
+            width: 150px;
         }
 
         .actions_img {
