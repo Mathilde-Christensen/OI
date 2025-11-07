@@ -8,6 +8,7 @@ import Events from '../views/Events.vue'
 import Header from '@/components/Header.vue'
 import AktivitetsOversigt from '@/views/AktivitetsOversigt.vue'
 import HeroSlideshow from '@/components/HeroSlideshow.vue'
+import MiniCalendar from '@/components/MiniCalendar.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,6 +49,11 @@ const router = createRouter({
       path: '/heroslide',
       name: 'heroslide',
       component: HeroSlideshow,
+    },
+    {
+      path: '/minicalendar',
+      name: 'minicalendar',
+      component: MiniCalendar,
     }
   ],
 })
