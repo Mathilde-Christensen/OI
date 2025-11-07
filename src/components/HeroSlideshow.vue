@@ -64,7 +64,13 @@ let touchX = 0
 const onTouchStart = (e) => { touchX = e.touches[0].clientX }
 const onTouchEnd = (e) => {
   const dx = e.changedTouches[0].clientX - touchX
-  if (Math.abs(dx) > 40) (dx < 0 ? next() : prev())
+    if (Math.abs(dx) > 40) {
+        if (dx < 0) {
+            next()
+        } else {
+            prev()
+        }
+    }
 }
 </script>
 
