@@ -89,7 +89,7 @@ const groupsForView = computed(() => {
           – og alt midt imellem. Tilmeld dig direkte og oplev, hvor nemt det
           er at være aktiv i fællesskab.
         </p>
-        <a class="info__btn" href="/calendar">Find aktivitet</a>
+        <a class="info__btn" href="/calendar">FIND AKTIVITET</a>
       </aside>
   
       <!-- Venstre: oversigten -->
@@ -124,7 +124,7 @@ const groupsForView = computed(() => {
               class="previewMore"
             >
               <button type="button" class="previewMore__btn" @click="showAll = true">
-                Se flere aktiviteter
+                Indlæs flere aktiviteter
               </button>
             </div>
           </template>
