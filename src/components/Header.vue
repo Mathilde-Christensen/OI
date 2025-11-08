@@ -381,14 +381,14 @@
         height: 35px;
         background-color: transparent;
         display: flex;
-        justify-content: center; // centrerer hele ul’en
+        justify-content: center;
         align-items: center;
         padding: 0.5rem 0;
         background-color: c.$color-primary;
 
             .header_nav_ul {
                 display: flex;
-                gap: 2rem; // afstand mellem li-elementer
+                gap: 2rem; 
                 list-style: none;
                 margin: 0;
                 padding: 0;
@@ -427,7 +427,7 @@
                     ul {
                         list-style: none;
                         position: absolute;
-                        top: 2rem;
+                        top: 1.6rem;
                         left: 0;
                         background-color: c.$color-secondary;
                         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -435,6 +435,7 @@
                         display: flex;
                         flex-direction: column;
                         gap: 0.3rem;
+                        z-index: 2000;
 
                             li {
                             color: #210700;
