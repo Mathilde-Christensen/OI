@@ -177,7 +177,7 @@ const groupsForView = computed(() => {
             &::-webkit-scrollbar { width: 10px; height: 10px; }
             &::-webkit-scrollbar-track { background: transparent; }
             &::-webkit-scrollbar-thumb {
-                background: #c2c7d1;
+                background: c.$color-secondary;
                 border-radius: 8px;
                 border: 2px solid transparent;
                 background-clip: content-box;
@@ -195,9 +195,9 @@ const groupsForView = computed(() => {
         .previewDay__title {
             margin: 0;
             font-size: 1.5rem;
-            font-weight: 800;
+            font-weight: 600;
             letter-spacing: .2px;
-            color: #101738;
+            color: c.$color-primary;
         }
 
         .previewList {
@@ -214,7 +214,7 @@ const groupsForView = computed(() => {
             align-items: center;
             gap: 18px;
             padding: 16px 18px;
-            background: #fefffe;
+            background: c.$color-secondary;
             border: 1px solid #c5c8d3;
             border-radius: 14px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
@@ -226,12 +226,12 @@ const groupsForView = computed(() => {
             font-weight: 800;
             font-size: 1.08rem;
             margin: 0 0 6px;
-            color: #101738;
+            color: c.$color-primary;
             }
 
             &__meta {
             color: #3a3a3a;
-            font-size: .98rem;
+            font-size: 0.98rem;
             font-family: f.$font-primary;
             }
 
@@ -276,15 +276,19 @@ const groupsForView = computed(() => {
 
             .info__title {
             margin: 0 0 12px;
-            font-weight: 900;
+            font-weight: 600;
             font-size: 1.6rem;
             line-height: 1.25;
-            color: #101738;
+            color: c.$color-primary;
+
+                span {
+                    font-weight: 900;
+                }
             }
 
             .info__text {
             margin: 0 0 18px;
-            color: #2d2f3a;
+            color: c.$color-primary;
             line-height: 1.55;
             font-family: f.$font-primary;
             }

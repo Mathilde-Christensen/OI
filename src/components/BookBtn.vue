@@ -64,6 +64,8 @@ async function onToggle() {
 <style lang="scss" scoped>
   @use '../assets/_buttons.scss' as btn;
   @use '../assets/_fonts.scss' as f;
+  @use '../assets/_colors.scss' as c;
+
 
   button {
     @include btn.button(btn.$button-primary);
@@ -75,7 +77,7 @@ async function onToggle() {
   }
 
   button.active {
-    background: #1E234D;
+    background: c.$color-primary;
   }
 
   button:disabled {
