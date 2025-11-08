@@ -223,22 +223,22 @@ const groupsForView = computed(() => {
             &__main  { min-width: 0; }
 
             &__title {
-            font-weight: 800;
-            font-size: 1.08rem;
-            margin: 0 0 6px;
-            color: c.$color-primary;
+                font-weight: 800;
+                font-size: 1.08rem;
+                margin: 0 0 6px;
+                color: c.$color-primary;
             }
 
             &__meta {
-            color: #3a3a3a;
-            font-size: 0.98rem;
-            font-family: f.$font-primary;
+                color: #3a3a3a;
+                font-size: 0.98rem;
+                font-family: f.$font-primary;
             }
 
             &__actions {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
 
             :deep(button) {
                 min-width: 130px;
@@ -253,33 +253,33 @@ const groupsForView = computed(() => {
             margin-top: 8px;
 
             &__btn {
-            border: 0;
-            cursor: pointer;
-            padding: 10px 16px;
-            border-radius: 12px;
-            background: #e9efff;
-            color: #1f3bb3;
-            font-weight: 800;
-            font-family: f.$font-primary;
-            box-shadow: 0 6px 16px rgba(31,59,179,.18);
+                border: 0;
+                cursor: pointer;
+                padding: 10px 16px;
+                border-radius: 12px;
+                background: #e9efff;
+                color: #1f3bb3;
+                font-weight: 800;
+                font-family: f.$font-primary;
+                box-shadow: 0 6px 16px rgba(31,59,179,.18);
 
             &:hover { filter: brightness(.97); }
             }
         }
 
         &__right {
-            align-self: start;
-            justify-self: stretch;
-            inline-size: 100%;
-            border-radius: 16px;
-            padding: 100px 22px;
+                align-self: start;
+                justify-self: stretch;
+                inline-size: 100%;
+                border-radius: 16px;
+                padding: 100px 22px;
 
             .info__title {
-            margin: 0 0 12px;
-            font-weight: 600;
-            font-size: 1.6rem;
-            line-height: 1.25;
-            color: c.$color-primary;
+                margin: 0 0 12px;
+                font-weight: 600;
+                font-size: 1.6rem;
+                line-height: 1.25;
+                color: c.$color-primary;
 
                 span {
                     font-weight: 900;
@@ -287,17 +287,17 @@ const groupsForView = computed(() => {
             }
 
             .info__text {
-            margin: 0 0 18px;
-            color: c.$color-primary;
-            line-height: 1.55;
-            font-family: f.$font-primary;
+                margin: 0 0 18px;
+                color: c.$color-primary;
+                line-height: 1.55;
+                font-family: f.$font-primary;
             }
 
             .info__btn {
-            @include btn.button(btn.$button-primary);
-            font-family: f.$font-primary;
-            box-shadow: 0 10px 20px rgba(243,115,65,.25);
-            text-decoration: none;
+                @include btn.button(btn.$button-primary);
+                font-family: f.$font-primary;
+                box-shadow: 0 10px 20px rgba(243,115,65,.25);
+                text-decoration: none;
             }
         }
 
@@ -306,8 +306,9 @@ const groupsForView = computed(() => {
             grid-template-areas: "info list";
             gap: 40px;
 
-            &__left   { padding-left: 0; }
+            &__left { padding-left: 0; }
             &__scroll { block-size: var(--list-h, 44vh); }
+        
             .previewDay__title { font-size: 1.6rem; }
             .previewCard__meta { font-size: 1rem; }
         }
@@ -318,7 +319,7 @@ const groupsForView = computed(() => {
             &__scroll { block-size: var(--list-h, 52vh); }
 
             &__right .info__btn {
-            box-shadow: 0 10px 20px rgba(243,115,65,.3);
+                box-shadow: 0 10px 20px rgba(243,115,65,.3);
             }
         }
     }
