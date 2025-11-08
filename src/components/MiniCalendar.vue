@@ -74,11 +74,8 @@ const groupsForView = computed(() => {
 
 <template>
     <section
-      class="calendarPreview"
-      :style="{ '--preview-w': width, '--preview-h': height }"
-      aria-labelledby="calendarPreviewTitle"
-    >
-      <!-- Højre infoboks (mobil: vises først via CSS order) -->
+      class="calendarPreview" :style="{ '--preview-w': width, '--preview-h': height }" aria-labelledby="calendarPreviewTitle">
+
       <aside class="calendarPreview__right">
         <h3 id="calendarPreviewTitle" class="info__title">
           Find din næste <span>aktivitet</span> her
@@ -92,7 +89,6 @@ const groupsForView = computed(() => {
         <a class="info__btn" href="/calendar">FIND AKTIVITET</a>
       </aside>
   
-      <!-- Venstre: oversigten -->
       <div class="calendarPreview__left">
         <div class="calendarPreview__scroll" role="region" aria-label="Aktivitetsliste">
           <template v-if="groupsForView.length">
@@ -121,8 +117,7 @@ const groupsForView = computed(() => {
   
             <div
               v-if="!showAll && totalCount > VISIBLE_COUNT"
-              class="previewMore"
-            >
+              class="previewMore">
               <button type="button" class="previewMore__btn" @click="showAll = true">
                 Indlæs flere aktiviteter
               </button>
@@ -136,111 +131,191 @@ const groupsForView = computed(() => {
   </template>
 
 <style lang="scss" scoped>
-.calendarPreview {
-  /* container */
-  /*inline-size: min(1200px, 92vw);
-  margin-inline: auto;*/
-  border-radius: 14px;
-  padding: 40px 40px 60px 40px;
+    @use '../assets/_colors.scss' as c;
+    @use '../assets/_fonts.scss' as f;
+    @use '../assets/_buttons.scss' as btn;
 
-  /* mobil: info over liste */
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "info"
-    "list";
-  gap: 28px;
+    .calendarPreview {
+        font-family: f.$font-primary;
 
-  &__right { grid-area: info; }  /* infoboks */
-  &__left  { grid-area: list; padding-left: 10px; } /* oversigt */
-  &__title { margin: 0; font-weight: 800; font-size: 1rem; }
-  &__meta  { display: flex; align-items: center; gap: 12px; }
-  &__error { color: #b00020; }
+        h1, h2, h3, h4, h5, h6,
+        .info__title,
+        .previewDay__title,
+        .previewCard__title {
+            font-family: f.$font-secondary;
+        }
 
-  /* ——— Scroll-boks (liste) ——— */
-  &__scroll {
-    block-size: var(--list-h, 38vh);
-    overflow-y: scroll;           /* altid synlig scrollbar */
-    overflow-x: hidden;
-    direction: rtl;
-    padding: 8px 10px 12px 20px;
+        border-radius: 14px;
+        padding: 40px 40px 0 40px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "info" "list";
+        gap: 28px;
 
-    /* indhold læses normalt */
-    .previewDay, .previewList, .calendarPreview__empty { direction: ltr; }
+        &__right { grid-area: info; }
+        &__left  { grid-area: list; padding-left: 10px; }
 
-    scrollbar-gutter: stable both-edges; /* undgå hop */
-    scrollbar-width: thin;
-    scrollbar-color: #c2c7d1 transparent;
-    &::-webkit-scrollbar { width: 10px; height: 10px; }
-    &::-webkit-scrollbar-track { background: transparent; }
-    &::-webkit-scrollbar-thumb {
-      background: #c2c7d1; border-radius: 8px; border: 2px solid transparent; background-clip: content-box;
+        &__title { margin: 0; font-weight: 800; font-size: 1rem; }
+        &__meta  { display: flex; align-items: center; gap: 12px; }
+        &__error { color: #b00020; }
+
+        &__scroll {
+            block-size: var(--list-h, 38vh);
+            overflow-y: scroll;
+            overflow-x: hidden;
+            direction: rtl;
+            padding: 8px 10px 12px 20px;
+
+            .previewDay,
+            .previewList,
+            .calendarPreview__empty { direction: ltr; }
+
+            scrollbar-gutter: stable both-edges;
+            scrollbar-width: thin;
+            scrollbar-color: #c2c7d1 transparent;
+
+            &::-webkit-scrollbar { width: 10px; height: 10px; }
+            &::-webkit-scrollbar-track { background: transparent; }
+            &::-webkit-scrollbar-thumb {
+                background: #c2c7d1;
+                border-radius: 8px;
+                border: 2px solid transparent;
+                background-clip: content-box;
+            }
+
+            &::-webkit-scrollbar-thumb:hover { background: #aeb5c2; }
+        }
+
+        .previewDay {
+            display: grid;
+            gap: 14px;
+            margin: 0 0 16px;
+        }
+
+        .previewDay__title {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: .2px;
+            color: #101738;
+        }
+
+        .previewList {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 16px;
+        }
+
+        .previewCard {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 18px;
+            background: #fefffe;
+            border: 1px solid #c5c8d3;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            margin-bottom: 5px; 
+
+            &__main  { min-width: 0; }
+
+            &__title {
+            font-weight: 800;
+            font-size: 1.08rem;
+            margin: 0 0 6px;
+            color: #101738;
+            }
+
+            &__meta {
+            color: #3a3a3a;
+            font-size: .98rem;
+            font-family: f.$font-primary;
+            }
+
+            &__actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            :deep(button) {
+                min-width: 130px;
+                height: 44px;
+            }
+            }
+        }
+
+        .previewMore {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px;
+
+            &__btn {
+            border: 0;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: #e9efff;
+            color: #1f3bb3;
+            font-weight: 800;
+            font-family: f.$font-primary;
+            box-shadow: 0 6px 16px rgba(31,59,179,.18);
+
+            &:hover { filter: brightness(.97); }
+            }
+        }
+
+        &__right {
+            align-self: start;
+            justify-self: stretch;
+            inline-size: 100%;
+            border-radius: 16px;
+            padding: 100px 22px;
+
+            .info__title {
+            margin: 0 0 12px;
+            font-weight: 900;
+            font-size: 1.6rem;
+            line-height: 1.25;
+            color: #101738;
+            }
+
+            .info__text {
+            margin: 0 0 18px;
+            color: #2d2f3a;
+            line-height: 1.55;
+            font-family: f.$font-primary;
+            }
+
+            .info__btn {
+            @include btn.button(btn.$button-primary);
+            font-family: f.$font-primary;
+            box-shadow: 0 10px 20px rgba(243,115,65,.25);
+            text-decoration: none;
+            }
+        }
+
+        @media (min-width: 600px) {
+            grid-template-columns: 0.9fr 1.6fr;
+            grid-template-areas: "info list";
+            gap: 40px;
+
+            &__left   { padding-left: 0; }
+            &__scroll { block-size: var(--list-h, 44vh); }
+            .previewDay__title { font-size: 1.6rem; }
+            .previewCard__meta { font-size: 1rem; }
+        }
+
+        @media (min-width: 1024px) {
+            grid-template-columns: 1fr 2fr;
+            gap: 56px;
+            &__scroll { block-size: var(--list-h, 52vh); }
+
+            &__right .info__btn {
+            box-shadow: 0 10px 20px rgba(243,115,65,.3);
+            }
+        }
     }
-    &::-webkit-scrollbar-thumb:hover { background: #aeb5c2; }
-  }
-
-  /* grupper + kort */
-  .previewDay { display: grid; gap: 14px; margin: 0 0 16px; }
-  .previewDay__title { margin: 0; font-size: 1.5rem; font-weight: 800; letter-spacing: .2px; color: #101738; }
-
-  .previewList { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-
-  .previewCard {
-    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px;
-    padding: 16px 18px; background: #fefffe; border: 1px solid #e2e6ef;
-    border-radius: 14px; box-shadow: 0 14px 30px rgba(0,0,0,.12);
-
-    &__main { min-width: 0; }
-    &__title { font-weight: 800; font-size: 1.08rem; margin: 0 0 6px; color: #101738; }
-    &__meta { color: #3a3a3a; font-size: .98rem; }
-    &__actions { display: flex; align-items: center; justify-content: flex-end;
-      :deep(button) { min-width: 130px; height: 44px; }
-    }
-  }
-
-  .previewMore { display: flex; justify-content: center; margin-top: 8px;
-    &__btn {
-      border: 0; cursor: pointer; padding: 10px 16px; border-radius: 12px;
-      background: #e9efff; color: #1f3bb3; font-weight: 800;
-      box-shadow: 0 6px 16px rgba(31,59,179,.18);
-      &:hover { filter: brightness(.97); }
-    }
-  }
-
-  /* infoboks (venstre på større skærme) */
-  &__right {
-    align-self: start; justify-self: stretch; inline-size: 100%;
-    border-radius: 16px;
-    padding: 100px 22px;
-
-    .info__title { margin: 0 0 12px; font-weight: 900; font-size: 1.6rem; line-height: 1.25; color: #101738; }
-    .info__text  { margin: 0 0 18px; color: #2d2f3a; line-height: 1.55; }
-    .info__btn   {
-      display: inline-block; padding: 12px 18px; border-radius: 12px;
-      background: #f37341; color: #fff; font-weight: 800; text-decoration: none;
-      box-shadow: 0 10px 20px rgba(243,115,65,.25);
-      &:hover { filter: brightness(.95); }
-    }
-  }
-
-  /* ——— Tablet: info venstre, liste højre; gør listen bredere ——— */
-  @media (min-width: 768px) {
-    grid-template-columns: .9fr 1.6fr;       /* liste bredere end info */
-    grid-template-areas: "info list";        /* info venstre, liste højre */
-    gap: 40px;
-
-    &__left  { padding-left: 0; }
-    &__scroll { block-size: var(--list-h, 44vh); }
-    .previewDay__title { font-size: 1.6rem; }
-    .previewCard__meta { font-size: 1rem; }
-  }
-
-  /* ——— Desktop: endnu bredere liste, sticky info ——— */
-  @media (min-width: 1100px) {
-    grid-template-columns: 1fr 2fr;          /* ~33% / 67% */
-    gap: 56px;
-    &__scroll { block-size: var(--list-h, 52vh); }
-    &__right  { position: sticky; top: 18px; }
-  }
-}
 </style>
