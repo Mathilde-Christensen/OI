@@ -164,7 +164,7 @@ const onTouchEnd = (e) => {
       align-items: center;
       text-align: center;
       color: c.$color-secondary;
-      padding: 0 6rem;
+      padding: 0 3rem;
 
       h1 {
         font-size: clamp(1.6rem, 4vw, 3rem);
