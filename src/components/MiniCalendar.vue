@@ -146,14 +146,14 @@ const groupsForView = computed(() => {
         }
 
         border-radius: 14px;
-        padding: 40px 40px 0 40px;
+        padding: 40px 40px 40px 40px;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: "info" "list";
         gap: 28px;
 
         &__right { grid-area: info; }
-        &__left  { grid-area: list; padding-left: 10px; }
+        &__left  { grid-area: list; padding-left: 0; }
 
         &__title { margin: 0; font-weight: 800; font-size: 1rem; }
         &__meta  { display: flex; align-items: center; gap: 12px; }
@@ -272,7 +272,7 @@ const groupsForView = computed(() => {
                 justify-self: stretch;
                 inline-size: 100%;
                 border-radius: 16px;
-                padding: 100px 22px;
+                padding: 30px 22px;
 
             .info__title {
                 margin: 0 0 12px;
@@ -306,7 +306,7 @@ const groupsForView = computed(() => {
             grid-template-areas: "info list";
             gap: 40px;
 
-            &__left { padding-left: 0; }
+            &__left { padding: 0; }
             &__scroll { block-size: var(--list-h, 44vh); }
         
             .previewDay__title { font-size: 1.6rem; }
@@ -317,6 +317,8 @@ const groupsForView = computed(() => {
             grid-template-columns: 1fr 2fr;
             gap: 56px;
             &__scroll { block-size: var(--list-h, 52vh); }
+            &__left { padding: 0 0 40px 0; }
+            &__right{ padding: 100px 0 0 0;}
 
             &__right .info__btn {
                 box-shadow: 0 10px 20px rgba(243,115,65,.3);
