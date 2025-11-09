@@ -155,7 +155,8 @@ const activities = [
     inset: auto;
     block-size: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     padding: 18px 16px;
   }
 
