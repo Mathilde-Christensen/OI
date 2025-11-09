@@ -10,6 +10,7 @@ import AktivitetsOversigt from '@/views/AktivitetsOversigt.vue'
 import HeroSlideshow from '@/components/HeroSlideshow.vue'
 import MiniCalendar from '@/components/MiniCalendar.vue'
 import SectionDarkBlue from '@/components/SectionDarkBlue.vue'
+import FindActivity from '@/components/FindActivity.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -60,6 +61,11 @@ const router = createRouter({
       path: '/sectiondarkblue',
       name: 'sectiondarkblue',
       component: SectionDarkBlue,
+    },
+    {
+      path:'/findactivity',
+      name: 'findactivity',
+      component: FindActivity,
     }
   ],
 })
