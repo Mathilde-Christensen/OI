@@ -1,17 +1,37 @@
 <script setup>
 import SectionDarkBlue from '@/components/SectionDarkBlue.vue';
-import saunaHero from '@/assets/images/hero-slides/sauna-hero.webp'
+import SectionLightBlue from '@/components/SectionLightBlue.vue';
+import HeroSlide from '@/components/HeroSlideshow.vue'
+import Kalender from '@/components/MiniCalendar.vue'
+import OpeningHours from '@/components/OpeningHours.vue'
+import Aktiviteter from '@/components/FindActivity.vue'
+
+import GroupPhoto from '@/assets/images/activities/grouphug.webp';
+import HulaHop from '@/assets/images/activities/hulahop.webp';
 
 
 </script>
 
 <template>
   <main>
-    <SectionDarkBlue
-    :image="saunaHero"
+  <HeroSlide />
+  <Kalender />
+  <SectionLightBlue
+  :image="GroupPhoto"
     title="Odense Idrætspark - samlingspunkt for bevægelse og fællesskab"
-    text="Odense Idrætspark danner rammen for bevægelse og fællesskab..."
+    text="Odense Idrætspark samler byens mange faciliteter, foreninger og aktiviteter under ét tag. Her finder du alt fra svømmehaller og sportshaller til udendørsbaner og events for alle aldre.
+    Uanset om du dyrker sport, bevægelse eller bare vil være en del af fællesskabet – så er du velkommen."
     buttonText="Udforsk"
+  />
+  <Aktiviteter />
+  <OpeningHours />
+
+  <SectionDarkBlue
+    :image="HulaHop"
+    title="Følg med i hverdagen hos Odense Idrætspark"
+    text="Hold dig opdateret om arrangementer, nye aktiviteter og hverdagen i Odense Idrætspark.
+     Følg os på Facebook og Instagram for de seneste nyheder og stemningsbilleder fra vores mange faciliteter."
+    buttonText="Følg os"
   />
 
   </main> 
