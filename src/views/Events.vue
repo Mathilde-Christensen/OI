@@ -1,17 +1,16 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import BookBtn from '../components/BookBtn.vue'
-import { eventStartMs, dateKey, weekdayDa, formatDateDa } from '../utils/date'
+import BookBtn from '@/components/BookBtn.vue'
+import { eventStartMs, dateKey, weekdayDa, formatDateDa } from '@/utils/date'
 
 const DB_URL = import.meta.env.VITE_FIREBASE_DATABASE_URL?.replace(/\/$/, '')
-console.log('[DB_URL]', DB_URL)
 if (!DB_URL) {
-  console.error('Mangler VITE_FIREBASE_DATABASE_URL i .env (projektets rodmappe)')
+  console.error('Mangler VITE_FIREBASE_DATABASE_URL i .env')
 }
 
-const events = ref([])
+const events  = ref([])
 const loading = ref(false)
-const error = ref('')
+const error   = ref('')
 
 onMounted(load)
 
@@ -26,11 +25,6 @@ async function load() {
     events.value = Object.entries(raw)
       .map(([id, v]) => (v ? { id, ...v } : null))
       .filter(Boolean)
-      .sort((a, b) => {
-        const aKey = `${a.date} ${a.start ?? '00:00'}`
-        const bKey = `${b.date} ${b.start ?? '00:00'}`
-        return aKey.localeCompare(bKey)
-      })
   } catch (e) {
     console.error(e)
     error.value = 'Kunne ikke hente hold.'
@@ -39,33 +33,17 @@ async function load() {
   }
 }
 
-function weekdayName(isoDate) {
-  if (!isoDate) return 'Uden dato'
-  const d = new Date(isoDate)
-  if (String(isoDate).includes('-') && isoDate.split('-')[0].length === 2) {
-    const [dd, mm, yyyy] = isoDate.split('-')
-    return new Intl.DateTimeFormat('da-DK', { weekday: 'long' }).format(new Date(`${yyyy}-${mm}-${dd}`))
-  }
-  return new Intl.DateTimeFormat('da-DK', { weekday: 'long' }).format(d)
-}
-
-function formatDate(iso) {
-  if (!iso) return ''
-  const [yyyy, mm, dd] = iso.split('-')
-  return `${dd}-${mm}-${yyyy}`
-}
-
 const groups = computed(() => {
   const sorted = [...events.value].sort((a, b) => eventStartMs(a) - eventStartMs(b))
-
   const map = new Map()
+
   for (const ev of sorted) {
     const key = dateKey(ev)
     if (!map.has(key)) {
-      const title =
-        ev?.date
-          ? `${weekdayDa(ev.date)[0].toUpperCase()}${weekdayDa(ev.date).slice(1)} ${formatDateDa(ev.date)}`
-          : 'Uden dato'
+      const wd = ev?.date ? weekdayDa(ev.date) : ''
+      const title = ev?.date
+        ? `${wd.charAt(0).toUpperCase()}${wd.slice(1)} ${formatDateDa(ev.date)}`
+        : 'Uden dato'
       map.set(key, { day: title, items: [] })
     }
     map.get(key).items.push(ev)
@@ -73,124 +51,180 @@ const groups = computed(() => {
 
   return [...map.entries()]
     .sort((a, b) => a[0].localeCompare(b[0]))
-    .map(([, group]) => group)
+    .map(([, g]) => g)
 })
-
-function join(ev) {
-  console.log('Tilmeld til event id:', ev.id)
-}
 </script>
 
 <template>
-  <main class="list">
-    <header class="list__header">
-      <h1>Holdoversigt</h1>
-      <span v-if="loading">Henter…</span>
+  <main class="events">
+    <header class="events__header">
+      <h1 class="events__title">Holdoversigt</h1>
+      <span v-if="loading" class="events__status">Henter…</span>
     </header>
 
-    <p v-if="error" class="list__error">{{ error }}</p>
-    <p v-else-if="!loading && !events.length">Ingen hold endnu.</p>
+    <p v-if="error" class="events__error">{{ error }}</p>
+    <p v-else-if="!loading && !events.length" class="events__empty">
+      Ingen hold endnu.
+    </p>
 
-    <section v-for="group in groups" :key="group.day" class="list__day">
-      <h2 class="list__dayTitle">{{ group.day }}</h2>
+    <section
+      v-for="group in groups"
+      :key="group.day"
+      class="previewDay"
+    >
+      <h2 class="previewDay__title">{{ group.day }}</h2>
 
-      <ul class="list__items">
-        <li v-for="ev in group.items" :key="ev.id" class="card">
-          <div class="card__left">
-            <div class="card__time">
+      <ul class="previewList">
+        <li v-for="ev in group.items" :key="ev.id" class="previewCard">
+          <div class="previewCard__main">
+            <span class="previewCard__title">{{ ev.title ?? 'Uden titel' }}</span>
+            <span class="previewCard__time">
               Kl. {{ ev.start || '—' }} – {{ ev.end || '—' }}
-            </div>
-            <div class="card__title">{{ ev.title ?? 'Uden titel' }}</div>
-            <div class="card__meta">
-                <span v-if="ev.location">{{ ev.location }}</span>
-                <span v-if="ev.coach"> • {{ ev.coach }}</span>
-            </div>
-            <p v-if="ev.description" class="card__desc">{{ ev.description }}</p>
+            </span>
+            <span class="previewCard__location">{{ ev.location ?? '' }}</span>
+            <span class="previewCard__price">
+            {{ ev.priceText ?? (ev.price ? ev.price + ' kr.' : '') }}
+            </span>
           </div>
 
-          <div class="card__right">
+          <div class="previewCard__actions">
             <BookBtn :id="ev.id" />
-          </div>
+         </div>
         </li>
       </ul>
     </section>
   </main>
 </template>
 
-<style scoped>
-.list { 
-    padding: 24px; 
-    display: grid; 
-    gap: 24px; 
-}
+<style lang="scss" scoped>
+  @use '../assets/_colors.scss' as c;
+  @use '../assets/_fonts.scss' as f;
 
-.list__header { 
-    display: flex; 
-    align-items: baseline; 
-    gap: 12px; 
-}
+  .events {
+    font-family: f.$font-primary;
+    background: c.$color-secondary;
+    padding: 40px clamp(1.5rem, 5vw, 80px) 60px;
+    display: grid;
+    gap: 28px;
+  }
 
-.list__day { 
-    display: grid; 
-    gap: 12px; 
-}
+  .events__header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
 
-.list__dayTitle { 
-    margin: 0; 
-    font-size: 28px; 
-}
+  .events__title {
+    margin: 0;
+    font-family: f.$font-secondary;
+    font-size: 2rem;
+    font-weight: 700;
+    color: c.$color-primary;
+  }
 
-.list__items { 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    display: grid; 
-    gap: 14px; 
-}
+  .events__status {
+    font-size: 0.95rem;
+    opacity: 0.8;
+  }
 
-.card {
-  display: flex; 
-  justify-content: space-between; 
-  gap: 16px;
-  padding: 16px; 
-  border-radius: 16px;
-  border: 1px solid #e6e6e6; 
-  background: #e0e9ff;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-}
+  .events__error {
+    color: #b00020;
+  }
 
-.card__title { 
-    font-weight: 800; 
-    font-size: 20px; 
-    margin-top: 6px; 
-}
+  .events__empty {
+    margin: 0;
+  }
 
-.card__time { 
-    font-weight: 600; 
-    opacity: 0.9; 
-}
-.card__meta { 
-    color: #334; 
-    margin-top: 4px; 
-}
 
-.card__desc { 
-    margin-top: 8px; 
-}
+  .previewDay {
+    display: grid;
+    gap: 14px;
+    margin: 0 0 24px;
+  }
 
-.card__btn {
-  align-self: center; 
-  padding: 10px 16px; 
-  border: none; 
-  border-radius: 12px;
-  background: #f0652a; 
-  color: white; 
-  font-weight: 800; 
-  cursor: pointer;
-}
+  .previewDay__title {
+    margin: 0;
+    font-family: f.$font-secondary;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+    color: c.$color-primary;
+  }
 
-.list__error { 
-    color: #b00020; 
-}
+  .previewList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
 
+  .previewCard {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    background: c.$color-secondary;
+    border: 1px solid #c5c8d3;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    &__main {
+      display: grid;
+      grid-template-columns: 2fr 1.2fr 1fr 0.8fr;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    &__title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: c.$color-primary;
+    }
+
+    &__time,
+    &__location,
+    &__price {
+      font-size: 0.98rem;
+      color: #1e1e1e;
+      font-family: f.$font-primary;
+    }
+
+    &__actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      :deep(button) {
+        min-width: 130px;
+        height: 44px;
+      }
+    } 
+  }
+
+ 
+  @media (min-width: 768px) {
+    .events {
+      gap: 32px;
+    }
+
+    .previewDay__title {
+      font-size: 1.8rem;
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    .events {
+      padding-bottom: 80px;
+    }
+  }
 </style>
