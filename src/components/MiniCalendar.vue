@@ -177,152 +177,185 @@ const groupsForView = computed(() => {
             &::-webkit-scrollbar { width: 10px; height: 10px; }
             &::-webkit-scrollbar-track { background: transparent; }
             &::-webkit-scrollbar-thumb {
-                background: c.$color-secondary;
-                border-radius: 8px;
-                border: 2px solid transparent;
-                background-clip: content-box;
+            background: c.$color-secondary;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            background-clip: content-box;
             }
 
             &::-webkit-scrollbar-thumb:hover { background: #aeb5c2; }
         }
+    }
 
-        .previewDay {
-            display: grid;
-            gap: 14px;
-            margin: 0 0 16px;
+    /* Dag-overskrift */
+    .previewDay {
+        display: grid;
+        gap: 14px;
+        margin: 0 0 16px;
+    }
+
+    .previewDay__title {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: .2px;
+        color: c.$color-primary;
+    }
+
+    .previewList {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 16px;
+    }
+
+    .previewCard {
+        display: grid;
+        grid-template-columns: 1fr;   
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 18px;
+        background: c.$color-secondary;
+        border: 1px solid #c5c8d3;
+        border-radius: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        .previewDay__title {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: .2px;
+        &__main {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 0;
+        }
+
+        &__title {
+            font-weight: 800;
+            font-size: 1.05rem;
             color: c.$color-primary;
         }
 
-        .previewList {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            gap: 16px;
+        &__meta {
+            color: #3a3a3a;
+            font-size: 0.95rem;
+            font-family: f.$font-primary;
         }
 
-        .previewCard {
-            display: grid;
-            grid-template-columns: 1fr auto;
+        &__actions {
+            margin-top: 6px;
+            display: flex;
+            justify-content: center;  
             align-items: center;
-            gap: 18px;
-            padding: 16px 18px;
-            background: c.$color-secondary;
-            border: 1px solid #c5c8d3;
-            border-radius: 14px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            margin-bottom: 5px; 
-
-            &__main  { min-width: 0; }
-
-            &__title {
-                font-weight: 800;
-                font-size: 1.08rem;
-                margin: 0 0 6px;
-                color: c.$color-primary;
-            }
-
-            &__meta {
-                color: #3a3a3a;
-                font-size: 0.98rem;
-                font-family: f.$font-primary;
-            }
-
-            &__actions {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
 
             :deep(button) {
-                min-width: 130px;
-                height: 44px;
-            }
+            width: 100%;
+            max-width: 220px;
+            height: 40px;
+            font-size: 0.9rem;
             }
         }
+    }
 
-        .previewMore {
-            display: flex;
-            justify-content: center;
-            margin-top: 8px;
 
-            &__btn {
-                border: 0;
-                cursor: pointer;
-                padding: 10px 16px;
-                border-radius: 12px;
-                background: #e9efff;
-                color: #1f3bb3;
-                font-weight: 800;
-                font-family: f.$font-primary;
-                box-shadow: 0 6px 16px rgba(31,59,179,.18);
+    .previewMore {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+
+        &__btn {
+            border: 0;
+            cursor: pointer;
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: #e9efff;
+            color: #1f3bb3;
+            font-weight: 800;
+            font-family: f.$font-primary;
+            box-shadow: 0 6px 16px rgba(31,59,179,.18);
 
             &:hover { filter: brightness(.97); }
-            }
+        }
+    }
+
+    .calendarPreview__right {
+        align-self: start;
+        justify-self: stretch;
+        inline-size: 100%;
+        border-radius: 16px;
+        padding: 30px 22px;
+
+        .info__title {
+            margin: 0 0 12px;
+            font-weight: 600;
+            font-size: 1.6rem;
+            line-height: 1.25;
+            color: c.$color-primary;
+
+            span { font-weight: 900; }
         }
 
-        &__right {
-                align-self: start;
-                justify-self: stretch;
-                inline-size: 100%;
-                border-radius: 16px;
-                padding: 30px 22px;
-
-            .info__title {
-                margin: 0 0 12px;
-                font-weight: 600;
-                font-size: 1.6rem;
-                line-height: 1.25;
-                color: c.$color-primary;
-
-                span {
-                    font-weight: 900;
-                }
-            }
-
-            .info__text {
-                margin: 0 0 18px;
-                color: c.$color-primary;
-                line-height: 1.55;
-                font-family: f.$font-primary;
-            }
-
-            .info__btn {
-                @include btn.button(btn.$button-primary);
-                font-family: f.$font-primary;
-                box-shadow: 0 10px 20px rgba(243,115,65,.25);
-                text-decoration: none;
-            }
+        .info__text {
+            margin: 0 0 18px;
+            color: c.$color-primary;
+            line-height: 1.55;
+            font-family: f.$font-primary;
         }
 
-        @media (min-width: 600px) {
+        .info__btn {
+            @include btn.button(btn.$button-primary);
+            font-family: f.$font-primary;
+            box-shadow: 0 10px 20px rgba(243,115,65,.25);
+            text-decoration: none;
+        }
+    }
+
+    @media (min-width: 600px) {
+        .calendarPreview {
             grid-template-columns: 0.9fr 1.6fr;
             grid-template-areas: "info list";
             gap: 40px;
-
-            &__left { padding: 0; }
-            &__scroll { block-size: var(--list-h, 44vh); }
-        
-            .previewDay__title { font-size: 1.6rem; }
-            .previewCard__meta { font-size: 1rem; }
         }
 
-        @media (min-width: 1024px) {
+        .calendarPreview__left { padding-left: 0; }
+        .calendarPreview__scroll { block-size: var(--list-h, 44vh); }
+
+        .previewDay__title { font-size: 1.6rem; }
+
+        .previewCard {
+            grid-template-columns: 1fr auto; 
+            align-items: center;
+            gap: 18px;
+        }
+
+        .previewCard__actions {
+            margin-top: 0;
+            justify-content: flex-end;
+
+            :deep(button) {
+            width: auto;
+            min-width: 130px;
+            height: 44px;
+            font-size: 1rem;
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .calendarPreview {
             grid-template-columns: 1fr 2fr;
             gap: 56px;
-            &__scroll { block-size: var(--list-h, 52vh); }
-            &__left { padding: 0 0 40px 0; }
-            &__right{ padding: 100px 0 0 0;}
+        }
 
-            &__right .info__btn {
-                box-shadow: 0 10px 20px rgba(243,115,65,.3);
-            }
+        .calendarPreview__scroll { block-size: var(--list-h, 52vh); }
+        .calendarPreview__right { padding: 100px 0 0 0; }
+
+        .calendarPreview__right .info__btn {
+            box-shadow: 0 10px 20px rgba(243,115,65,.3);
         }
     }
 </style>

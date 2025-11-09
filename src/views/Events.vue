@@ -135,7 +135,6 @@ const groups = computed(() => {
     margin: 0;
   }
 
-
   .previewDay {
     display: grid;
     gap: 14px;
@@ -160,11 +159,11 @@ const groups = computed(() => {
   }
 
   .previewCard {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 18px;
-    padding: 18px 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 18px;
     background: c.$color-secondary;
     border: 1px solid #c5c8d3;
     border-radius: 14px;
@@ -177,41 +176,43 @@ const groups = computed(() => {
     }
 
     &__main {
-      display: grid;
-      grid-template-columns: 2fr 1.2fr 1fr 0.8fr;
-      align-items: center;
-      gap: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
       min-width: 0;
+      width: 100%;
     }
 
     &__title {
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: c.$color-primary;
     }
 
     &__time,
     &__location,
     &__price {
-      font-size: 0.98rem;
+      font-size: 0.9rem;
       color: #1e1e1e;
       font-family: f.$font-primary;
     }
 
     &__actions {
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      justify-content: center;
+      margin-top: 6px;
 
       :deep(button) {
         min-width: 130px;
         height: 44px;
+        transform: scale(0.85);
+        transform-origin: right center;
       }
-    } 
+    }
   }
 
- 
-  @media (min-width: 768px) {
+  @media (min-width: 600px) {
     .events {
       gap: 32px;
     }
@@ -219,8 +220,40 @@ const groups = computed(() => {
     .previewDay__title {
       font-size: 1.8rem;
     }
-  }
 
+    .previewCard {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 22px;
+
+      &__main {
+        display: grid;
+        grid-template-columns: 2fr 1.2fr 1fr 0.8fr;
+        align-items: center;
+        gap: 18px;
+      }
+
+      &__title {
+        font-size: 1.1rem;
+      }
+
+      &__time,
+      &__location,
+      &__price {
+        font-size: 0.98rem;
+      }
+
+      &__actions {
+        margin-top: 0;
+
+        :deep(button) {
+          transform: none;
+        }
+      }
+    }
+  }
 
   @media (min-width: 1024px) {
     .events {
