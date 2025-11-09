@@ -6,6 +6,7 @@ $button-primary: (
   bg:        c.$cta,
   color:     c.$color-secondary,
   radius:    10px,
+  border-width: 1px,
 
   font: (
     size:     12px,
@@ -17,7 +18,8 @@ $button-primary: (
   size-t: (w: 150px, h: 43px, font-size: 14px, weight: 800),
   size-lg: (w: 200px, h: 50px, font-size: 16px, weight: 900),
 
-  hover-bg: c.$color-tertiary
+  hover-bg: c.$color-tertiary,
+  hover-border: c.$color-primary
 ) !default;
 
 // Mixin der læser værdierne fra config'en
@@ -30,6 +32,11 @@ $button-primary: (
   $size-lg:  map-get($cfg, size-lg);
   $size-t:   map-get($cfg, size-t); 
   $hover-bg: map-get($cfg, hover-bg);
+  $hover-border: map-get($cfg, hover-border);
+  $border-width: map-get($cfg, border-width);
+
+  border: $border-width solid transparent;
+
 
   display: inline-flex;
   justify-content: center;
@@ -49,6 +56,7 @@ $button-primary: (
 
   &:hover {
     background: $hover-bg;
+    border-color: $hover-border;
     transform: translateY(-1px);
   }
 
