@@ -223,7 +223,7 @@
                     <button @click="toggle(4)">Åbningstider og Info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
 
                     <ul v-if="activeIndex === 4">
-                        <li>Generalle åbningstider</li>
+                        <li>Generelle åbningstider</li>
                         <li>Priser og billetter</li>
                         <li>Regler og retningslinjer</li>
                         <li>Kontaktinformation</li>
