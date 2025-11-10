@@ -65,7 +65,7 @@
                         <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
 
                         <ul v-if="activeIndex === 0">
-                            <li><RouterLink to="/aktivitetsoversigt">Aktivitets oversigt</RouterLink></li>
+                            <li><RouterLink to="/aktivitetsoversigt">Aktivitetsoversigt</RouterLink></li>
                             <li>Foreninger</li>
                         </ul>
                     </li>
@@ -108,7 +108,7 @@
                         <button @click="toggle(4)">Åbningstider og Info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
 
                         <ul v-if="activeIndex === 4">
-                            <li>Generalle åbningstider</li>
+                            <li>Generelle åbningstider</li>
                             <li>Priser og billetter</li>
                             <li>Regler og retningslinjer</li>
                             <li>Kontaktinformation</li>
