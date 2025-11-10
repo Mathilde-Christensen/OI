@@ -76,7 +76,7 @@ defineProps({
   }
 
   .content_p {
-    line-height: 2.5rem;
+    line-height: 2.2rem;
   }
 
   .section_img {

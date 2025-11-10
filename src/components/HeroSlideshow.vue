@@ -230,7 +230,13 @@ const onTouchEnd = (e) => {
       }
     }
   }
-
   
+}
+
+@media (min-width: 1024px) {
+   .content {
+    max-width: 800px;
+    margin-inline: auto;
+   } 
 }
 </style>
