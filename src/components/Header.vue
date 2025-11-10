@@ -180,7 +180,7 @@
                     <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
 
                     <ul v-if="activeIndex === 0">
-                        <li><RouterLink to="/aktivitetsoversigt">Aktivitets oversigt</RouterLink></li>
+                        <li><RouterLink to="/aktivitetsoversigt">Aktivitetsoversigt</RouterLink></li>
                         <li>Foreninger</li>
                     </ul>
                 </li>
