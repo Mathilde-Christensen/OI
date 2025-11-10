@@ -8,7 +8,6 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
 <template>
     <footer class="footer" role="contentinfo">
       <div class="footer__inner">
-        <!-- Logos -->
         <div class="footer__logos">
           <img
             class="footer__logo footer__logo--idraetspark" :src="odenseIdraetspark" alt="Odense Idrætspark"/>
@@ -16,7 +15,6 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
             v-if="odenseKommune" class="footer__logo footer__logo--kommune" :src="odenseKommune" alt="Odense Kommune"/>
         </div>
   
-        <!-- Adresse/info -->
         <div class="footer__info">
           <h2 class="footer__title">Odense Idrætspark</h2>
           <p class="footer__subtitle">– en del af Odense Kommune</p>
@@ -26,8 +24,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
           <p class="footer__line">Israels Plads 3, 5200 Odense V</p>
           <p class="footer__line">CVR: 35209115</p>
         </div>
-  
-        <!-- Kontakt -->
+
         <div class="footer__contact">
           <h2 class="footer__heading">Kontakt</h2>
           <a class="footer__link" href="mailto:kontakt@odense-idraetspark.dk">
@@ -37,8 +34,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
             +45 66 13 13 72
           </a>
         </div>
-  
-        <!-- Følg os -->
+
         <div class="footer__social" aria-label="Sociale medier">
           <h2 class="footer__follow">Følg os</h2>
   
@@ -205,5 +201,5 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         border: 0;
-    }
+      }
 </style>
