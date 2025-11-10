@@ -80,8 +80,7 @@ import backgroundImage from '@/assets/images/activities/havnebad.webp'
 
         &__text {
             margin: 0 0 28px;
-            font-size: clamp(0.9rem, 1.1vw, 1rem);
-            line-height: 1.6;
+            line-height: 2rem;
             opacity: 0.95;
         }
 

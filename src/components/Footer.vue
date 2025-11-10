@@ -44,15 +44,15 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
   
           <div class="footer__social-icons">
             <a
-              class="footer__social-link" href="https://www.instagram.com/" target="_blank" rel="noopener">
+              class="footer__social-link" href="https://www.instagram.com/odenseidraetspark/" target="_blank" rel="noopener">
               <span class="sr-only">Instagram</span>
-              <img class="footer__social-img" :src="instagramBlack" alt=""/>
+              <img class="footer__social-img" :src="instagramBlack" alt="Ikon af Instagram"/>
             </a>
   
             <a
-              class="footer__social-link" href="https://www.facebook.com/" target="_blank" rel="noopener">
+              class="footer__social-link" href="https://www.facebook.com/OdenseIdraetspark/" target="_blank" rel="noopener">
               <span class="sr-only">Facebook</span>
-              <img class="footer__social-img" :src="facebookBlue" alt="" />
+              <img class="footer__social-img" :src="facebookBlue" alt="Ikon af Facebook" />
             </a>
           </div>
         </div>

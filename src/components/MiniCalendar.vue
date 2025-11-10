@@ -33,7 +33,6 @@ async function load() {
   }
 }
 
-/** Grupper som i Events.vue */
 const groups = computed(() => {
   const sorted = [...events.value].sort((a, b) => eventStartMs(a) - eventStartMs(b))
   const map = new Map()
@@ -53,7 +52,6 @@ const groups = computed(() => {
     .map(([, g]) => g)
 })
 
-/** Vis kun de første N events – med “Se flere”-toggle */
 const VISIBLE_COUNT = 10
 const showAll = ref(false)
 const totalCount = computed(() => groups.value.reduce((sum, g) => sum + g.items.length, 0))
@@ -146,7 +144,7 @@ const groupsForView = computed(() => {
         }
 
         border-radius: 14px;
-        padding: 40px 40px 40px 40px;
+        padding: 40px .25rem 40px .25rem;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-areas: "info" "list";
@@ -187,7 +185,6 @@ const groupsForView = computed(() => {
         }
     }
 
-    /* Dag-overskrift */
     .previewDay {
         display: grid;
         gap: 14px;
@@ -302,7 +299,7 @@ const groupsForView = computed(() => {
         .info__text {
             margin: 0 0 18px;
             color: c.$color-primary;
-            line-height: 1.55;
+            line-height: 2rem;
             font-family: f.$font-primary;
         }
 
@@ -347,15 +344,21 @@ const groupsForView = computed(() => {
 
     @media (min-width: 1024px) {
         .calendarPreview {
+            padding-left: 70px;
+            padding-right: 70px;
             grid-template-columns: 1fr 2fr;
             gap: 56px;
         }
 
         .calendarPreview__scroll { block-size: var(--list-h, 52vh); }
-        .calendarPreview__right { padding: 100px 0 0 0; }
+        .calendarPreview__right { 
+            padding: 100px 0 0 0; 
+        }
+        .calendarPreview__left{ padding-bottom:30px;}
 
         .calendarPreview__right .info__btn {
             box-shadow: 0 10px 20px rgba(243,115,65,.3);
         }
+        
     }
 </style>

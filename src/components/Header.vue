@@ -115,16 +115,20 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a href="https://www.instagram.com/odenseidraetspark/" target="_blank">
-                            <img class="logo_mobil_some" :src="instagramBlack" alt="instagram logo" />
-                        </a>
-
-                        <a href="https://www.facebook.com/OdenseIdraetspark" target="_blank">
-                            <img class="logo_mobil_some" :src="facebookBloue" alt="facebook logo" />
-                        </a>
-                    </li>
-                </ul>
+                    <ul class="header__socials">
+                        <li>
+                            <a href="https://www.instagram.com/odenseidraetspark/" target="_blank" rel="noopener">
+                            <img class="logo_mobil_some" :src="instagramBlack" alt="Instagram logo"/>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/OdenseIdraetspark/" target="_blank" rel="noopener">
+                            <img class="logo_mobil_some" :src="facebookBlue" alt="Facebook logo"/>
+                            </a>
+                        </li>
+                    </ul>
+                        
+                </ul> 
             </nav>
 
             <div class="mobil_header_logo">
@@ -143,8 +147,17 @@
 
         <div class="top_header">
             <div class="top_header_some">
-                <img class="header_some_img" :src="instagramBlack" alt="instagram logo" />
-                <img class="header_some_img" :src="facebookBloue" alt="facebook logo" />
+                <a href="https://www.instagram.com/odenseidraetspark/" 
+                    target="_blank" 
+                    rel="noopener">
+                    <img class="header_some_img" :src="instagramBlack" alt="instagram logo" />
+                </a>
+
+                <a href="https://www.facebook.com/OdenseIdraetspark/" 
+                    target="_blank" 
+                    rel="noopener">
+                    <img class="header_some_img" :src="facebookBloue" alt="facebook logo" />
+                </a>
             </div>
 
             <div class="top_header_logo">
