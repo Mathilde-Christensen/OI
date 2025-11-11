@@ -171,6 +171,10 @@ const onTouchEnd = (e) => {
         margin-bottom: 1rem;
       }
 
+      .subtitle{
+        line-height: 2rem;
+      }
+
       .btn {
         @include b.button(b.$button-primary);
         margin: 2rem;
