@@ -10,25 +10,25 @@ const activities = [
   {
     id: 'move',
     title: 'Bevægelse & træning',
-    to: '/aktiviteter/bevaegelse-traening',
+    to: '/activities/movetraining',
     image: moveImg,
   },
   {
     id: 'ball',
     title: 'Bold- og holdsport',
-    to: '/aktiviteter/bold-holdsport',
+    to: '/activities/ballandteam',
     image: ballImg,
   },
   {
     id: 'outdoor',
     title: 'Friluft & natur',
-    to: '/aktiviteter/friluft-natur',
+    to: '/activities/outdoornature',
     image: outdoorImg,
   },
   {
     id: 'culture',
     title: 'Kreativitet & kultur',
-    to: '/aktiviteter/kreativitet-kultur',
+    to: '/activities/creativityculture',
     image: cultureImg,
   },
 ]
