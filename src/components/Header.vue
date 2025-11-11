@@ -156,7 +156,7 @@
                 <a href="https://www.facebook.com/OdenseIdraetspark/" 
                     target="_blank" 
                     rel="noopener">
-                    <img class="header_some_img" :src="facebookBloue" alt="facebook logo" />
+                    <img class="header_some_img" :src="facebookBlue" alt="facebook logo" />
                 </a>
             </div>
 
