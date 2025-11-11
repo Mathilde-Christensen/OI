@@ -1,22 +1,40 @@
 <script setup>
 import SectionDarkBlue from '@/components/SectionDarkBlue.vue';
 import SectionLightBlue from '@/components/SectionLightBlue.vue';
+import moveImg     from '@/assets/images/activities/movetraining.webp'
+import ballImg     from '@/assets/images/activities/ballandteam.webp'
+import outdoorImg  from '@/assets/images/activities/outdoornature.webp'
+import cultureImg  from '@/assets/images/activities/creativityculture.webp'
+
+
 </script>
 
 <template>
 <SectionLightBlue
-  :image="GroupPhoto"
-    title="Odense Idrætspark - samlingspunkt for bevægelse og fællesskab"
-    text="Odense Idrætspark samler byens mange faciliteter, foreninger og aktiviteter under ét tag. Her finder du alt fra svømmehaller og sportshaller til udendørsbaner og events for alle aldre.
-    Uanset om du dyrker sport, bevægelse eller bare vil være en del af fællesskabet – så er du velkommen."
+  :image="moveImg"
+    title="Bevægelse & træning"
+    text="Udfordre dig selv og hold kroppen i gang! Her finder du alt fra klassisk styrketræning og gymnastik til kampsport og rulleskøjter. Uanset niveau kan du være med – det handler bare om at bevæge sig og have det sjovt."
     buttonText="Udforsk"
 />
 
 <SectionDarkBlue
-    :image="HulaHop"
-    title="Følg med i hverdagen hos Odense Idrætspark"
-    text="Hold dig opdateret om arrangementer, nye aktiviteter og hverdagen i Odense Idrætspark.
-     Følg os på Facebook og Instagram for de seneste nyheder og stemningsbilleder fra vores mange faciliteter."
-    buttonText="Følg os"
+    :image="ballImg"
+    title="Bold- og holdsport"
+    text="Elsker du fællesskabet og energien i holdsport? Vælg mellem alt fra fodbold og håndbold til badminton, volleyball og tennis. Her er der altid plads til både nye spillere og erfarne boldentusiaster."
+    buttonText="Udforsk"
+/>
+
+<SectionLightBlue
+  :image="outdoorImg"
+    title="Friluft & natur"
+    text="Få frisk luft og god energi i naturen. Deltag i aktiviteter som ridning, golf, spejder eller vandaktiviteter – perfekte for dig, der elsker at være aktiv under åben himmel og nyde fællesskabet i naturen."
+    buttonText="Udforsk"
+/>
+
+<SectionDarkBlue
+    :image="cultureImg"
+    title="Kreativitet & kultur"
+    text="Her finder du alt, der samler mennesker om oplevelser og fællesskab. Udfold dig kreativt gennem musik, teater og håndværk – eller vær med i aktiviteter som e-sport, curling og motorsport."
+    buttonText="Udforsk"
 />
 </template>
