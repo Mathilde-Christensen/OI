@@ -1,15 +1,25 @@
 <script setup>
 import SectionDarkBlue from '@/components/SectionDarkBlue.vue';
 import SectionLightBlue from '@/components/SectionLightBlue.vue';
+import HeroTamplate from '@/components/HeroTamplate.vue';
+
 import moveImg     from '@/assets/images/activities/movetraining.webp'
 import ballImg     from '@/assets/images/activities/ballandteam.webp'
 import outdoorImg  from '@/assets/images/activities/outdoornature.webp'
 import cultureImg  from '@/assets/images/activities/creativityculture.webp'
+import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
 
 
 </script>
 
 <template>
+
+<HeroTamplate 
+  :image="heroImg"
+  title="Find din næste fritidsaktivitet i Odense"
+  text="Dyk ned i byens mange fritidsaktiviteter – uanset om du vil prøve noget nyt, møde nye mennesker eller dyrke din passion. Herunder kan du udforske kategorierne og finde din næste en forening som tilbyder aktiviteterne."
+/>
+
 <SectionLightBlue
   :image="moveImg"
     title="Bevægelse & træning"
