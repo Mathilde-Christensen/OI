@@ -75,9 +75,9 @@ const groupsForView = computed(() => {
       class="calendarPreview" :style="{ '--preview-w': width, '--preview-h': height }" aria-labelledby="calendarPreviewTitle">
 
       <aside class="calendarPreview__right">
-        <h3 id="calendarPreviewTitle" class="info__title">
+        <h2 id="calendarPreviewTitle" class="info__title">
           Find din næste <span>aktivitet</span> her
-        </h3>
+        </h2>
         <p class="info__text">
           I Odense Idrætspark er der altid noget i gang. Vores mange hold
           og arrangementer dækker alt fra børneaktiviteter til seniortræning
@@ -288,7 +288,6 @@ const groupsForView = computed(() => {
         .info__title {
             margin: 0 0 12px;
             font-weight: 600;
-            font-size: 1.6rem;
             line-height: 1.25;
             color: c.$color-primary;
 

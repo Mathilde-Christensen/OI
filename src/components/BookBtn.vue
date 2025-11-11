@@ -153,6 +153,7 @@ button:disabled {
 
 .modal {
   width: min(640px, 92vw);
+  height: 300px;
   background: c.$color-secondary;
   border-radius: 14px;
   z-index: 1000;
@@ -161,22 +162,34 @@ button:disabled {
     0 20px 40px rgba(0,0,0,.25),
     0 2px 6px rgba(0,0,0,.15);
   padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
 }
 
 .modal__title {
-  font-family: f.$font-primary;
+  font-family: f.$font-secondary;
   color: c.$color-primary;
-  font-weight: 900;
+  font-weight: 600;
   font-size: clamp(24px, 3.2vw, 40px);
   line-height: 1.1;
   margin: 0 0 12px;
+  display: block;        
+  text-align: center;    
+  margin-left: auto;    
+  margin-right: auto;
 }
 
 .modal__text {
-  color: #2b2b2b;
+  color: c.$color-primary;
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 20px;
+  display: block;        
+  text-align: center;    
+  margin-left: auto;    
+  margin-right: auto;
 }
 
 .modal__actions {
@@ -189,23 +202,22 @@ button:disabled {
 .btn {
   @include btn.button(btn.$button-primary);
   font-weight: 900;
-  min-width: 160px;
 }
 
 .btn--outline {
   background: transparent;
-  color: c.$color-primary;
-  border: 3px solid c.$color-primary;
+  color: c.$cta;
+  border: 3px solid c.$cta;
 }
 
 .btn--solid {
   background: c.$cta; /* din orange farve */
   border: 0;
-  color: #fff;
+  color: c.$color-secondary;
 }
 
 .error {
   margin-top: 10px;
-  color: #b00020;
+  color: c.$cta;
 }
 </style>
