@@ -1,6 +1,6 @@
 <script setup>
     import instagramBlack from '@/assets/images/instagram_logo/black-glyph/instagram_glyph_black.webp'
-    import facebookBloue from '@/assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.webp'
+    import facebookBlue from '@/assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.webp'
     import odenseIdreatspark from '@/assets/images/ikoner/odense-idreatspark-logo.webp'
     import logIndIkon from '@/assets/images/ikoner/logind-ikon.webp'
     import soeIkon from '@/assets/images/ikoner/soe-ikon.webp'
