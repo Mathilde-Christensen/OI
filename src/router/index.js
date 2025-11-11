@@ -72,6 +72,26 @@ const router = createRouter({
       path: '/openinghours',
       name: 'openinghours',
       component: OpeningHours,
+    },
+    {
+      path: '/activities/movetraining',
+      name: 'movetraining',
+      component: () => import('@/views/MoveTraining.vue'),
+    },
+    {
+      path: '/activities/ballandteam',
+      name: 'ballandteam',
+      component: () => import('@/views/BallAndTeam.vue'),
+    },
+    {
+      path: '/activities/outdoornature',
+      name: 'outdoornature',
+      component: () => import('@/views/OutdoorNature.vue'),
+    },
+    {
+      path: '/activities/creativityculture',
+      name: 'creativityculture',
+      component: () => import('@/views/CreativityCulture.vue'),
     }
   ],
 })
