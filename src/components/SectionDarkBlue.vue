@@ -11,8 +11,8 @@ defineProps({
   <section class="dark_blue_section">
     <img class="section_img" v-if="image" :src="image" alt="">
     <div class="content">
-      <h2 class="content_h2">{{ title }}</h2>
-      <p class="content_p">{{ text }}</p>
+      <h2 class="content_h2" v-html="title"></h2>
+      <p class="content_p" v-html="text"></p>
       <div class="content_btn">
         <a v-if="buttonText" href="#" class="btn">{{ buttonText }}</a>
       </div>
@@ -33,6 +33,12 @@ defineProps({
   flex-direction: column;
   align-items: center;
 }
+
+.content_h2 { font-variation-settings: "wght" 400 !important; }
+.content_h2 :deep(span) { font-variation-settings: "wght" 800 !important; }
+.content_p { font-variation-settings: "wght" 400 !important; }
+.content_p :deep(span) { font-variation-settings: "wght" 800 !important; }
+
 
 .section_img {
   width: 100%;

@@ -210,6 +210,12 @@ button:disabled {
   border: 3px solid c.$cta;
 }
 
+.btn--outline:hover {
+  color: c.$color-tertiary;
+  border-color: c.$color-tertiary;
+  background-color: transparent;
+}
+
 .btn--solid {
   background: c.$cta; /* din orange farve */
   border: 0;
@@ -218,6 +224,6 @@ button:disabled {
 
 .error {
   margin-top: 10px;
-  color: c.$cta;
+  color: c.$color-secondary;
 }
 </style>

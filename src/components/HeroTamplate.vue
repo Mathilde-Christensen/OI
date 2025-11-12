@@ -11,8 +11,8 @@ defineProps({
   <section class="hero_tamplate">
     <img class="hero__img" v-if="image" :src="image" alt="">
     <div class="hero__content">
-      <h1 class="hero__title">{{ title }}</h1>
-      <p class="hero__text">{{ text }}</p>
+      <h2 class="content_h2" v-html="title"></h2>
+      <p class="content_p" v-html="text"></p>
       <div class="hero__actions">
         <a v-if="buttonText" href="#" class="btn">{{ buttonText }}</a>
       </div>
@@ -35,6 +35,11 @@ defineProps({
   justify-content: center;
   align-items: center;
 }
+
+.content_h2 { font-variation-settings: "wght" 400 !important; }
+.content_h2 :deep(span) { font-variation-settings: "wght" 800 !important; }
+.content_p { font-variation-settings: "wght" 400 !important; }
+.content_p :deep(span) { font-variation-settings: "wght" 800 !important; }
 
 /* Alt er nu navngivet hero__* og scoped */
 .hero__img {
