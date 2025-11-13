@@ -94,6 +94,15 @@ const router = createRouter({
       component: () => import('@/views/CreativityCulture.vue'),
     }
   ],
+
+  scrollBehavior(to, from, savedPosition) {
+    // hvis man klikker "tilbage"/"frem" i browseren
+    if (savedPosition) {
+      return savedPosition
+    }
+    // ellers: altid top
+    return { left: 0, top: 0 }
+  },
 })
 
 export default router

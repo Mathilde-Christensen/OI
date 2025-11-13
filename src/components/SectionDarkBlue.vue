@@ -14,8 +14,14 @@ defineProps({
     <div class="content">
       <h2 class="content_h2" v-html="title"></h2>
       <p class="content_p" v-html="text"></p>
-      <div class="content_btn">
-        <a v-if="buttonText" href="#" class="btn">{{ buttonText }}</a>
+       <div class="content_btn">
+        <RouterLink
+          v-if="buttonText && buttonLink"
+          :to="buttonLink"
+          class="btn"
+        >
+          {{ buttonText }}
+        </RouterLink>
       </div>
     </div>
   </section>

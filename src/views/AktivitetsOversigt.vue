@@ -25,7 +25,7 @@ import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
     title="Bevægelse & træning"
     text="Udfordre dig selv og hold kroppen i gang! Her finder du alt fra <span>klassisk styrketræning og gymnastik til kampsport og rulleskøjter.</span> Uanset niveau kan du være med – det handler bare om at bevæge sig og have det sjovt."
     buttonText="Udforsk"
-    buttonLink="/movetraining"
+    buttonLink="/activities/movetraining"
 />
 
 <SectionDarkBlue
@@ -33,6 +33,7 @@ import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
     title="Bold- og holdsport"
     text="Elsker du fællesskabet og energien i holdsport? Vælg mellem alt fra <span>fodbold og håndbold til badminton, volleyball og tennis.</span> Her er der altid plads til både nye spillere og erfarne boldentusiaster."
     buttonText="Udforsk"
+    buttonLink="/activities/movetraining"
 />
 
 <SectionLightBlue
@@ -40,6 +41,7 @@ import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
     title="Friluft & natur"
     text="Få frisk luft og god energi i naturen. Deltag i aktiviteter som <span>ridning, golf, spejder eller vandaktiviteter </span>– perfekte for dig, der elsker at være aktiv under åben himmel og nyde fællesskabet i naturen."
     buttonText="Udforsk"
+    buttonLink="/activities/movetraining"
 />
 
 <SectionDarkBlue
@@ -47,5 +49,6 @@ import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
     title="Kreativitet & kultur"
     text="Her finder du alt, der samler mennesker om oplevelser og fællesskab. Udfold dig <span>kreativt gennem musik, teater og håndværk </span>– eller vær med i aktiviteter som e-sport, curling og motorsport."
     buttonText="Udforsk"
+    buttonLink="/activities/movetraining"
 />
 </template>
