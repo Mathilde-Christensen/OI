@@ -18,7 +18,7 @@ defineProps({
         <RouterLink
           v-if="buttonText && buttonLink"
           :to="buttonLink"
-          class="link_btn"
+          class="btn"
         >
           {{ buttonText }}
         </RouterLink>

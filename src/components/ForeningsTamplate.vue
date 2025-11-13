@@ -11,7 +11,7 @@ defineProps({
 <template>
     <section class="forenings_tamplate">
         <div class="tamplate_section_img">
-            <img class="section_img" v-if="image" :src="image" alt="">
+            <img class="forening_section_img" v-if="image" :src="image" alt="">
         </div>
         <div class="content">
         <h2 class="content_h2" v-html="title"></h2>
@@ -19,7 +19,7 @@ defineProps({
         </div>
         
         <div class="tamplate_btn">
-            <div class="content_btn">
+            <div class="tamplate_content_btn">
                 <a
                     v-if="buttonText && buttonLink && buttonLink.startsWith('http')"
                     :href="buttonLink"
@@ -39,7 +39,7 @@ defineProps({
 @use '../assets/_fonts.scss' as f;
 @use '../assets/_buttons.scss' as b;
 
-.content_btn {
+.tamplate_content_btn {
   @include b.button(b.$button-primary);
   margin-top: 20px;
 }
@@ -71,7 +71,7 @@ defineProps({
     padding: 10px;
 }
 
-.section_img {
+.forening_section_img {
     width: 40%;
     max-width: 200px;
 }
@@ -107,7 +107,7 @@ defineProps({
         display: block;
     }
 
-    .section_img {
+    .forening_section_img {
         width: 100%;
         margin-left: 20px;
     }

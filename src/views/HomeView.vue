@@ -22,6 +22,7 @@ import HulaHop from '@/assets/images/activities/hulahop.webp';
     text="Odense Idrætspark samler byens mange faciliteter, foreninger og aktiviteter under ét tag. Her finder du alt fra svømmehaller og sportshaller til udendørsbaner og events for alle aldre.
     Uanset om du dyrker sport, bevægelse eller bare vil være en del af fællesskabet – så er du velkommen."
     buttonText="Udforsk"
+    buttonLink="/aktivitetsoversigt"
   />
   <Aktiviteter />
   <OpeningHours />
@@ -32,6 +33,7 @@ import HulaHop from '@/assets/images/activities/hulahop.webp';
     text="Hold dig opdateret om arrangementer, nye aktiviteter og hverdagen i Odense Idrætspark.
      Følg os på Facebook og Instagram for de seneste nyheder og stemningsbilleder fra vores mange faciliteter."
     buttonText="Følg os"
+    buttonLink="/omos"
   />
 
   </main> 

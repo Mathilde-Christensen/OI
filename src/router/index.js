@@ -14,6 +14,7 @@ import FindActivity from '@/components/FindActivity.vue'
 import OpeningHours from '@/components/OpeningHours.vue'
 import ForeningsTamplate from '@/components/ForeningsTamplate.vue'
 import ForeningsStrength from '@/views/ForeningsStrength.vue'
+import OmOs from '@/views/OmOs.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -84,6 +85,11 @@ const router = createRouter({
       path: '/foreningsstrength',
       name: 'foreningsstrength',
       component: ForeningsStrength,
+    },
+    {
+      path: '/omos',
+      name: 'omos',
+      component: OmOs,
     },
     {
       path: '/activities/movetraining',
