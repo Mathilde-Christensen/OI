@@ -25,6 +25,7 @@ import heroImg from '@/assets/images/hero-slides/heroishocky.webp'
     title="Bevægelse & træning"
     text="Udfordre dig selv og hold kroppen i gang! Her finder du alt fra <span>klassisk styrketræning og gymnastik til kampsport og rulleskøjter.</span> Uanset niveau kan du være med – det handler bare om at bevæge sig og have det sjovt."
     buttonText="Udforsk"
+    buttonLink="/movetraining"
 />
 
 <SectionDarkBlue

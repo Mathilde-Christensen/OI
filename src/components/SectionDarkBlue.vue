@@ -3,6 +3,7 @@ defineProps({
   title: String,
   text: String,
   buttonText: String,
+  buttonLink: String,
   image: String
 })
 </script>
