@@ -18,7 +18,7 @@ defineProps({
         <RouterLink
           v-if="buttonText && buttonLink"
           :to="buttonLink"
-          class="btn"
+          class="link_btn"
         >
           {{ buttonText }}
         </RouterLink>
@@ -63,6 +63,14 @@ defineProps({
 .content_btn {
   display: flex;
   justify-content: center;
+}
+
+.link_btn:hover {
+    color: c.$color-secondary;
+}
+
+.link_btn {
+    color: c.$color-secondary;
 }
 
 .content_h2 {

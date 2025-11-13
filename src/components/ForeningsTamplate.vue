@@ -9,25 +9,29 @@ defineProps({
 </script>
 
 <template>
-  <section class="forenings_tamplate">
-    <img class="section_img" v-if="image" :src="image" alt="">
-    <div class="content">
-      <h2 class="content_h2" v-html="title"></h2>
-      <p class="content_p" v-html="text"></p>
-    </div>
-    
-    <div class="content_btn">
-    <a
-        v-if="buttonText && buttonLink && buttonLink.startsWith('http')"
-        :href="buttonLink"
-        target="_blank"
-        class="link_btn"
-        rel="noopener"
-    >
-        {{ buttonText }}
-    </a>
-    </div>
-  </section>
+    <section class="forenings_tamplate">
+        <div class="tamplate_section_img">
+            <img class="section_img" v-if="image" :src="image" alt="">
+        </div>
+        <div class="content">
+        <h2 class="content_h2" v-html="title"></h2>
+        <p class="content_p" v-html="text"></p>
+        </div>
+        
+        <div class="tamplate_btn">
+            <div class="content_btn">
+                <a
+                    v-if="buttonText && buttonLink && buttonLink.startsWith('http')"
+                    :href="buttonLink"
+                    target="_blank"
+                    class="link_btn"
+                    rel="noopener"
+                >
+                    {{ buttonText }}
+                </a>
+            </div>
+        </div>
+    </section>
 </template>
 
 <style lang="scss">
@@ -47,6 +51,73 @@ defineProps({
 .link_btn {
     color: c.$color-secondary;
 }
+
+.forenings_tamplate {
+    width: 90%;
+    height: 33.9375rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    background: c.$color-secondary;
+    filter: drop-shadow(4px 5px 10.5px rgba(0, 0, 0, 0.25));
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tamplate_section_img {
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px;
+    padding: 10px;
+}
+
+.section_img {
+    width: 40%;
+    max-width: 200px;
+}
+
+.content {
+    margin: 0px 30px;
+}
+
+.content_p {
+    margin-top: 10px;
+}
+
+.tamplate_btn {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .forenings_tamplate {
+        display: flex;
+        flex-direction: row;
+        height: 17.625rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .content {
+        width: 60%;
+        margin: 0px 10px;
+    }
+
+    .tamplate_section_img {
+        display: block;
+    }
+
+    .section_img {
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .tamplate_btn {
+        margin-right: 40px;
+    }
+}
+
+
 
 
 </style>
