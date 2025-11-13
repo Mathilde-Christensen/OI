@@ -12,6 +12,8 @@ import MiniCalendar from '@/components/MiniCalendar.vue'
 import SectionDarkBlue from '@/components/SectionDarkBlue.vue'
 import FindActivity from '@/components/FindActivity.vue'
 import OpeningHours from '@/components/OpeningHours.vue'
+import ForeningsTamplate from '@/components/ForeningsTamplate.vue'
+import ForeningsStrength from '@/views/ForeningsStrength.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -72,6 +74,16 @@ const router = createRouter({
       path: '/openinghours',
       name: 'openinghours',
       component: OpeningHours,
+    },
+    {
+      path: '/foreningstamplate',
+      name: 'foreningstamplate',
+      component: ForeningsTamplate,
+    },
+    {
+      path: '/foreningsstrength',
+      name: 'foreningsstrength',
+      component: ForeningsStrength,
     },
     {
       path: '/activities/movetraining',

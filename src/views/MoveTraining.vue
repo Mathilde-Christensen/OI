@@ -20,9 +20,9 @@ import Styrke from '@/assets/images/activities/styrke.webp'
 
 <SectionLightBlue
   :image="Styrke"
-    title="Styrketræning"
-    text="Find de foreninger som tilbyder aktiviteter hvor der er fokus på styrketræning. "
-    buttonText="Udforsk"
+  title="Styrketræning"
+  text="Find de foreninger som tilbyder aktiviteter hvor der er fokus på styrketræning. "
+  buttonText="Udforsk"
 />
 
 <SectionDarkBlue

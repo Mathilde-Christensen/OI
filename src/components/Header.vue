@@ -3,7 +3,6 @@
     import facebookBlue from '@/assets/images/facebook_logo/logo/primary-logo/Facebook_Logo_Primary.webp'
     import odenseIdreatspark from '@/assets/images/ikoner/odense-idreatspark-logo.webp'
     import logIndIkon from '@/assets/images/ikoner/logind-ikon.webp'
-    import soeIkon from '@/assets/images/ikoner/soe-ikon.webp'
     import dropdownPil from '@/assets/images/ikoner/dropdown_pil.webp'
 
     import { ref, onMounted, onBeforeUnmount } from 'vue'
@@ -141,7 +140,6 @@
                 <div class="header_actions_login">
                     <img class="mobil_ikon_img" :src="logIndIkon" alt="Logind ikon" />
                 </div>
-                <img class="mobil_ikon_img" :src="soeIkon" alt="Soe ikon" />
             </div>
         </div>
 
@@ -170,7 +168,7 @@
                 <div class="header_actions_login">
                     <img class="actions_img" :src="logIndIkon" alt="Logind ikon" />
                 </div>
-                <img class="actions_img" :src="soeIkon" alt="Soe ikon" />
+                <p class="actions_LogInd_p">Log Ind</p>
             </div>
         </div>
 
@@ -486,6 +484,11 @@
 
         .top_header_actions {
             display: flex;
+        }
+
+        .actions_LogInd_p {
+            margin-top: 25px;
+            font-weight: 600;
         }
 
 
