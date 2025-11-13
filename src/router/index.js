@@ -92,7 +92,7 @@ const router = createRouter({
       path: '/activities/creativityculture',
       name: 'creativityculture',
       component: () => import('@/views/CreativityCulture.vue'),
-    }
+    },
   ],
 
   scrollBehavior(to, from, savedPosition) {
