@@ -15,6 +15,7 @@ import OpeningHours from '@/components/OpeningHours.vue'
 import ForeningsTamplate from '@/components/ForeningsTamplate.vue'
 import ForeningsStrength from '@/views/ForeningsStrength.vue'
 import OmOs from '@/views/OmOs.vue'
+import Kontakt from '@/views/Kontakt.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,6 +91,11 @@ const router = createRouter({
       path: '/omos',
       name: 'omos',
       component: OmOs,
+    },
+    {
+      path: '/kontakt',
+      name: 'kontakt',
+      component: Kontakt,
     },
     {
       path: '/activities/movetraining',
