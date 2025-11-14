@@ -18,7 +18,7 @@ import runningImg  from '@/assets/images/about/running.webp';
 import badetImg     from '@/assets/images/about/havnebadet.webp';
 import sportImg    from '@/assets/images/about/sport.webp';
 import stadiumImg   from '@/assets/images/about/stadium.webp';
-import swimImg    from '@/assets/images/swim/sport.webp';
+import swimImg    from '@/assets/images/about/swim.webp';
 import yogaImg   from '@/assets/images/about/yoga.webp';
 </script>
 
@@ -152,106 +152,148 @@ import yogaImg   from '@/assets/images/about/yoga.webp';
 @use '../assets/_fonts.scss' as f;
 @use '../assets/_buttons.scss' as btn;
 
-.about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+.about {
+  &-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    font-family: f.$font-primary;
+    color: c.$color-primary;
+  }
+
+  &-section {
+    background-color: c.$color-secondary;
+
+    &--dark {
+      background-color: c.$color-primary;
+      color: c.$color-secondary;
+    }
+
+    h2 {
+      font-family: f.$font-secondary;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 46rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      font-family: f.$font-primary;
+      font-size: 0.95rem;
+    }
+  }
+
+  &-cards {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  &-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: c.$color-secondary;
+
+    img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    span {
+      position: absolute;
+      left: 0.75rem;
+      bottom: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.65);
+      color: c.$color-secondary;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-family: f.$font-secondary;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  &-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+
+    &-card {
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: c.$color-tertiary;
+      min-height: 200px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &--placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: c.$color-secondary;
+      }
+    }
+
+    &-placeholder {
+      width: 60%;
+      height: 70%;
+      border-radius: 0.75rem;
+      border: 2px dashed c.$color-primary;
+    }
+  }
 }
 
-.about-section {
-  background-color: #ffffff;
-}
-
-.about-section--dark {
-  background-color: #071b3a;
-  color: #ffffff;
-}
-
-.about-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.about-section p {
-  max-width: 46rem;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.about-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.about-card {
-  position: relative;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-.about-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  display: block;
-}
-
-.about-card span {
-  position: absolute;
-  left: 0.75rem;
-  bottom: 0.75rem;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.about-feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.about-feed-card {
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background-color: #f1f3f7;
-  min-height: 200px;
-}
-
-.about-feed-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-feed-card--placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-feed-placeholder {
-  width: 60%;
-  height: 70%;
-  border-radius: 0.75rem;
-  border: 2px dashed #c8ced9;
-}
-
-/* small tweaks */
-@media (max-width: 768px) {
+@media (min-width: 600px) {
   .about-container {
-    padding: 2.5rem 1.25rem;
+    padding: 3rem 1.5rem;
   }
 
   .about-section h2 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+
+  .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-feed {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-cards {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .about-feed {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>
