@@ -11,17 +11,17 @@ const form = reactive({
 const TO_EMAIL = 'march67093@edu.ucl.dk'
 
 function onSubmit() {
-  const params = new URLSearchParams({
-    subject: form.subject,
-    body:
-`Navn: ${form.name}
-Email: ${form.email}
+  const bodyText =
+    `Navn: ${form.name}\n` +
+    `Email: ${form.email}\n\n` +
+    `${form.message}`
 
-${form.message}`
-  })
+  const subject = encodeURIComponent(form.subject)
+  const body = encodeURIComponent(bodyText)
 
-  window.location.href = `mailto:${TO_EMAIL}?${params.toString()}`
+  window.location.href = `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`
 }
+
 </script>
 
 <template>
