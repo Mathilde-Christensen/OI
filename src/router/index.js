@@ -16,6 +16,7 @@ import ForeningsTamplate from '@/components/ForeningsTamplate.vue'
 import ForeningsStrength from '@/views/ForeningsStrength.vue'
 import OmOs from '@/views/OmOs.vue'
 import Kontakt from '@/views/Kontakt.vue'
+import KontaktFormular from '@/views/KontaktFormular.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -96,6 +97,11 @@ const router = createRouter({
       path: '/kontakt',
       name: 'kontakt',
       component: Kontakt,
+    },
+    {
+      path: '/kontaktformular',
+      name: 'kontaktformular',
+      component: KontaktFormular,
     },
     {
       path: '/activities/movetraining',

@@ -1,14 +1,14 @@
 <script setup>
 const props = defineProps({
-  icon: {          // icon file path (imported image)
+  icon: {         
     type: String,
     required: true,
   },
-  text: {          // text next to the icon
+  text: {          
     type: String,
     required: true,
   },
-  href: String     // optional: makes text clickable
+  href: String     
 })
 </script>
 
@@ -62,7 +62,7 @@ const props = defineProps({
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
-    margin-left: 30px;
+    margin-left: 2px;
   }
 
   .contactItem__icon {
@@ -75,6 +75,7 @@ const props = defineProps({
     font-family: f.$font-primary;
     color: c.$color-primary;
     text-decoration: none;
+    font-size: 1rem;
   }
 
   .contactItem__text:hover {

@@ -5,11 +5,12 @@ import Mail from '@/assets/images/ikoner/mail.webp'
 import Mobil from '@/assets/images/ikoner/mobil.webp'
 import Lokation from '@/assets/images/ikoner/placering.webp'
 import Ur from '@/assets/images/ikoner/tid.webp'
+import KontaktFormular from './KontaktFormular.vue'
 
 </script>
 
 <template>
-    <div class="content">
+    <div class="kontakt_content">
         <div class="content_left">
             <div class="content_left_info">
 
@@ -104,6 +105,9 @@ import Ur from '@/assets/images/ikoner/tid.webp'
             </div>
 
             <div class="content_left_info">
+
+                <h2>Svømmeanlæg</h2>
+
                 <KontaktInfo
                     :icon="Mobil"
                     text="+ 45 65 51 53 72"
@@ -119,11 +123,11 @@ import Ur from '@/assets/images/ikoner/tid.webp'
 
         <div class="content_right">
 
-            <div class="content_left_info">
+            <div class="content_right_info">
 
                 <h2>Ledere ved Odense Idrætspark</h2>
                 
-                <div class="left_info_ledere1">
+                <div class="right_info_ledere1">
 
                     <h3>Sekretariatsleder Maria Skovlund Herreborg</h3>
 
@@ -140,7 +144,7 @@ import Ur from '@/assets/images/ikoner/tid.webp'
                     />
                 </div>
 
-                <div class="left_info_ledere">
+                <div class="right_info_ledere">
 
                     <h3>Leder af svømmehallerne Lars Christensen</h3>
 
@@ -157,7 +161,7 @@ import Ur from '@/assets/images/ikoner/tid.webp'
                     />
                 </div>
 
-                <div class="left_info_ledere">
+                <div class="right_info_ledere">
 
                     <h3>Leder af Odense Idrætspark og teknisk afdeling</h3>
 
@@ -174,7 +178,7 @@ import Ur from '@/assets/images/ikoner/tid.webp'
                     />
                 </div>
 
-                <div class="left_info_ledere">
+                <div class="right_info_ledere">
 
                     <h3>Chef for Fritid, Park og Vej  Anders Skovgaard</h3>
 
@@ -193,6 +197,14 @@ import Ur from '@/assets/images/ikoner/tid.webp'
 
             </div>
 
+            <div class="right_kontakt_formular">
+
+                <h2>Kom i kontakt med os</h2>
+                <p class="kontakt_formular_p">Har du spørgsmål til booking, åbningstider eller vores faciliteter, er du altid velkommen til at kontakte os. Vi hjælper gerne med at finde den rette person eller afdeling, så du hurtigt får svar på dit spørgsmål.</p>
+                  
+                <KontaktFormular />
+            </div>
+
         </div>
 
 
@@ -202,6 +214,16 @@ import Ur from '@/assets/images/ikoner/tid.webp'
 </template>
 
 <style lang="scss">
+@use '../assets/_colors.scss' as c;
+@use '../assets/_fonts.scss' as f;
+@use '../assets/_buttons.scss' as b;
+
+.kontakt_content {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: c.$color-primary;
+}
+
 h2 {
     font-weight: 900;
     margin-bottom: 20px;
@@ -217,15 +239,59 @@ h3 {
 }
 
 .content_left_info {
-    margin-top: 40px;
+    margin-top: 70px;
     margin-left: 0px;
 }
 
-.left_info_ledere {
-    margin-top: 40px;
+.content_right_info {
+    margin-top: 70px;
+    margin-left: 0px;
 }
 
-.left_info_ledere1 {
+.right_info_ledere {
+    margin-top: 70px;
+}
+
+.right_info_ledere1 {
     margin-top: 20px;
+}
+
+.right_kontakt_formular {
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.kontakt_formular_p {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 1024px) {
+
+    .kontakt_content {
+        display: flex;
+    }
+
+    .content_left {
+        width: 50%;
+        margin: 0px 100px 0px 60px;
+    }
+
+    .content_right {
+        width: 50%;
+        margin: 0px 60px 40px 100px;
+    }
+
+    .content_left_info {
+        margin-bottom: 70px;
+    }
+
+    .right_info_ledere {
+        margin-bottom: 70px;
+    }
+
+    .right_info_ledere1 {
+        margin-bottom: 70px;
+    }
+
 }
 </style>
