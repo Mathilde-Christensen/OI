@@ -64,13 +64,21 @@ const props = defineProps({
     rgba(0, 0, 0, 0.25) 40%,
     rgba(0, 0, 0, 0.65) 100%
   );
-  z-index: 1;         /* over billedet, under teksten */
+  z-index: 1;       
   pointer-events: none;
 }
 
 .content_h2 { font-variation-settings: "wght" 400 !important; }
 .content_h2 :deep(span) { font-variation-settings: "wght" 800 !important; }
-.content_p { font-variation-settings: "wght" 400 !important; }
+.content_p {
+  font-variation-settings: "wght" 400 !important;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @media (min-width: 1024px) {
+    line-height: 2.2rem;
+  }
+}
 .content_p :deep(span) { font-variation-settings: "wght" 800 !important; }
 
 .hero__img {
@@ -92,7 +100,7 @@ const props = defineProps({
   text-align: center;
   color: c.$color-secondary;
   padding: 0 3rem;
-  z-index: 2; /* ligger over gradienten */
+  z-index: 2;
 }
 
 .hero__title {
@@ -101,7 +109,7 @@ const props = defineProps({
 }
 
 .hero__text {
-  line-height: 2rem;
+  line-height: 2.2rem;
 }
 
 .btn {

@@ -20,16 +20,20 @@ import stadiumImg     from '@/assets/images/about/stadium.webp';
 import swimImg        from '@/assets/images/about/swim.webp';
 import yogaImg        from '@/assets/images/about/yoga.webp';
 import instaLogo      from '@/assets/images/about/oiinsta.webp';
+
+const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
 </script>
 
 <template>
     <!-- HERO -->
-    <HeroTamplate
-        :image="friendsImg"
-        title="Bevægelse, fællesskab og oplevelser for alle"
-        text="Odense Idrætspark skaber rammerne for idræt, bevægelse og fællesskab i hele byen. Her mødes borgere, foreninger og klubber for at dyrke motion, oplevelser og glæden ved at være aktiv – uanset alder og niveau."
-        :gradient="true"
-    />
+    <div class="about-hero">
+        <HeroTamplate
+            :image="friendsImg"
+            title="Bevægelse, fællesskab og oplevelser for alle"
+            text="Odense Idrætspark skaber rammerne for idræt, bevægelse og fællesskab i hele byen. Her mødes borgere, foreninger og klubber for at dyrke motion, oplevelser og glæden ved at være aktiv – uanset alder og niveau."
+            :gradient="true"
+        />
+    </div>
     
 
   <!-- VORES FACILITETER -->
@@ -97,9 +101,10 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
       <div class="about-values-text">
         <h2>Værdier og vision</h2>
         <p>
-          Odense Idrætsparks værdier danner grundlag for alt, hvad vi gør. Vi arbejder for aktive
-          fællesskaber, der er åbne for alle – med fokus på bevægelse, ansvarlighed og tilgængelige
-          idrætsfaciliteter i hele Odense.
+            Odense Idrætsparks vision er at skabe rammer, hvor alle kan finde glæde ved bevægelse og fællesskab. Vi vil være et sted, 
+            hvor både nye og erfarne udøvere føler sig hjemme, og hvor aktiviteterne giver energi, motivation og lyst til at være aktiv i hverdagen.
+            Vi arbejder for at gøre vores faciliteter indbydende, trygge og tilgængelige for alle – uanset alder,
+            niveau og baggrund. Vores værdier bygger på respekt, ansvarlighed og lysten til at bringe mennesker sammen gennem positive oplevelser og stærke fællesskaber.
         </p>
       </div>
 
@@ -124,42 +129,107 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
     </div>
   </section>
 
-  <!-- FØLG MED -->
-  <section class="about-section about-section--white">
-    <div class="about-container">
-      <h2>Følg med – der sker altid noget i Odense Idrætspark</h2>
-      <p>
-        Få glimt fra hverdagen i Odense Idrætspark. Se billeder og opslag fra aktiviteter, events
-        og fællesskaber på tværs af byens faciliteter – og få et indblik i, hvordan bevægelse og
-        fællesskab leves ud i praksis.
-      </p>
+    <!-- FØLG MED -->
+    <section class="about-section about-section--white">
+        <div class="about-container">
+            <h2>Følg med – der sker altid noget i Odense Idrætspark</h2>
+            <p>
+                Få glimt fra hverdagen i Odense Idrætspark. Se billeder og opslag fra aktiviteter, events
+                og fællesskaber på tværs af byens faciliteter – og få et indblik i, hvordan bevægelse og
+                fællesskab leves ud i praksis.
+            </p>
 
-      <!-- INSTAGRAM-PROFIL BLOK -->
-      <div class="about-follow">
-            <img :src="instaLogo" alt="Odense Idrætspark på Instagram" class="about-follow__avatar" />
-            <div class="about-follow__info">
-                <p class="about-follow__handle">odenseidraetspark</p>
-                <button class="about-follow__btn">Følg</button>
+            <!-- INSTAGRAM-PROFIL BLOK -->
+            <div class="about-follow">
+                <img
+                :src="instaLogo"
+                alt="Odense Idrætspark på Instagram"
+                class="about-follow__avatar"
+                />
+
+                <div class="about-follow__info">
+                <p class="about-follow__handle">
+                    <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-follow__handle-link"
+                    >
+                    odenseidraetspark
+                    </a>
+                </p>
+
+                <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-follow__btn"
+                >
+                    Følg
+                </a>
+                </div>
+            </div>
+
+            <!-- FEED-BILLEDER -->
+            <div class="about-feed">
+                <article class="about-feed-card">
+                <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-feed-card__link"
+                >
+                    <img :src="havneImg" alt="Udendørs aktivitet" />
+                    <div class="about-feed-card__overlay">
+                    <span>Udforsk opslag</span>
+                    </div>
+                </a>
+                </article>
+
+                <article class="about-feed-card">
+                <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-feed-card__link"
+                >
+                    <img :src="nikoImg" alt="Deltager ved aktivitet" />
+                    <div class="about-feed-card__overlay">
+                    <span>Udforsk opslag</span>
+                    </div>
+                </a>
+                </article>
+
+                <article class="about-feed-card">
+                <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-feed-card__link"
+                >
+                    <img :src="klosterImg" alt="Svømmehal" />
+                    <div class="about-feed-card__overlay">
+                    <span>Udforsk opslag</span>
+                    </div>
+                </a>
+                </article>
+
+                <article class="about-feed-card">
+                <a
+                    :href="instaUrl"
+                    target="_blank"
+                    rel="noopener"
+                    class="about-feed-card__link"
+                >
+                    <img :src="klosterImg" alt="Svømmehal" />
+                    <div class="about-feed-card__overlay">
+                    <span>Udforsk opslag</span>
+                    </div>
+                </a>
+                </article>
             </div>
         </div>
-
-      <!-- FEED-BILLEDER -->
-      <div class="about-feed">
-        <article class="about-feed-card">
-          <img :src="havneImg" alt="Udendørs aktivitet" />
-        </article>
-        <article class="about-feed-card">
-          <img :src="nikoImg" alt="Deltager ved aktivitet" />
-        </article>
-        <article class="about-feed-card">
-          <img :src="klosterImg" alt="Svømmehal" />
-        </article>
-        <article class="about-feed-card">
-          <img :src="klosterImg" alt="Svømmehal" />
-        </article>
-      </div>
-    </div>
-  </section>
+    </section>
 
   <!-- HAR DU SPØRGSMÅL? -->
   <SectionDarkBlue
@@ -177,70 +247,78 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
 @use '../assets/_buttons.scss' as btn;
 
 .about {
-  &-container {
-    margin: 0 auto;
-    padding-block: 2rem;
-    padding-inline: 4rem;
-    font-family: f.$font-primary;
-    color: c.$color-primary;
-  }
 
-  &-section {
-    background-color: c.$color-secondary;
-    color: c.$color-primary;
-
-    &--white {
-      background-color: c.$color-secondary;
-      color: c.$color-primary;
-
-      h2,
-      p {
+    &-container {
+        margin: 0 auto;
+        padding-block: 2rem;
+        padding-inline: 4rem;
+        font-family: f.$font-primary;
         color: c.$color-primary;
-      }
     }
 
-    &--values {
-      background-color: c.$color-secondary; 
+    &-section {
+        background-color: c.$color-secondary;
+        color: c.$color-primary;
+
+        &--white {
+            background-color: c.$color-secondary;
+            color: c.$color-primary;
+
+            h2, 
+            p {
+                color: c.$color-primary;
+            }
+        }
+
+        &--values {
+            background-color: c.$color-secondary; 
+        }
+
+        h2 {
+            font-family: f.$font-secondary;
+            font-size: clamp(1.5rem, 2vw, 2rem);
+            font-variation-settings: "wght" 400;
+            margin-bottom: 1rem;
+
+            span {
+                font-variation-settings: "wght" 800;
+            }
+        }
+
+        p {
+            max-width: 46rem;
+            margin-bottom: 1rem;
+            font-family: f.$font-primary;
+            font-size: 1rem;
+            line-height: 1.5rem;
+
+            @media (min-width: 1024px) {
+                line-height: 2.2rem;
+            }
+        }
     }
 
-    h2 {
-      font-family: f.$font-secondary;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+
+    .about-text-split {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+
+        p {
+            margin: 0;
+        }
     }
 
-    p {
-      max-width: 46rem;
-      margin-bottom: 1rem;
-      line-height: 1.6;
-      font-family: f.$font-primary;
-      font-size: 0.95rem;
+    &-cards {
+        display: grid;
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
-  }
 
-  .about-text-split {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-
-    p {
-      margin: 0;
+    .about-section--values .about-container {
+        background-color: c.$color-tertiary;
     }
-  }
-
-
-  &-cards {
-    display: grid;
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .about-section--values .about-container {
-   background-color: c.$color-tertiary;
-  }
-  
-
 
     &-card {
         position: relative;
@@ -258,7 +336,6 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
             position: relative;
         }
 
-
         &::after {
         content: "";
             position: absolute;
@@ -271,7 +348,6 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
             z-index: 1;
             pointer-events: none;
         }
-
 
         span {
             position: absolute;
@@ -288,7 +364,6 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
             font-weight: 800;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-
             pointer-events: none; 
         }
 
@@ -297,8 +372,7 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
         }
     }
 
-
-  &-follow {
+    &-follow {
         display: flex;
         align-items: center;
         gap: 1.5rem;
@@ -316,62 +390,126 @@ import instaLogo      from '@/assets/images/about/oiinsta.webp';
         &__info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; 
+            align-items: flex-start;
             gap: 0.6rem;
         }
 
         &__handle {
+            margin: 0;
+        }
+
+        &__handle-link {
             font-family: f.$font-secondary;
             font-size: 2rem;
             font-weight: 600;
-            margin: 0;
             color: c.$color-primary;
+            text-decoration: none;
+        }
+
+        &__handle-link:hover {
+            text-decoration: underline;
         }
 
         &__btn {
-            @include btn.button(btn.$button-primary); 
+            @include btn.button(btn.$button-primary);
             cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 
-  &-feed {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    &-feed {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 2rem;
 
         &-card {
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: c.$color-tertiary;
-        min-height: 200px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: c.$color-tertiary;
+            min-height: 200px;
+        }
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+        &-card__link {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        &-card__overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-inline: 1rem;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.45),
+                rgba(0, 0, 0, 0.85)
+            );
+            color: c.$color-secondary;
+            font-family: f.$font-secondary;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.25s ease;
             }
+
+        &-card__overlay span {
+            pointer-events: none;
+        }
+
+        &-card:hover img {
+            transform: scale(1.04);
+        }
+
+        &-card:hover &-card__overlay {
+            opacity: 1;
         }
     }
+}
+.about-hero :deep(.hero_tamplate--gradient::before) {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.80) 0%,   // mørkere top
+        rgba(0, 0, 0, 0.55) 40%,
+        rgba(0, 0, 0, 0.90) 100%  // mørkere bund
+    );
 }
 
 
 @media (min-width: 600px) {
   .about-container {
-    padding-block: 3rem;
-  }
+        padding-block: 3rem;
+    }
 
   .about-section h2 {
-    font-size: 1.8rem;
-  }
+        font-size: 1.8rem;
+    }
 
   .about-cards--facilities {
-    grid-template-columns: repeat(3, 1fr);
-  }
+        grid-template-columns: repeat(3, 1fr);
+    }
 
   .about-feed {
-    grid-template-columns: repeat(2, 1fr);
-  }
+     grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 1024px) {
