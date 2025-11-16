@@ -68,10 +68,10 @@ const props = defineProps({
   pointer-events: none;
 }
 
-.content_h2 { font-variation-settings: "wght" 400 !important; }
-.content_h2 :deep(span) { font-variation-settings: "wght" 800 !important; }
+.content_h2 { font-variation-settings: "wght" 400; }
+.content_h2 :deep(span) { font-variation-settings: "wght" 800; }
 .content_p {
-  font-variation-settings: "wght" 400 !important;
+  font-variation-settings: "wght" 400;
   font-size: 1rem;
   line-height: 1.5rem;
 
@@ -79,7 +79,7 @@ const props = defineProps({
     line-height: 2.2rem;
   }
 }
-.content_p :deep(span) { font-variation-settings: "wght" 800 !important; }
+.content_p :deep(span) { font-variation-settings: "wght" 800; }
 
 .hero__img {
   position: absolute;

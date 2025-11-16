@@ -51,7 +51,7 @@ defineProps({
 }
 
 .content {
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,7 +84,8 @@ defineProps({
   }
 
   .content {
-    margin: 0px 50px 0px 50px;
+    padding: 2rem 4rem;
+    margin-block: 0;
   }
 
   .content_p {
