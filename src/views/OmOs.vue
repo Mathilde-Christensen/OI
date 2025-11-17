@@ -46,10 +46,6 @@ const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
           Odense Idrætspark driver og vedligeholder en række moderne idrætsfaciliteter i hele Odense.
           Her finder du svømmehaller, haller, baner, stadioner og grønne områder til både hverdag og events.
         </p>
-        <p>
-          Faciliteterne bruges hver dag af foreninger, skoler, institutioner og borgere, som ønsker at
-          dyrke motion, fællesskab og bevægelse i trygge og professionelle rammer.
-        </p>
       </div>
 
       <div class="about-cards about-cards--facilities">

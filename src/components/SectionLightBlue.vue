@@ -61,7 +61,6 @@ defineProps({
 
 .content_btn {
   display: flex;
-  justify-content: center;
 }
 
 .content_h2 {
