@@ -8,7 +8,7 @@ import OpeningHours from '@/components/OpeningHours.vue'
 import Aktiviteter from '@/components/FindActivity.vue'
 
 import GroupPhoto from '@/assets/images/activities/grouphug.webp';
-import HulaHop from '@/assests/images/activities/hulahop.webp';
+import HulaHop from '@/assets/images/activities/hulahop.webp';
 </script>
 
 <template>
@@ -26,6 +26,8 @@ import HulaHop from '@/assests/images/activities/hulahop.webp';
   <Aktiviteter />
   <OpeningHours />
 
+  <AboutFollow />
+
   <SectionDarkBlue
     :image="HulaHop"
     title='Kom i kontakt med os'
@@ -33,8 +35,6 @@ import HulaHop from '@/assests/images/activities/hulahop.webp';
     buttonText="Kontakt os"
     buttonLink="/kontakt"
   />
-   <!-- FØLG MED -->
-   <AboutFollow />
 
   </main> 
 </template>
