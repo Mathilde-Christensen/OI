@@ -16,19 +16,19 @@ const activities = [
   {
     id: 'ball',
     title: 'Bold- og holdsport',
-    to: '/activities/ballandteam',
+    to: '/activities/movetraining',
     image: ballImg,
   },
   {
     id: 'outdoor',
     title: 'Friluft & natur',
-    to: '/activities/outdoornature',
+    to: '/activities/movetraining',
     image: outdoorImg,
   },
   {
     id: 'culture',
     title: 'Kreativitet & kultur',
-    to: '/activities/creativityculture',
+    to: '/activities/movetraining',
     image: cultureImg,
   },
 ]
