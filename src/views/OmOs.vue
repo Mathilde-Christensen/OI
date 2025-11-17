@@ -1,16 +1,16 @@
 <script setup>
-import HeroTamplate    from '@/components/HeroTamplate.vue';
-import SectionDarkBlue from '@/components/SectionDarkBlue.vue';
-import SectionLightBlue from '@/components/SectionLightBlue.vue';
+import HeroTamplate      from '@/components/HeroTamplate.vue';
+import SectionDarkBlue   from '@/components/SectionDarkBlue.vue';
+import SectionLightBlue  from '@/components/SectionLightBlue.vue';
 
-import AboutFacilities from '@/components/AboutFacilities.vue';
-import AboutValues     from '@/components/AboutValues.vue';
-import AboutFollow     from '@/components/AboutFollow.vue';
+import AboutFacilities   from '@/components/AboutFacilities.vue';
+import AboutValues       from '@/components/AboutValues.vue';
+import AboutFollow       from '@/components/AboutFollow.vue';
 
-import friendsImg   from '@/assets/images/about/friends.webp';
-import communityImg from '@/assets/images/about/community.webp';
-import bikeImg      from '@/assets/images/about/cykel.webp';
-import handsImg     from '@/assets/images/about/hands.webp';
+import friendsImg    from '@/assets/images/about/friends.webp';
+import communityImg  from '@/assets/images/about/community.webp';
+import bikeImg       from '@/assets/images/about/cykel.webp';
+import handsImg      from '@/assets/images/about/hands.webp';
 </script>
 
 <template>
@@ -36,6 +36,9 @@ import handsImg     from '@/assets/images/about/hands.webp';
     buttonLink="/aktiviteter"
   />
 
+  <!-- VÆRDIER OG VISION -->
+  <AboutValues />
+
   <!-- FÆLLESSKAB OG FRIVILLIGHED -->
   <SectionDarkBlue
     :image="communityImg"
@@ -44,9 +47,6 @@ import handsImg     from '@/assets/images/about/hands.webp';
     buttonText="Udforsk"
     buttonLink="/frivillighed"
   />
-
-  <!-- VÆRDIER OG VISION -->
-  <AboutValues />
 
   <!-- FØLG MED -->
   <AboutFollow />
