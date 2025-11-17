@@ -179,7 +179,7 @@
 
                     <ul v-if="activeIndex === 0">
                         <li><RouterLink to="/aktivitetsoversigt">Aktivitetsoversigt</RouterLink></li>
-                        <li>Foreninger</li>
+                        <li><RouterLink to="/foreningsstrength">Foreninger</RouterLink></li>
                     </ul>
                 </li>
 
@@ -187,7 +187,6 @@
                     <button @click="toggle(1)">Booking<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
 
                     <ul v-if="activeIndex === 1">
-                        <li>Mine bookinger</li>
                         <li><RouterLink to="/events">Book hold</RouterLink></li>
                         <li>Book mødelokale</li>
                         <li>Lej udstyr</li>
@@ -211,20 +210,18 @@
                     <button @click="toggle(3)">Om os<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 3 }"></button>
 
                     <ul v-if="activeIndex === 3">
-                        <li>Hvem er vi?</li>
+                        <li><RouterLink to="/omos">Hvem er vi?</RouterLink></li>
                         <li>Ledige stillinger</li>
                         <li>Presse og udvikling</li>
                     </ul>
                 </li>
 
                 <li>
-                    <button @click="toggle(4)">Åbningstider og Info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
+                    <button @click="toggle(4)">Åbningstider og kontakt<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
 
                     <ul v-if="activeIndex === 4">
-                        <li>Generelle åbningstider</li>
                         <li>Priser og billetter</li>
-                        <li>Regler og retningslinjer</li>
-                        <li>Kontaktinformation</li>
+                        <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
                     </ul>
                 </li>
             </ul>
