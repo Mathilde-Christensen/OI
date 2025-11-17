@@ -350,7 +350,7 @@ const groupsForView = computed(() => {
 
         .calendarPreview__scroll { block-size: var(--list-h, 52vh); }
         .calendarPreview__right { 
-            padding: 100px 0 0 0; 
+            padding: 60px 0 0 0; 
         }
         .calendarPreview__left{ padding-bottom:30px;}
 
