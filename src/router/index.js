@@ -107,22 +107,7 @@ const router = createRouter({
       path: '/activities/movetraining',
       name: 'movetraining',
       component: () => import('@/views/MoveTraining.vue'),
-    },
-    {
-      path: '/activities/ballandteam',
-      name: 'ballandteam',
-      component: () => import('@/views/MoveTraining.vue'),
-    },
-    {
-      path: '/activities/outdoornature',
-      name: 'outdoornature',
-      component: () => import('@/views/MoveTraining.vue'),
-    },
-    {
-      path: '/activities/creativityculture',
-      name: 'creativityculture',
-      component: () => import('@/views/MoveTraining.vue'),
-    },
+    }
   ],
 
   scrollBehavior(to, from, savedPosition) {
