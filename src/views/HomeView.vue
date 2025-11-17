@@ -29,11 +29,10 @@ import HulaHop from '@/assets/images/activities/hulahop.webp';
 
   <SectionDarkBlue
     :image="HulaHop"
-    title='Følg med i hverdagen hos <span>Odense Idrætspark</span>'
-    text="Hold dig opdateret om arrangementer, nye aktiviteter og hverdagen i Odense Idrætspark.
-     Følg os på Facebook og Instagram for de seneste nyheder og stemningsbilleder fra vores mange faciliteter."
-    buttonText="Følg os"
-    buttonLink="/omos"
+    title='Kom i kontakt med os'
+    text="Har du spørgsmål til booking, åbningstider eller vores faciliteter, er du altid velkommen til at kontakte os. Vi hjælper gerne med at finde den rette person eller afdeling, så du hurtigt får svar på dit spørgsmål."
+    buttonText="Kontakt os"
+    buttonLink="/kontakt"
   />
 
   </main> 
