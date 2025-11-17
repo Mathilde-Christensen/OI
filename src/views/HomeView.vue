@@ -24,6 +24,9 @@ import GroupPhoto from '@/assets/images/activities/grouphug.webp';
   <Aktiviteter />
   <OpeningHours />
 
+  <!-- FØLG MED -->
+  <AboutFollow />
+
   <SectionDarkBlue
     :image="HulaHop"
     title='Kom i kontakt med os'
@@ -31,8 +34,6 @@ import GroupPhoto from '@/assets/images/activities/grouphug.webp';
     buttonText="Kontakt os"
     buttonLink="/kontakt"
   />
-   <!-- FØLG MED -->
-   <AboutFollow />
 
   </main> 
 </template>
