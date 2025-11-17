@@ -111,17 +111,17 @@ const router = createRouter({
     {
       path: '/activities/ballandteam',
       name: 'ballandteam',
-      component: () => import('@/views/BallAndTeam.vue'),
+      component: () => import('@/views/MoveTraining.vue'),
     },
     {
       path: '/activities/outdoornature',
       name: 'outdoornature',
-      component: () => import('@/views/OutdoorNature.vue'),
+      component: () => import('@/views/MoveTraining.vue'),
     },
     {
       path: '/activities/creativityculture',
       name: 'creativityculture',
-      component: () => import('@/views/CreativityCulture.vue'),
+      component: () => import('@/views/MoveTraining.vue'),
     },
   ],
 
