@@ -37,7 +37,7 @@ const slides = ref([
         src: hero5, 
         title: 'Hold dit private arrangement i svømmehallen', 
         subtitle: 'Vi tilbyder private arrangementer i svømmehallerne i Odense, som kan tilpasses til jeres behov. Bl.a. tilbyder vi Polterabend & Wellness arrangementer ',
-        cta: { text: 'Udforsk', to: '/faciliteter' } 
+        cta: { text: 'Udforsk', to: '/omos' } 
     },
 ])
 
