@@ -1,5 +1,5 @@
 <script setup>
-import SectionDarkBlue from '@/components/SectionDarkBlue.vue';
+import AboutFollow from '@/components/AboutFollow.vue';
 import SectionLightBlue from '@/components/SectionLightBlue.vue';
 import HeroSlide from '@/components/HeroSlideshow.vue'
 import Kalender from '@/components/MiniCalendar.vue'
@@ -7,9 +7,6 @@ import OpeningHours from '@/components/OpeningHours.vue'
 import Aktiviteter from '@/components/FindActivity.vue'
 
 import GroupPhoto from '@/assets/images/activities/grouphug.webp';
-import HulaHop from '@/assets/images/activities/hulahop.webp';
-
-
 </script>
 
 <template>
@@ -27,14 +24,8 @@ import HulaHop from '@/assets/images/activities/hulahop.webp';
   <Aktiviteter />
   <OpeningHours />
 
-  <SectionDarkBlue
-    :image="HulaHop"
-    title='Følg med i hverdagen hos <span>Odense Idrætspark</span>'
-    text="Hold dig opdateret om arrangementer, nye aktiviteter og hverdagen i Odense Idrætspark.
-     Følg os på Facebook og Instagram for de seneste nyheder og stemningsbilleder fra vores mange faciliteter."
-    buttonText="Følg os"
-    buttonLink="/omos"
-  />
+   <!-- FØLG MED -->
+   <AboutFollow />
 
   </main> 
 </template>
