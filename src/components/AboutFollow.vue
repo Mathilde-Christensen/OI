@@ -1,8 +1,9 @@
 <script setup>
-import instaLogo from '@/assets/images/about/oiinsta.webp';
-import havneImg  from '@/assets/images/about/havnebad.webp';
-import nikoImg   from '@/assets/images/about/nikoline.webp';
+import instaLogo from '@/assets/images/about/logooi.webp';
+import havneImg  from '@/assets/images/about/lyshavne.webp';
+import nikoImg   from '@/assets/images/about/instaniko.webp';
 import klosterImg from '@/assets/images/about/klosterbakke.webp';
+import badetImg from '@/assets/images/about/havneb.webp';
 
 const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
 </script>
@@ -50,20 +51,6 @@ const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
             rel="noopener"
             class="about-feed-card__link"
           >
-            <img :src="havneImg" alt="Udendørs aktivitet" />
-            <div class="about-feed-card__overlay">
-              <span>Udforsk opslag</span>
-            </div>
-          </a>
-        </article>
-
-        <article class="about-feed-card">
-          <a
-            :href="instaUrl"
-            target="_blank"
-            rel="noopener"
-            class="about-feed-card__link"
-          >
             <img :src="nikoImg" alt="Deltager ved aktivitet" />
             <div class="about-feed-card__overlay">
               <span>Udforsk opslag</span>
@@ -78,7 +65,7 @@ const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
             rel="noopener"
             class="about-feed-card__link"
           >
-            <img :src="klosterImg" alt="Svømmehal" />
+            <img :src="havneImg" alt="Udendørs aktivitet" />
             <div class="about-feed-card__overlay">
               <span>Udforsk opslag</span>
             </div>
@@ -93,6 +80,20 @@ const instaUrl = 'https://www.instagram.com/odenseidraetspark/';
             class="about-feed-card__link"
           >
             <img :src="klosterImg" alt="Svømmehal" />
+            <div class="about-feed-card__overlay">
+              <span>Udforsk opslag</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="about-feed-card">
+          <a
+            :href="instaUrl"
+            target="_blank"
+            rel="noopener"
+            class="about-feed-card__link"
+          >
+            <img :src="badetImg" alt="Svømmehal" />
             <div class="about-feed-card__overlay">
               <span>Udforsk opslag</span>
             </div>
