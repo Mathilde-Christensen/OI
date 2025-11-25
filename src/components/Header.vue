@@ -132,7 +132,7 @@
 
             <div class="mobil_header_logo">
                 <RouterLink to="/">
-                    <img class="mobil_logo_img" :src="odenseIdreatspark" alt="Odense Idrætspark" />
+                    <img class="mobil_logo_img" :src="odenseIdreatspark" alt=" Logo af Odense Idrætspark" />
                 </RouterLink>
             </div>
 
@@ -160,7 +160,7 @@
 
             <div class="top_header_logo">
                 <RouterLink to="/">
-                    <img class="header_logo_img" :src="odenseIdreatspark" alt="Odense Idrætspark" />
+                    <img class="header_logo_img" :src="odenseIdreatspark" alt="Logo af Odense Idrætspark" />
                 </RouterLink>
             </div>
 

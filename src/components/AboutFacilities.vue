@@ -20,23 +20,23 @@ import iceImg     from '@/assets/images/about/iceskating.webp';
 
       <div class="about-cards about-cards--facilities">
         <article class="about-card">
-          <img :src="swimImg" alt="Svømmehal" />
+          <img :src="swimImg" alt="Billede af svømmehal, som fungerer som genvejsknap til faciliteter" />
           <span>Svømmehaller</span>
         </article>
         <article class="about-card">
-          <img :src="stadiumImg" alt="Stadion og arenaer" />
+          <img :src="stadiumImg" alt="Billede af fodboldstadion, som fungerer som genvejsknap til faciliteter" />
           <span>Stadion og arenaer</span>
         </article>
         <article class="about-card">
-          <img :src="sportImg" alt="Idrætshaller" />
+          <img :src="sportImg" alt="Billede af idrætshal, som fungerer som genvejsknap til faciliteter " />
           <span>Idrætshaller</span>
         </article>
         <article class="about-card">
-          <img :src="badetImg" alt="Friluftsfaciliteter" />
+          <img :src="badetImg" alt="Billede af Odense Havnebad, som fungerer som genvejsknap til faciliteter" />
           <span>Friluftsfaciliteter</span>
         </article>
         <article class="about-card">
-          <img :src="iceImg" alt="Skøjtehal" />
+          <img :src="iceImg" alt="Billede af skøjtehal, som fungerer som genvejsknap til faciliteter" />
           <span>Skøjtehal</span>
         </article>
       </div>
