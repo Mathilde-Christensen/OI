@@ -23,19 +23,19 @@ import yogaImg      from '@/assets/images/about/yoga.webp';
 
       <div class="about-cards about-cards--values">
         <article class="about-card">
-          <img :src="morehandsImg" alt="Fællesskab" />
+          <img :src="morehandsImg" alt="En masse hænder, der lægges ovenpå hinanden for at illustrere visionen: fællesskab" />
           <span>Fællesskab</span>
         </article>
         <article class="about-card about-card--offset">
-          <img :src="runningImg" alt="Bevægelse" />
+          <img :src="runningImg" alt="To personer, der løber for at illustrerer visonen: bevægelse " />
           <span>Bevægelse</span>
         </article>
         <article class="about-card about-card--offset">
-          <img :src="accessImg" alt="Tilgængelighed" />
+          <img :src="accessImg" alt="Forskellige tegnede hænder, hvoraf en af dem sidder i en kørestol, for at illustrere vædien: tilgængelighed  " />
           <span>Tilgængelighed</span>
         </article>
         <article class="about-card about-card--offset">
-          <img :src="yogaImg" alt="Ansvarlighed" />
+          <img :src="yogaImg" alt="To snakkende personer med en yogamåtte for at illustrere værdien: Ansvarlighed" />
           <span>Ansvarlighed</span>
         </article>
       </div>

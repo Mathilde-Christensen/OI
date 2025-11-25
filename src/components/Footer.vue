@@ -10,9 +10,9 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
       <div class="footer__inner">
         <div class="footer__logos">
           <img
-            class="footer__logo footer__logo--idraetspark" :src="odenseIdraetspark" alt="Odense Idrætspark"/>
+            class="footer__logo footer__logo--idraetspark" :src="odenseIdraetspark" alt="Logo af Odense Idrætspark"/>
           <img
-            v-if="odenseKommune" class="footer__logo footer__logo--kommune" :src="odenseKommune" alt="Odense Kommune"/>
+            v-if="odenseKommune" class="footer__logo footer__logo--kommune" :src="odenseKommune" alt="Logo af Odense Kommune"/>
         </div>
   
         <div class="footer__info">
@@ -52,6 +52,7 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
             </a>
           </div>
         </div>
+        <p class="footer__copyright"><a href="https://www.flaticon.com/free-icons/linkedin" title="icons from freepik and flaticon">© 2025 - Odense Idrætspark (Ikoner fra Freepik og Flaticon)</a></p>
       </div>
     </footer>
 </template>
@@ -167,8 +168,12 @@ import facebookBlue from '../assets/images/facebook_logo/logo/primary-logo/Faceb
             &__logo--kommune     { height: 70px; }
                 .footer__social-link { inline-size: 40px; block-size: 40px; 
             }
-        }
 
+            &__copyright {
+              grid-column: 1 / -1;
+              text-align: center;
+            }
+          }
         @media (min-width: 1024px) {
             &__inner {
                 padding-block: 40px;
