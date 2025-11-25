@@ -17,6 +17,8 @@ import ForeningsStrength from '@/views/ForeningsStrength.vue'
 import OmOs from '@/views/OmOs.vue'
 import Kontakt from '@/views/Kontakt.vue'
 import KontaktFormular from '@/views/KontaktFormular.vue'
+import KlodsterBakken from '@/views/KlodsterBakken.vue'
+import Havnebadet from '@/views/Havnebadet.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -97,6 +99,16 @@ const router = createRouter({
       path: '/kontakt',
       name: 'kontakt',
       component: Kontakt,
+    },
+    {
+      path: '/klodsterbakken',
+      name: 'klodsterbakken',
+      component: KlodsterBakken
+    },
+    {
+      path: '/havnebadet',
+      name: 'havnebadet',
+      component: Havnebadet,
     },
     {
       path: '/kontaktformular',
