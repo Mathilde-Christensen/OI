@@ -2,6 +2,7 @@
 defineProps({
   title: String,
   text: String,
+  slots: Object,
   buttonText: String,
   buttonLink: String,
   image: String
@@ -14,7 +15,10 @@ defineProps({
     <div class="content">
       <h2 class="content_h2" v-html="title"></h2>
       <p class="content_p" v-html="text"></p>
-       <div class="content_btn">
+
+      <slot name="extra"></slot>
+
+      <div class="content_btn">
         <RouterLink
           v-if="buttonText && buttonLink"
           :to="buttonLink"
@@ -39,6 +43,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .content_h2 { font-variation-settings: "wght" 400 !important; }
@@ -52,7 +57,6 @@ defineProps({
 }
 
 .content {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,6 +92,7 @@ defineProps({
 @media (min-width: 1024px) {
   .dark_blue_section {
     flex-direction: row;
+    padding-bottom: 0px;
     
   }
 

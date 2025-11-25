@@ -21,7 +21,7 @@ const props = defineProps({
     <img class="hero__img" v-if="props.image" :src="props.image" alt="" />
 
     <div class="hero__content">
-      <h2 class="content_h2" v-html="props.title"></h2>
+      <h1 class="content_h1" v-html="props.title"></h1>
       <p class="content_p" v-html="props.text"></p>
 
       <div class="hero__actions">

@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-  <section class="dark_blue_section">
+  <section class="light_blue_section">
     <div class="content">
       <h2 class="content_h2" v-html="title"></h2>
       <p class="content_p" v-html="text"></p>
@@ -33,7 +33,7 @@ defineProps({
 @use '../assets/_fonts.scss' as f;
 @use '../assets/_buttons.scss' as b;
 
-.dark_blue_section {
+.light_blue_section {
   background-color: c.$color-tertiary;
   color: c.$color-primary;
   display: flex;
@@ -51,7 +51,6 @@ defineProps({
 }
 
 .content {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,7 +76,7 @@ defineProps({
 }
 
 @media (min-width: 1024px) {
-  .dark_blue_section {
+  .light_blue_section {
     flex-direction: row;
     
   }
