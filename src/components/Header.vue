@@ -16,7 +16,7 @@
     activeIndex.value = activeIndex.value === i ? null : i
     }
 
-    const toggleMenu = () => {                  // ← manglede
+    const toggleMenu = () => {        
     isMenuOpen.value = !isMenuOpen.value
     }
 
