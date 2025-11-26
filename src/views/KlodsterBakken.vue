@@ -155,6 +155,23 @@ const winterHours = [
     .praktisk_info_wrapper {
       display: flex;
       flex-direction: row;
+      padding: 2rem 4rem;
     }
+
+    .praktisk_info_left {
+      width: 50%;
+      padding-right: 10px;
+    }
+
+    .praktisk_info_right {
+      width: 50%;
+      padding-left: 10px;
+    }
+
+    .praktisk_info_container {
+        padding: 0px 4rem;
+        margin: 0px;
+    }
+
   }
 </style>
