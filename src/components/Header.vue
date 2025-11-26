@@ -16,7 +16,7 @@
     activeIndex.value = activeIndex.value === i ? null : i
     }
 
-    const toggleMenu = () => {                  // ← manglede
+    const toggleMenu = () => {        
     isMenuOpen.value = !isMenuOpen.value
     }
 
@@ -70,18 +70,18 @@
                     </li>
 
                     <li>
-                        <button @click="toggle(1)">Booking<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
+                        <button @click="toggle(1)">Booking og priser<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
 
                         <ul v-if="activeIndex === 1">
-                            <li>Mine bookinger</li>
                             <li><RouterLink to="/events">Book hold</RouterLink></li>
                             <li>Book mødelokale</li>
                             <li>Lej udstyr</li>
+                            <li>Priser og billetter</li>
                         </ul>
                     </li>
 
                     <li>
-                        <button @click="toggle(2)">Faciliteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
+                        <button @click="toggle(2)">Åbningstider og info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
 
                         <ul v-if="activeIndex === 2">
                             <li>Svømmehaller</li>
@@ -104,14 +104,9 @@
                     </li>
 
                     <li>
-                        <button @click="toggle(4)">Åbningstider og Info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
-
-                        <ul v-if="activeIndex === 4">
-                            <li>Generelle åbningstider</li>
-                            <li>Priser og billetter</li>
-                            <li>Regler og retningslinjer</li>
-                            <li>Kontaktinformation</li>
-                        </ul>
+                        <RouterLink to="/kontakt" class="header_nav_link header_nav_link--kontakt">
+                            Kontakt
+                        </RouterLink>
                     </li>
 
                     <ul class="header__socials">
@@ -184,17 +179,18 @@
                 </li>
 
                 <li>
-                    <button @click="toggle(1)">Booking<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
+                    <button @click="toggle(1)">Booking og priser<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
 
                     <ul v-if="activeIndex === 1">
                         <li><RouterLink to="/events">Book hold</RouterLink></li>
                         <li>Book mødelokale</li>
                         <li>Lej udstyr</li>
+                        <li>Priser og billetter</li>
                     </ul>
                 </li>
 
                 <li>
-                    <button @click="toggle(2)">Faciliteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
+                    <button @click="toggle(2)">Åbningstider og info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
 
                     <ul v-if="activeIndex === 2">
                         <li>Svømmehaller</li>
@@ -217,12 +213,9 @@
                 </li>
 
                 <li>
-                    <button @click="toggle(4)">Åbningstider og kontakt<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 4 }"></button>
-
-                    <ul v-if="activeIndex === 4">
-                        <li>Priser og billetter</li>
-                        <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
-                    </ul>
+                    <RouterLink to="/kontakt" class="header_nav_link header_nav_link--kontakt">
+                        Kontakt
+                    </RouterLink>
                 </li>
             </ul>
         </nav>
@@ -404,7 +397,8 @@
                 li {
                     position: relative;
 
-                    button {
+                    button,
+                    a {
                         background: transparent;
                         border: none;
                         font-size: 13px;
@@ -415,6 +409,7 @@
                         display: flex;
                         align-items: center;
                         gap: 0.3rem;
+                        text-decoration: none;
                         transition: all 0.3s ease;
 
                         &:hover {
@@ -426,10 +421,10 @@
                         width: 10px;
                         transition: transform 0.3s ease;
                         }
+                    }
 
-                        &.rotated img {
+                    button.rotated img {
                         transform: rotate(180deg);
-                        }
                     }
 
                     ul {
