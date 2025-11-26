@@ -78,7 +78,6 @@ defineProps({
 @media (min-width: 1024px) {
   .light_blue_section {
     flex-direction: row;
-    
   }
 
   .content {

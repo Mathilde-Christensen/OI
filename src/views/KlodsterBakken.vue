@@ -142,30 +142,34 @@ const winterHours = [
 </template>
 
 <style lang="scss">
-  .praktisk_info_container {
-    margin: 20px;
-  }
+.praktisk_info_container {
+margin: 20px;
+}
 
-  .praktisk_info {
-    margin-bottom: 50px;
-    margin-top: 50px;
-  }
+.praktisk_info {
+margin-bottom: 50px;
+margin-top: 50px;
+}
 
-  @media (min-width: 1024px) {
+.praktisk_info_wrapper {
+padding: 0px 20px;
+}
+
+@media (min-width: 1024px) {
     .praktisk_info_wrapper {
-      display: flex;
-      flex-direction: row;
-      padding: 2rem 4rem;
+        display: flex;
+        flex-direction: row;
+        padding: 2rem 4rem;
     }
 
     .praktisk_info_left {
-      width: 50%;
-      padding-right: 10px;
+        width: 50%;
+        padding-right: 10px;
     }
 
     .praktisk_info_right {
-      width: 50%;
-      padding-left: 10px;
+        width: 50%;
+        padding-left: 10px;
     }
 
     .praktisk_info_container {
@@ -173,5 +177,5 @@ const winterHours = [
         margin: 0px;
     }
 
-  }
+}
 </style>

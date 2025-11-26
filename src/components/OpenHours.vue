@@ -24,9 +24,7 @@
     @use '../assets/_colors.scss' as c;
 
     .opening-hours {
-    width: 100%;
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
+        width: 100%;
     }
 
     .opening-hours__row {
@@ -34,13 +32,5 @@
     justify-content: space-between;
     border-bottom: 2px solid c.$color-secondary;
     padding-block: 0.3rem;
-    }
-
-    .opening-hours__day {
-    font-variation-settings: "wght" 800;
-    }
-
-    .opening-hours__time {
-    font-variation-settings: "wght" 400;
     }
 </style>

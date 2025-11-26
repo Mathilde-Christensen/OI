@@ -12,7 +12,7 @@ defineProps({
 <template>
   <section class="dark_blue_section">
     <img class="section_img" v-if="image" :src="image" alt="">
-    <div class="content">
+    <div class="content_blue">
       <h2 class="content_h2" v-html="title"></h2>
       <p class="content_p" v-html="text"></p>
 
@@ -42,7 +42,6 @@ defineProps({
   color: c.$color-secondary;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-bottom: 50px;
 }
 
@@ -56,12 +55,11 @@ defineProps({
   width: 100%;
 }
 
-.content {
+.content_blue {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 30px;
 }
 
 .content_btn {
@@ -92,13 +90,13 @@ defineProps({
 @media (min-width: 1024px) {
   .dark_blue_section {
     flex-direction: row;
-    padding-bottom: 0px;
-    
+    padding: 0%;
   }
 
-  .content {
+  .content_blue {
     padding: 2rem 4rem;
     margin-block: 0;
+    width: 100%;
   }
 
   .content_p {
