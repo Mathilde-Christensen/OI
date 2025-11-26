@@ -17,7 +17,7 @@
             <span class="opening-hours__day">{{ item.day }}</span>
             <span class="opening-hours__time">{{ item.time }}</span>
         </div>
-  </div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
