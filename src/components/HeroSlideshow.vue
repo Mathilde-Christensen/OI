@@ -3,7 +3,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 import hero1 from '@/assets/images/hero-slides/fritidsaktivitet-hero.webp'
 import hero2 from '@/assets/images/hero-slides/sauna-hero.webp'
-import hero3 from '@/assets/images/hero-slides/aktivitetshold-hero.webp'
+import hero3 from '@/assets/images/hero-slides/aqualady.webp'
 import hero4 from '@/assets/images/hero-slides/diskotet-hero.webp'
 import hero5 from '@/assets/images/hero-slides/svoemmehal-hero.webp'
 
@@ -17,14 +17,14 @@ const slides = ref([
     },
     { 
         src: hero2, 
-        title: 'Vil du være med til helseaften?', 
-        subtitle: 'Her tilbydes der adskillige former for kropspleje, i rolige og afstressende omgivelser. Du kan deltage på vandgymninastikhold, fodbad, tilkøbe massage eller bare slappe af i vores spa, saunagus, helsekabine, dampbad, eller biosauna med duft.',
+        title: 'Plads til selvforkælelse', 
+        subtitle: 'Efter en travl hverdag fortjener du et pusterum. Til vores helseaftener kan du slappe af sammen i rolige omgivelser – med varmtvandsbassin, spa og saunagus. Nemt at booke, rart at være i.',
         cta: { text: 'Undersøg', to: '/' } 
     },
     { 
         src: hero3, 
-        title: 'Vidste du at vi har aktivitetshold?', 
-        subtitle: 'Vi tilbyder aqua-spinning, aqua-power, aqua-fitness og aqua-yoga-pilates. Så er du frisk?',
+        title: 'Billig og sjov træning i hverdagen', 
+        subtitle: 'Har du brug for et energiboost uden at tømme kontoen? Vores aqua-hold giver dig en effektiv og sjov træning, der passer perfekt ind i en travl studiehverdag – til en pris, alle kan være med på.',
         cta: { text: 'Udforsk', to: '/events' } 
     },
     { 
@@ -35,8 +35,8 @@ const slides = ref([
     },
     { 
         src: hero5, 
-        title: 'Hold dit private arrangement i svømmehallen', 
-        subtitle: 'Vi tilbyder private arrangementer i svømmehallerne i Odense, som kan tilpasses til jeres behov. Bl.a. tilbyder vi Polterabend & Wellness arrangementer ',
+        title: 'Gør næste familiedag helt særlig', 
+        subtitle: 'Skal I fejre en fødselsdag, samle vennerne eller holde en hyggedag? Vores private arrangementer i svømmehallen kan tilpasses jeres behov – nem booking, god stemning og masser af plads til både børn og voksne.',
         cta: { text: 'Udforsk', to: '/omos' } 
     },
 ])
