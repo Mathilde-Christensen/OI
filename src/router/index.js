@@ -19,6 +19,8 @@ import Kontakt from '@/views/Kontakt.vue'
 import KontaktFormular from '@/views/KontaktFormular.vue'
 import KlodsterBakken from '@/views/KlodsterBakken.vue'
 import Havnebadet from '@/views/Havnebadet.vue'
+import Pris from '@/views/Priser.vue'
+import MineHold from '@/views/MineHold.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -101,6 +103,11 @@ const router = createRouter({
       component: Kontakt,
     },
     {
+      path: '/minehold',
+      name: 'minehold',
+      component: MineHold,
+    },
+    {
       path: '/klodsterbakken',
       name: 'klodsterbakken',
       component: KlodsterBakken
@@ -109,6 +116,11 @@ const router = createRouter({
       path: '/havnebadet',
       name: 'havnebadet',
       component: Havnebadet,
+    },
+    {
+      path: '/pris',
+      name: 'pris',
+      component: Pris,
     },
     {
       path: '/kontaktformular',

@@ -61,46 +61,58 @@
             <nav class="mobil_nav" ref="mobileNavRef" :class="{ open: isMenuOpen }" @click.stop>
                 <ul class="mobil_nav_ul" @click.stop>
                     <li>
-                        <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
+                        <button @click="toggle(0)">Fritids Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
 
                         <ul v-if="activeIndex === 0">
                             <li><RouterLink to="/aktivitetsoversigt">Aktivitetsoversigt</RouterLink></li>
-                            <li>Foreninger</li>
+                            <li><RouterLink to="/foreningsstrength">Bevægelse og træning</RouterLink>/</li>
+                            <li>Bold- og holdsport</li>
+                            <li>Friluft og natur</li>
+                            <li>Kreativitet og kultur</li>
                         </ul>
                     </li>
 
                     <li>
-                        <button @click="toggle(1)">Booking og priser<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
+                        <button @click="toggle(1)">Faciliteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
 
                         <ul v-if="activeIndex === 1">
-                            <li><RouterLink to="/events">Book hold</RouterLink></li>
-                            <li>Book mødelokale</li>
-                            <li>Lej udstyr</li>
-                            <li>Priser og billetter</li>
+                            <li>Svømmehallen Bolbro</li>
+                            <li>Svømmehallen Højme</li>
+                            <li><RouterLink to="/klodsterbakken">Svømmehallen Klosterbakken</RouterLink></li>
+                            <li>Svømmehallen Universitet</li>
+                            <li>Svømmehallen Vollsmose</li>
+                            <li>Odense Friluftbad</li>
+                            <li><RouterLink to="/havnebadet">Odense Havnebad</RouterLink></li>
+                            <li>Odense Atletikstation</li>
+                            <li>Odense Gymastikhal</li>
+                            <li>Odense Idrætshal</li>
+                            <li>Odense Skøjtehal</li>
+                            <li>Odense Stadion</li>
+                            <li>Thorval Ellegaard Arena</li>
                         </ul>
                     </li>
 
                     <li>
-                        <button @click="toggle(2)">Åbningstider og info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
+                        <button @click="toggle(2)">Hold<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
 
                         <ul v-if="activeIndex === 2">
-                            <li>Svømmehaller</li>
-                            <li>Idrætshaller</li>
-                            <li>Stadion og Arenaer</li>
-                            <li>Friluftbad</li>
-                            <li>Skøjtehal</li>
+                            <li><RouterLink to="/minehold">Mine hold</RouterLink></li>
+                            <li>Book hold</li>
+                            <li>Holdbeskrivelse</li>
                         </ul>
 
                     </li>
 
                     <li>
-                        <button @click="toggle(3)">Om os<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 3 }"></button>
+                        <RouterLink to="/pris" class="header_nav_link header_nav_link--kontakt">
+                            Priser og billetter
+                        </RouterLink>
+                    </li>
 
-                        <ul v-if="activeIndex === 3">
-                            <li>Hvem er vi?</li>
-                            <li>Ledige stillinger</li>
-                            <li>Presse og udvikling</li>
-                        </ul>
+                    <li>
+                        <RouterLink to="/omos" class="header_nav_link header_nav_link--kontakt">
+                            Om os
+                        </RouterLink>
                     </li>
 
                     <li>
@@ -170,46 +182,58 @@
         <nav class="bottom_header_nav" ref="desktopNavRef">
             <ul class="header_nav_ul">
                 <li>
-                    <button @click="toggle(0)">Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
+                    <button @click="toggle(0)">Fritids Aktiviteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 0 }"></button>
 
                     <ul v-if="activeIndex === 0">
                         <li><RouterLink to="/aktivitetsoversigt">Aktivitetsoversigt</RouterLink></li>
-                        <li><RouterLink to="/foreningsstrength">Foreninger</RouterLink></li>
+                        <li><RouterLink to="/foreningsstrength">Bevægelse og træning</RouterLink>/</li>
+                        <li>Bold- og holdsport</li>
+                        <li>Friluft og natur</li>
+                        <li>Kreativitet og kultur</li>
                     </ul>
                 </li>
 
                 <li>
-                    <button @click="toggle(1)">Booking og priser<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
+                    <button @click="toggle(1)">Faciliteter<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 1 }"></button>
 
                     <ul v-if="activeIndex === 1">
-                        <li><RouterLink to="/events">Book hold</RouterLink></li>
-                        <li>Book mødelokale</li>
-                        <li>Lej udstyr</li>
-                        <li>Priser og billetter</li>
+                        <li>Svømmehallen Bolbro</li>
+                        <li>Svømmehallen Højme</li>
+                        <li><RouterLink to="/klodsterbakken">Svømmehallen Klosterbakken</RouterLink></li>
+                        <li>Svømmehallen Universitet</li>
+                        <li>Svømmehallen Vollsmose</li>
+                        <li>Odense Friluftbad</li>
+                        <li><RouterLink to="/havnebadet">Odense Havnebad</RouterLink></li>
+                        <li>Odense Atletikstation</li>
+                        <li>Odense Gymastikhal</li>
+                        <li>Odense Idrætshal</li>
+                        <li>Odense Skøjtehal</li>
+                        <li>Odense Stadion</li>
+                        <li>Thorval Ellegaard Arena</li>
                     </ul>
                 </li>
 
                 <li>
-                    <button @click="toggle(2)">Åbningstider og info<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
+                    <button @click="toggle(2)">Hold<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 2 }"></button>
 
                     <ul v-if="activeIndex === 2">
-                        <li>Svømmehaller</li>
-                        <li>Idrætshaller</li>
-                        <li>Stadion og Arenaer</li>
-                        <li>Friluftbad</li>
-                        <li>Skøjtehal</li>
+                        <li><RouterLink to="/minehold">Mine hold</RouterLink></li>
+                        <li>Book hold</li>
+                        <li>Holdbeskrivelse</li>
                     </ul>
 
                 </li>
 
                 <li>
-                    <button @click="toggle(3)">Om os<img :src="dropdownPil" alt="dropdown pil" class="dropdown__arrow" :class="{ rotated: activeIndex === 3 }"></button>
+                    <RouterLink to="/pris" class="header_nav_link header_nav_link--kontakt">
+                        Priser og billetter
+                    </RouterLink>
+                </li>
 
-                    <ul v-if="activeIndex === 3">
-                        <li><RouterLink to="/omos">Hvem er vi?</RouterLink></li>
-                        <li>Ledige stillinger</li>
-                        <li>Presse og udvikling</li>
-                    </ul>
+                <li>
+                    <RouterLink to="/omos" class="header_nav_link header_nav_link--kontakt">
+                        Om os
+                    </RouterLink>
                 </li>
 
                 <li>
@@ -231,9 +255,7 @@
 }
 
 .dropdown__arrow {
-    width: 14px;
-    height: 14px;
-    margin-left: 8px;
+    width: 5%;
     transition: transform 0.3s ease;
 }
 
@@ -398,6 +420,7 @@
 
             li {
                 position: relative;
+                margin: 20px;
 
                 button {
                     background: transparent;
@@ -409,7 +432,7 @@
                     color: c.$color-secondary;
                     display: flex;
                     align-items: center;
-                    gap: 0.3rem;
+                    gap: 1.2rem;
                     transition: all 0.3s ease;
 
                     &:hover {
