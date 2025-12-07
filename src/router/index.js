@@ -21,6 +21,7 @@ import KlodsterBakken from '@/views/KlodsterBakken.vue'
 import Havnebadet from '@/views/Havnebadet.vue'
 import Pris from '@/views/Priser.vue'
 import MineHold from '@/views/MineHold.vue'
+import InfoBarAdmin from '@/views/InfoBarAdmin.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -126,6 +127,11 @@ const router = createRouter({
       path: '/kontaktformular',
       name: 'kontaktformular',
       component: KontaktFormular,
+    },
+    {
+      path: '/InforBarAdmin',
+      name: 'InforBarAdmin',
+      component: InfoBarAdmin,
     },
     {
       path: '/activities/movetraining',
