@@ -65,7 +65,7 @@
         v-model.trim="draft"
         placeholder="Skriv ændring (fx: Vi lukker kl. 15 i dag)..."
       />
-      <button :disabled="!draft">Tilføj</button>
+      <button class="primary" :disabled="!draft">Tilføj</button>
     </form>
 
     <!-- Liste -->
@@ -73,15 +73,15 @@
       <li v-for="m in messages" :key="m.id" class="row">
         <template v-if="editingId === m.id">
           <input v-model.trim="editDraft" />
-          <button :disabled="!editDraft" @click="saveEdit(m.id)">Gem</button>
-          <button @click="cancelEdit">Annuller</button>
+          <button class="rediger" :disabled="!editDraft" @click="saveEdit(m.id)">Gem</button>
+          <button class="slet" @click="cancelEdit">Annuller</button>
         </template>
 
         <template v-else>
           <span class="text">{{ m.text }}</span>
           <div class="actions">
-            <button @click="startEdit(m)">Rediger</button>
-            <button class="danger" @click="deleteMessage(m.id)">Slet</button>
+            <button class="rediger" @click="startEdit(m)">Rediger</button>
+            <button class="slet" @click="deleteMessage(m.id)">Slet</button>
           </div>
         </template>
       </li>
@@ -89,6 +89,23 @@
 </template>
 
 <style lang="scss" scoped>
+@use '../assets/_colors.scss' as c;
+@use '../assets/_fonts.scss' as f;
+@use '../assets/_buttons.scss' as b;
+
+.rediger {
+  @include b.button(b.$button-secondary-Admin);
+}
+
+.slet {
+  @include b.button(b.$button-slet-Admin);
+}
+
+.primary {
+  @include b.button(b.$button-primary-Admin);
+}
+
+
 .page { 
     padding: 24px 16px; 
     max-width: 800px; 

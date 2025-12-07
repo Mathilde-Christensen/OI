@@ -102,10 +102,9 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
     </section>
 
     <section v-else class="panel">
-      <h2>Redigér hold</h2>
       <EventForm :event="editingEvent" @updated="onUpdated" />
       <div class="panel__actions">
-        <button type="button" @click="cancelEdit">Fortryd redigering</button>
+        <button class="slet" type="button" @click="cancelEdit">Fortryd redigering</button>
       </div>
     </section>
 
@@ -134,8 +133,8 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
           </div>
 
           <div class="calendar__actions">
-            <button @click="onEdit(event)">Rediger</button>
-            <button @click="onDelete(event.id)">Slet</button>
+            <button class="rediger" @click="onEdit(event)">Rediger</button>
+            <button class='slet' @click="onDelete(event.id)">Slet</button>
           </div>
         </li>
       </ul>
@@ -145,7 +144,19 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
   </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/_colors.scss' as c;
+@use '../assets/_fonts.scss' as f;
+@use '../assets/_buttons.scss' as b;
+
+  .rediger {
+    @include b.button(b.$button-secondary-Admin);
+  }
+
+  .slet {
+    @include b.button(b.$button-slet-Admin);
+  }
+
 .calendar { 
   display: flex; 
   flex-direction: column;

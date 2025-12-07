@@ -145,7 +145,7 @@ async function onSubmit() {
     <label>Pris</label>
     <input type="text" v-model.trim="form.priceText" />
 
-    <button :disabled="submitting">
+    <button class="primary" :disabled="submitting">
       {{ submitting ? 'Gemmer...' : (props.event ? 'Gem ændringer' : 'Opret hold') }}
     </button>
 
@@ -154,12 +154,15 @@ async function onSubmit() {
   </form>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use '../assets/_colors.scss' as c;
+@use '../assets/_fonts.scss' as f;
+@use '../assets/_buttons.scss' as b;
+
 .event-form { 
   display: grid; 
   gap: 10px; 
   padding: 16px; 
-  border: 1px solid #dddddd; 
   border-radius: 12px; 
 }
 
@@ -169,11 +172,8 @@ async function onSubmit() {
   border: 1px solid #aaa; 
 }
 
-button {
-   margin-top: 8px; 
-   padding: 8px 12px; 
-   font-weight: bold; 
-   cursor: pointer; 
+.primary {
+  @include b.button(b.$button-primary-Admin);
 }
 
 </style>

@@ -22,6 +22,72 @@ $button-primary: (
   hover-border: c.$color-primary
 ) !default;
 
+$button-primary-Admin: (
+  bg:        c.$color-primary,
+  color:     c.$color-secondary,
+  radius:    10px,
+  border-width: 1px,
+
+  font: (
+    size:     12px,
+    weight:   700,
+    transform: uppercase
+  ),
+
+  size:    (w: 70px,  h: 40px),
+  size-t: (w: 100px, h: 40px, font-size: 0.75rem, weight: 800),
+  size-lg: (w: 100px, h: 40px, font-size: 0.75rem, weight: 900),
+
+  hover-bg: c.$color-tertiary,
+  hover-border: c.$color-primary
+) !default;
+
+$button-secondary-Admin: (
+  bg:        c.$color-secondary,
+  color:     c.$color-primary,
+  radius:    10px,
+  border-width: 2px,
+  border-color: c.$color-primary,
+  border-style: solid,
+
+  font: (
+    size:     12px,
+    weight:   700,
+    transform: uppercase
+  ),
+
+  size:    (w: 70px,  h: 40px),
+  size-t: (w: 100px, h: 40px, font-size: 0.75rem, weight: 800),
+  size-lg: (w: 100px, h: 40px, font-size: 0.75rem, weight: 900),
+
+  hover-bg: c.$color-secondary,
+  hover-border: c.$color-tertiary,
+  hover-color: c.$color-tertiary
+) !default;
+
+$button-slet-Admin: (
+  bg:        c.$color-secondary,
+  color:     c.$cta,
+  radius:    10px,
+  border-width: 2px,
+  border-color: c.$cta,
+  border-style: solid,
+
+  font: (
+    size:     12px,
+    weight:   700,
+    transform: uppercase
+  ),
+
+  size:    (w: 70px,  h: 40px),
+  size-t: (w: 100px, h: 40px, font-size: 0.75rem, weight: 800),
+  size-lg: (w: 100px, h: 40px, font-size: 0.75rem, weight: 900),
+
+  hover-bg: c.$color-secondary,
+  hover-border: c.$color-tertiary,
+  hover-color: c.$color-tertiary
+) !default;
+
 // Mixin der læser værdierne fra config'en
 @mixin button($cfg) {
   $bg:       map-get($cfg, bg);
@@ -35,7 +101,15 @@ $button-primary: (
   $hover-border: map-get($cfg, hover-border);
   $border-width: map-get($cfg, border-width);
 
-  border: $border-width solid transparent;
+  $border-style: if(map-has-key($cfg, border-style), map-get($cfg, border-style), solid);
+  $border-color: if(map-has-key($cfg, border-color), map-get($cfg, border-color), transparent);
+  $hover-color: if(map-has-key($cfg, hover-color), map-get($cfg, hover-color), null);
+
+
+  border-width: $border-width;
+  border-style: $border-style;
+  border-color: $border-color;
+
 
 
   display: inline-flex;
@@ -57,6 +131,11 @@ $button-primary: (
   &:hover {
     background: $hover-bg;
     border-color: $hover-border;
+
+    @if $hover-color != null {
+      color: $hover-color;
+    }
+
     transform: translateY(-1px);
   }
 

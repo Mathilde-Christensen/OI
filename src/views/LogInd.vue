@@ -55,7 +55,7 @@
     }
 
     .choice {
-        width: 80%;          /* fx – gør dem pæne og ens */
+        width: 80%;          
         text-align: center;
         border: 0.5px solid rgba(c.$color-primary, 0.5);
         border-radius: 10px;
