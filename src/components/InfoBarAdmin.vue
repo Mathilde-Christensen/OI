@@ -58,7 +58,6 @@
 
 
 <template>
-    <h1>Info-beskeder (åbningstider m.m.)</h1>
 
     <!-- Tilføj -->
     <form class="form" @submit.prevent="addMessage">

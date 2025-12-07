@@ -6,7 +6,7 @@
     import dropdownPil from '@/assets/images/ikoner/dropdown_pil.webp'
 
     import { ref, onMounted, onBeforeUnmount } from 'vue'
-    import { useRouter } from 'vue-router'
+    import { RouterLink, useRouter } from 'vue-router'
 
 
     const activeIndex = ref(null)
@@ -143,11 +143,11 @@
                 </RouterLink>
             </div>
 
-            <div class="mobil_header_actions">
+            <RouterLink to="/logind" class="mobil_header_actions">
                 <div class="header_actions_login">
                     <img class="mobil_ikon_img" :src="logIndIkon" alt="Logind ikon" />
                 </div>
-            </div>
+            </RouterLink>
         </div>
 
         <div class="top_header">
@@ -171,12 +171,12 @@
                 </RouterLink>
             </div>
 
-            <div class="top_header_actions">
+            <RouterLink to="/logind" class="top_header_actions">
                 <div class="header_actions_login">
                     <img class="actions_img" :src="logIndIkon" alt="Logind ikon" />
                 </div>
                 <p class="actions_LogInd_p">Log ind</p>
-            </div>
+            </RouterLink>
         </div>
 
         <nav class="bottom_header_nav" ref="desktopNavRef">

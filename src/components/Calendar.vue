@@ -147,9 +147,9 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
 
 <style scoped>
 .calendar { 
-  display: grid; 
-  gap: 24px; 
-  padding: 24px; 
+  display: flex; 
+  flex-direction: column;
+  gap: 24px;
 }
 
 .calendar__divider { 
@@ -189,13 +189,27 @@ const clamp0 = (n) => (Number.isFinite(n) && n > 0 ? n : 0)
   color: #b00020; 
 }
 
-.panel { 
-  padding: 16px; 
-  border: 1px solid #e6e6e6; 
-  border-radius: 12px; 
-}
-
 .panel__actions { 
   margin-top: 8px; 
+}
+
+@media (min-width: 1024px) {
+  .calendar {
+    flex-direction: row;   /* desktop */
+    align-items: flex-start;
+  }
+
+  /* 50/50 uden flex-shorthand */
+  .panel,
+  .calendar__list {
+    width: 50%;
+  }
+
+  /* divider som lodret på desktop */
+  .calendar__divider {
+    width: 1px;
+    height: auto;
+    align-self: stretch;
+  }
 }
 </style>

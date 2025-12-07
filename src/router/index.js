@@ -3,7 +3,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import TestM from '../views/TestM.vue'
 import TestK from '../views/TestK.vue'
-import Calendar from '../views/Calendar.vue'
 import Events from '../views/Events.vue'
 import Header from '@/components/Header.vue'
 import AktivitetsOversigt from '@/views/AktivitetsOversigt.vue'
@@ -21,7 +20,8 @@ import KlodsterBakken from '@/views/KlodsterBakken.vue'
 import Havnebadet from '@/views/Havnebadet.vue'
 import Pris from '@/views/Priser.vue'
 import MineHold from '@/views/MineHold.vue'
-import InfoBarAdmin from '@/views/InfoBarAdmin.vue'
+import Admin from '@/views/Admin.vue'
+import LogInd from '@/views/LogInd.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,10 +38,6 @@ const router = createRouter({
     { path: '/testing',
       name: 'testk', 
       component: TestK,
-    },
-    { path: '/calendar',
-      name: 'calendar',
-      component: Calendar, 
     },
     {
       path: '/events',
@@ -129,9 +125,14 @@ const router = createRouter({
       component: KontaktFormular,
     },
     {
-      path: '/InforBarAdmin',
-      name: 'InforBarAdmin',
-      component: InfoBarAdmin,
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+    },
+    {
+      path: '/logind',
+      name: 'logind',
+      component: LogInd,
     },
     {
       path: '/activities/movetraining',
