@@ -3,6 +3,7 @@
     import { db } from "@/firebase";
     import { ref as dbRef, onValue } from "firebase/database";
     import Advarsel from "@/assets/images/ikoner/advarsel.webp";
+    import dropdownPil from '@/assets/images/ikoner/dropdown_pil.webp'
 
     const messages = ref([]);
     const open = ref(false);
@@ -52,7 +53,12 @@
       <span class="info__icon"><img :src="Advarsel" alt="Advarsels trekant" class="info__icon-img"></span>
       <span class="info__label">Ændrede åbningstider</span>
       <span class="info__count">({{ messages.length }})</span>
-      <span class="info__chev">{{ open ? "▲" : "▼" }}</span>
+      <img
+        :src="dropdownPil"
+        alt=""
+        class="info__chev dropdown__arrow"
+        :class="{ rotated: open }"
+      />
     </button>
 
     <div v-show="open" class="info__panel">
@@ -79,6 +85,8 @@
     border-top: 0.5px solid rgba(c.$color-primary, 0.2);
     padding: 4px 30px;
     }
+
+    
 
     .info__icon-img { 
         width: 80%;

@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import Calendar from '@/components/Calendar.vue';
 import InfoBarAdmin from '@/components/InfoBarAdmin.vue';
+import OpenHoursAdmin from '@/components/OpenHoursAdmin.vue';
+import PriserAdmin from '@/components/PriserAdmin.vue';
 
 const activeTab = ref("events");
 </script>
@@ -38,6 +40,15 @@ const activeTab = ref("events");
             >
             Priser
             </button>
+
+            <button
+            type="button"
+            class="tab"
+            :class="{ 'tab--active': activeTab === 'open-hours' }"
+            @click="activeTab = 'open-hours'"
+            >
+            Åbningstider
+            </button>
         </nav>
         </div>
 
@@ -56,9 +67,21 @@ const activeTab = ref("events");
         <!-- PRISER -->
         <section v-show="activeTab === 'prices'" class="card">
         <h2 class="card__title">Priser</h2>
-        <!-- Sæt din pris-komponent ind her når du har den -->
-        <p class="muted">Pris-komponent kommer her.</p>
-        <!-- <PricesAdmin /> -->
+        <PriserAdmin placeId="klosterbakken" title="Klosterbakken"/>
+        </section>
+
+        <!-- ÅBNINGSTIDER -->
+        <section v-show="activeTab === 'open-hours'" class="card">
+        <h2 class="card__title">Åbningstider</h2>
+            <OpenHoursAdmin
+            placeId="klosterbakken"
+            title="Svømmehallen Klosterbakken"
+            />
+
+            <OpenHoursAdmin
+            placeId="havnebadet"
+            title="Odense Havnebad"
+            />
         </section>
     </div>
 </template>

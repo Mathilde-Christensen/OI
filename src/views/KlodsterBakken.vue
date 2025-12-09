@@ -4,6 +4,7 @@ import SectionLightBlue from '@/components/SectionLightBlue.vue';
 import HeroTamplate from '@/components/HeroTamplate.vue';
 import OpenHours from '@/components/OpenHours.vue';
 import FacilitetsInfo from '@/components/FacilitetsInfo.vue';
+import Priser from '@/components/Priser.vue';
 
 import KlosterBakkenHero from '@/assets/images/faciliteter/klosterbakkenHero.webp'
 import Klosterbakken from '@/assets/images/faciliteter/klosterbakken.webp'
@@ -22,15 +23,6 @@ import SaunaIkon from '@/assets/images/ikoner/SaunaIkon.webp'
 import SkabIkon from '@/assets/images/ikoner/SkabIkon.webp'
 import placeringIkon from '@/assets/images/ikoner/placering.webp'
 
-const winterHours = [
-  { day: 'Mandag',  time: '06:30 - 20:00' },
-  { day: 'Tirsdag', time: '06:30 - 20:00' },
-  { day: 'Onsdag',  time: '06:30 - 20:00' },
-  { day: 'Torsdag', time: '13:30 - 18:30' },
-  { day: 'Fredag',  time: '06:30 - 18:30' },
-  { day: 'Lørdag',  time: '07:00 - 13:30' },
-  { day: 'Søndag',  time: '08:00 - 13:30' }
-]
 </script>
 
 <template>
@@ -41,13 +33,16 @@ const winterHours = [
 
   <SectionDarkBlue 
     :image="Klosterbakken"
-    title="Vinter åbningstider"
-    text="Der er lukkede d.25/12 samt d. 1-4 januar"
+    title="Åbningstider"
   >
     <template #extra>
-      <OpenHours :hours="winterHours" />
+      <OpenHours placeId="klosterbakken" />
     </template>
   </SectionDarkBlue>
+
+  <Priser 
+    placeId="klosterbakken"
+  />
 
   <SectionLightBlue 
     :image="Sauna"
